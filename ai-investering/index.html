@@ -84,181 +84,67 @@
   </script>
 
   <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Prevent theme flash -->
   <script>
     (function() {
-      var t = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', t);
+      var t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
     })();
   </script>
 </head>
 <body>
-  <header>
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="../index.html">Investeringsberegner</a> <span aria-hidden="true">/</span> AI investering
-    </nav>
-    <h1>AI investering</h1>
-    <p class="subtitle">Forstaa mulighederne og risiciene ved at investere i kunstig intelligens</p>
-    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Skift tema">
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-    </button>
-  </header>
 
-  <main>
+  <div class="container">
+
+    <header class="site-header">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Investeringsberegner</a> <span aria-hidden="true">/</span> AI investering
+      </nav>
+      <h1>AI investering</h1>
+      <p class="subtitle">Investér i kunstig intelligens (2026)</p>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Skift tema">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </header>
+
+    <main>
+
     <div class="card">
       <div class="article-section">
-        <h2>Hvorfor AI er et stort investeringstema</h2>
-        <p>Kunstig intelligens (AI) er et af de mest diskuterede investeringstemaer i 2026. Teknologien har potentialet til at transformere naesten alle brancher – fra sundhed og finans til produktion og underholdning. Store virksomheder investerer milliarder i AI-udvikling, og analytikere forventer, at AI-markedet vil vokse markant de kommende aar.</p>
-        <p>For investorer repraesenterer AI baade en stor mulighed og en betydelig risiko. Paa den ene side kan virksomheder, der leder AI-udviklingen, opleve enorm vaekst. Paa den anden side er der tegn paa overvurdering, og historien viser, at teknologiske hypes ofte foerer til bobler – taenk paa dot-com-perioden omkring aar 2000. Det er derfor vigtigt at naerme sig AI-investering med baade begejstring og forsigtighed.</p>
-
-        <h2>Maader at investere i AI</h2>
-        <p>Der er flere tilgange til at faa eksponering mod AI-sektoren, hver med sine fordele og ulemper:</p>
-
-        <h3>Enkeltstaaende AI-aktier</h3>
-        <p>Du kan koebe aktier i virksomheder, der er direkte involveret i AI-udvikling. Disse kan kategoriseres i flere lag:</p>
-        <ul>
-          <li><strong>Chipproducenter:</strong> Virksomheder der producerer de processorer (GPU'er) som driver AI-beregninger – f.eks. NVIDIA, AMD og Intel.</li>
-          <li><strong>Cloud- og infrastrukturudbydere:</strong> Store tech-selskaber der leverer den cloud-infrastruktur, AI koerer paa – f.eks. Microsoft (Azure), Amazon (AWS) og Alphabet (Google Cloud).</li>
-          <li><strong>Software og applikationer:</strong> Virksomheder der udvikler AI-drevne loesninger til specifikke brancher.</li>
-          <li><strong>AI-foerst virksomheder:</strong> Nyere selskaber med AI som kerneforretning.</li>
-        </ul>
-        <p>Risikoen ved enkeltstaaende aktier er koncentration. Hvis du satser paa den forkerte virksomhed, kan du tabe betydeligt, selv om AI-sektoren som helhed klarer sig godt.</p>
-
-        <h3>Tematiske AI-ETF'er</h3>
-        <p>En mere <a href="../diversificering/index.html">diversificeret</a> tilgang er at investere i <a href="../etf-guide/index.html">ETF'er</a> med fokus paa AI og teknologi. Tematiske AI-ETF'er samler en kurv af AI-relaterede aktier i ét produkt, saa du faar bred eksponering uden at vaelge enkeltstaaende aktier.</p>
-        <p>Eksempler paa tematiske ETF'er tilgaengelige for europaeiske investorer inkluderer fonde der tracker AI- og robotteknologi-indekser. Vaer opmaerksom paa, at tematiske ETF'er typisk har hoejere omkostninger (AOP paa 0,35-0,70 %) end brede indeksfonde og ofte er mere koncentrerede end man tror.</p>
-
-        <h3>Brede indeksfonde med AI-eksponering</h3>
-        <p>En ofte overset pointe er, at brede indeksfonde som MSCI World allerede har betydelig eksponering mod AI. De stoerste AI-virksomheder – Microsoft, Apple, Alphabet, Amazon, NVIDIA og Meta – udgoer en stor del af globale indekser. Ved at investere i en simpel verdensindeksfond faar du automatisk gavn af AI-sektorens vaekst, men med langt bedre diversificering.</p>
-
-        <h2>Risici ved AI-investering</h2>
-        <p>Det er afgoerende at forstaa risiciene, foer du allokerer en stor del af din portefoelje til AI:</p>
-
-        <h3>Hype vs. virkelighed</h3>
-        <p>Der er en reel risiko for, at forventningerne til AI overstiger den faktiske vaerdiskabelse – i hvert fald paa kort sigt. Historisk har nye teknologier (internet, blockchain, metaverse) gennemgaaet perioder med overoptimisme efterfulgt af skarpe korrektioner, foer den langsigtede vaerdi blev realiseret.</p>
-
-        <h3>Hoeje vaerdiansaettelser</h3>
-        <p>Mange AI-aktier handles til meget hoeje prismultipler (P/E-forholdet). Det betyder, at selv moderat skuffende resultater kan foere til store kursfald. Naar en aktie er prissat til perfektion, er der lille margin for fejl.</p>
-
-        <div class="formula-box">
-          <code>P/E-forhold = Aktiekurs / Indtjening pr. aktie (EPS)</code>
-        </div>
-
-        <h3>Koncentrationsrisiko</h3>
-        <p>AI-sektoren domineres af en haandfuld store virksomheder. Hvis du investerer tematisk i AI, risikerer du en koncentreret portefoelje der er saarbar over for problemer i faa selskaber. Det er det modsatte af den brede <a href="../diversificering/index.html">diversificering</a> som typisk anbefales.</p>
-
-        <h3>Reguleringsrisiko</h3>
-        <p>Regeringer verden over overvejer strengere regulering af AI. EU's AI Act er allerede vedtaget, og yderligere lovgivning kan paavirke virksomheders evne til at udvikle og implementere AI-loesninger.</p>
-
-        <h2>AI-aktier vs. bredt indeks: En sammenligning</h2>
-        <p>For at saette AI-investering i perspektiv kan vi sammenligne en tematisk AI-tilgang med en bred indeksfond:</p>
-
-        <div class="result-table-wrap">
-          <table class="result-table">
-            <thead>
-              <tr>
-                <th>Parameter</th>
-                <th>Tematisk AI-ETF</th>
-                <th>Bred indeksfond (MSCI World)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Antal aktier</td>
-                <td>30-80</td>
-                <td>1.500+</td>
-              </tr>
-              <tr>
-                <td>AOP (aarlige omkostninger)</td>
-                <td>0,35-0,70 %</td>
-                <td>0,07-0,20 %</td>
-              </tr>
-              <tr>
-                <td>AI-eksponering</td>
-                <td>Hoej (100 %)</td>
-                <td>Moderat (20-30 % tech)</td>
-              </tr>
-              <tr>
-                <td>Diversificering</td>
-                <td>Lav – koncentreret i AI/tech</td>
-                <td>Hoej – alle sektorer og regioner</td>
-              </tr>
-              <tr>
-                <td>Volatilitet</td>
-                <td>Hoej</td>
-                <td>Moderat</td>
-              </tr>
-              <tr>
-                <td>Egnet til</td>
-                <td>Satellitposition (maks. 10-20 %)</td>
-                <td>Kerneposition (70-100 %)</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h2>AI's paavirkning af investering: Robo-advisors og automatisk investering</h2>
-        <p>AI forandrer ikke kun hvad vi investerer i, men ogsaa <em>hvordan</em> vi investerer. Automatisk investering via robo-advisors bruger algoritmer til at sammensaette, overvage og rebalancere din portefoelje baseret paa din risikoprofil og maal.</p>
-        <p>I Danmark tilbyder flere tjenester automatiseret investering:</p>
-        <ul>
-          <li><strong>Nord.Investments:</strong> Dansk robo-advisor der sammensaetter portefoeljer af ETF'er baseret paa din risikoprofil.</li>
-          <li><strong>June (Danske Bank):</strong> Automatiseret investeringsloesning integreret i Danske Banks mobilapp.</li>
-          <li><strong>Nordnet Smartfund:</strong> Algoritmisk forvaltet fond tilgaengelig via Nordnet.</li>
-        </ul>
-        <p>Fordelen ved robo-advisors er enkelhed – du behoever minimal viden for at komme i gang. Ulempen er typisk hoejere omkostninger end hvis du selv koeber <a href="../indeksfonde-vs-aktive-fonde/index.html">indeksfonde</a> via en <a href="../maanedsopsparing/index.html">maanedsopsparing</a>. En typisk robo-advisor koster 0,50-1,00 % aarligt oven i fondsomkostningerne, hvilket kan reducere dit langsigtede afkast mærkbart.</p>
-
-        <h2>Er det for sent at investere i AI?</h2>
-        <p>Et spoergsmaal mange investorer stiller sig er, om de er for sent ude. AI-aktier er steget markant, og vaerdiansaettelserne er hoeje. Men det er vigtigt at skelne mellem kortsigtet spekulation og langsigtet investering.</p>
-        <p>AI er sandsynligvis en langvarig teknologisk transformation – ligesom internettet, der har skabt enorm vaerdi over flere aartier, selvom dot-com-boblen sprang i 2000. Det betyder, at der formentlig stadig er langsigtede muligheder, men at tidspunktet for entry har betydning for dit afkast.</p>
-        <p>Den mest fornuftige tilgang for de fleste er <strong>ikke</strong> at forsoge at time AI-markedet, men i stedet at sikre bred eksponering gennem en global indeksfond og eventuelt supplere med en lille tematisk allokering via <a href="../dollar-cost-averaging/index.html">dollar-cost averaging</a> for at udjaevne koebskursen over tid.</p>
-
-        <h2>Advarsel: Overvaegt ikke ét tema</h2>
-        <p>En af de stoerste fejl investorer begaar er at blive forblandet af et populaert investeringstema og allokere for meget af deres portefoelje til det. Det gaelder ogsaa AI. Selv hvis du tror paa AI's langsigtede potentiale, boer en tematisk AI-allokering <strong>maks. udgoere 10-20 %</strong> af din samlede portefoelje.</p>
-        <p>Husk paa, at en bred global indeksfond allerede giver dig betydelig AI-eksponering. De stoerste AI-virksomheder er blandt verdens mest vaerdifulde selskaber og fylder dermed meget i indekserne. Ved at holde en diversificeret kerne og kun supplere med en begraenset tematisk position, faar du det bedste fra begge verdener: bred risikospredning og ekstra eksponering mod AI-temaet.</p>
-        <p>Saa foer du investerer i AI-aktier eller tematiske fonde, soerg for at du har det basale paa plads: en <a href="../aktiesparekonto/index.html">aktiesparekonto</a> fyldt op med brede indeksfonde, en <a href="../portefoeljesammensaetning/index.html">velbalanceret portefoelje</a> og en <a href="../sikker-investering/index.html">noedopsparing</a> som fundament.</p>
-
+        <p>Denne artikel er under udarbejdelse. Kom snart tilbage for det fulde indhold.</p>
         <div class="cta-box">
-          <p>Vil du beregne, hvordan dine investeringer – med eller uden AI-fokus – kan vokse over tid? Proev vores gratis investeringsberegner.</p>
-          <a href="../index.html" class="cta-button">Aabn investeringsberegneren</a>
+          <p>Beregn dit forventede afkast med korrekt skatteberegning</p>
+          <a href="../index.html" class="cta-button">Abn investeringsberegneren</a>
         </div>
       </div>
     </div>
 
-    <div class="guide-grid">
-      <a href="../etf-guide/index.html" class="guide-link">
-        <strong>ETF-guide</strong>
-        <span>Alt du skal vide om ETF'er til danske investorer</span>
-      </a>
-      <a href="../investeringsstrategier/index.html" class="guide-link">
-        <strong>Investeringsstrategier</strong>
-        <span>Find den rette strategi for din risikoprofil og tidshorisont</span>
-      </a>
-      <a href="../diversificering/index.html" class="guide-link">
-        <strong>Diversificering</strong>
-        <span>Spred din risiko over flere aktivklasser og markeder</span>
-      </a>
-      <a href="../investering-for-begyndere/index.html" class="guide-link">
-        <strong>Investering for begyndere</strong>
-        <span>Alt du skal vide for at komme i gang med at investere</span>
-      </a>
-    </div>
-  </main>
+    </main>
 
-  <footer>
-    <p>investeringsberegner.dk – Gratis investeringsberegner med korrekt skatteberegning. Opdateret 2026.</p>
-    <p class="disclaimer">Indholdet paa denne side er udelukkende til informationsformaal og udgoer ikke finansiel raadgivning. Soeg altid professionel raadgivning tilpasset din personlige situation, inden du traeffer investeringsbeslutninger. Vi paatager os intet ansvar for tab som foelge af beslutninger truffet paa baggrund af indholdet.</p>
-  </footer>
+    <footer>
+      <p>investeringsberegner.dk – Gratis investeringsberegner med korrekt skatteberegning. Opdateret 2026.</p>
+      <p class="disclaimer">Indholdet paa denne side er udelukkende til informationsformaal og udgoer ikke finansiel raadgivning. Soeg altid professionel raadgivning tilpasset din personlige situation, inden du traeffer investeringsbeslutninger. Vi paatager os intet ansvar for tab som foelge af beslutninger truffet paa baggrund af indholdet.</p>
+    </footer>
 
+  </div>
+
+  <!-- Theme toggle -->
   <script>
-    (function() {
-      var toggle = document.getElementById('theme-toggle');
-      toggle.addEventListener('click', function() {
-        var current = document.documentElement.getAttribute('data-theme');
-        var next = current === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
-      });
-    })();
+    document.getElementById('theme-toggle').addEventListener('click', function() {
+      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
   </script>
+
 </body>
 </html>

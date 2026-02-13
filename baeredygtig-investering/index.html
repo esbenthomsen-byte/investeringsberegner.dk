@@ -83,223 +83,67 @@
   }
   </script>
   <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Prevent theme flash -->
   <script>
     (function() {
-      var t = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', t);
+      var t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
     })();
   </script>
 </head>
 <body>
-  <header>
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="../index.html">Investeringsberegner</a> <span aria-hidden="true">/</span> Baeredygtig investering
-    </nav>
-    <h1>Baeredygtig investering og ESG</h1>
-    <p class="subtitle">Guide til groenne investeringer, ESG-kriterier og baeredygtige fonde i Danmark</p>
-    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Skift tema">
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-    </button>
-  </header>
 
-  <main>
+  <div class="container">
+
+    <header class="site-header">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Investeringsberegner</a> <span aria-hidden="true">/</span> Baeredygtig investering
+      </nav>
+      <h1>Baeredygtig investering</h1>
+      <p class="subtitle">ESG og groenne investeringer (2026)</p>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Skift tema">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </header>
+
+    <main>
+
     <div class="card">
       <div class="article-section">
-        <h2>Hvad er ESG-investering?</h2>
-        <p>ESG staar for Environmental (miljoe), Social (sociale forhold) og Governance (selskabsledelse). ESG-investering er en tilgang, hvor du ud over finansielle noegletal ogsaa vurderer virksomheder paa deres miljoemaessige og sociale pavirkning samt kvaliteten af deres ledelse og bestyrelse.</p>
-        <p>Baeredygtig investering er vokset eksplosivt de seneste aar. I Europa stod ESG-fonde for over 50 % af alle nye fondsinvesteringer i 2024-2025. Danske investorer har ogsaa taget tilgangen til sig – ikke kun af etiske grunde, men fordi mange ser ESG-risici som finansielle risici. Virksomheder med store miljoemaessige fodaftryk kan f.eks. staa over for fremtidige reguleringer, retssager eller forbrugerboykot.</p>
-        <p>Det er vigtigt at forstaa, at ESG-investering ikke er velgoerenhed. Det handler om at investere i virksomheder, der er bedre rustet til fremtidens udfordringer – og dermed potentielt bedre langsigtede investeringer. Mange ESG-investorer opnaar baade god samvittighed og godt afkast.</p>
-
-        <h2>Tilgange til baeredygtig investering</h2>
-        <p>Der findes flere forskellige tilgange til baeredygtig investering, fra mild screenering til dyb impact-investering:</p>
-
-        <h3>Negativ screening (ekskludering)</h3>
-        <p>Den mest udbredte tilgang. Fonden ekskluderer virksomheder inden for bestemte brancher – typisk vaaben, tobak, kul, olie/gas, gambling og kontroversielle vaaben. Det er den simpleste form for ESG og pavirker portefoeljens afkast minimalt, da kun faa virksomheder fjernes.</p>
-
-        <h3>Positiv screening (best-in-class)</h3>
-        <p>Fonden vaelger de virksomheder, der scorer bedst paa ESG-kriterier inden for hver sektor. I stedet for at udelukke hele brancher, vaelges f.eks. det mest baeredygtige olieselskab eller den mest ansvarlige bank. Denne tilgang bibeholder bred <a href="../diversificering/index.html">diversificering</a>.</p>
-
-        <h3>Impact investing</h3>
-        <p>Her investeres maalrettet i virksomheder eller projekter, der har en direkte positiv effekt paa miljoe eller samfund – f.eks. vedvarende energi, rent vand eller social boliger. Impact investing er den mest ambitioese tilgang, men kan give en mere koncentreret portefoelje.</p>
-
-        <h3>Tematisk investering</h3>
-        <p>Investering i specifikke baeredygtige temaer som ren energi, elbiler, vandteknologi eller cirkulaer oekonomi. Denne tilgang giver hoej eksponering mod specifikke trends, men kan vaere mere volatil og mindre diversificeret end brede indeksfonde.</p>
-
-        <h2>ESG-kriterierne forklaret</h2>
-
-        <div class="result-table-wrap">
-          <table class="result-table">
-            <thead>
-              <tr>
-                <th>Kategori</th>
-                <th>Hvad det daekker</th>
-                <th>Eksempler paa kriterier</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>E – Environmental (Miljoe)</td>
-                <td>Virksomhedens miljoemaessige pavirkning</td>
-                <td>CO2-udledning, energiforbrug, affaldsshaandtering, biodiversitet, vandanvendelse</td>
-              </tr>
-              <tr>
-                <td>S – Social (Sociale forhold)</td>
-                <td>Forholdet til medarbejdere, leverandoerer og samfund</td>
-                <td>Arbejdsforhold, diversitet, menneskerettigheder, datasikkerhed, sundhed og sikkerhed</td>
-              </tr>
-              <tr>
-                <td>G – Governance (Selskabsledelse)</td>
-                <td>Kvaliteten af virksomhedens ledelse</td>
-                <td>Bestyrelsessammensaetning, ledelsesafloenning, korruption, skattegennemsigtighed, aktionaerrettigheder</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p>Hvert ESG-kriterium vurderes typisk af ratingbureauer som MSCI ESG, Sustainalytics eller ISS. Virksomheder faar en samlet ESG-score, der bruges af fondene til at sammensaette portefoeljer. Det er dog vaerd at vaere opmaerksom paa, at ESG-ratings kan variere betydeligt mellem udbydere – en virksomhed kan faa hoej score hos eet bureau og lav hos et andet.</p>
-
-        <h2>Afkast: ESG vs. traditionelle investeringer</h2>
-        <p>Det store spoergsmaal for mange investorer er: koster det afkast at investere baeredygtigt? Svaret er nuanceret.</p>
-        <p>Talrige akademiske studier har undersoegt sagen. En stor metaanalyse fra NYU Stern i 2021 gennemgik over 1.000 studier og fandt, at flertallet viste en positiv eller neutral sammenhang mellem ESG og finansielt afkast. Kun et faatal viste negativ sammenhang.</p>
-        <p>I praksis har brede ESG-indeksfonde som MSCI World ESG Leaders praestreret taat paa MSCI World over det seneste aartier – nogle perioder lidt bedre, andre lidt daarligere. Den primaere forskel i afkast kommer typisk fra:</p>
-        <ul>
-          <li><strong>Sektorvaegt:</strong> ESG-fonde har typisk overvaegt i teknologi og undervaegt i energi (fossile braendstoffer), hvilket har gavnet afkastet de seneste aar.</li>
-          <li><strong>Omkostninger:</strong> ESG-fonde har ofte lidt hoejere <a href="../hvad-er-aop/index.html">AOP</a> end standard indeksfonde, hvilket traekkr fra afkastet.</li>
-          <li><strong>Diversificering:</strong> Nogle ESG-fonde ekskluderer saa mange virksomheder, at diversificeringen reduceres.</li>
-        </ul>
-        <p>Bundlinjen er, at for de fleste investorer vil forskellen i afkast mellem en ESG-fond og en standard indeksfond vaere minimal over lang sigt. Valget handler derfor primaert om dine vaerdier.</p>
-
-        <h2>Greenwashing: Saadan gennemskuer du det</h2>
-        <p>Greenwashing er, naar en fond eller virksomhed overdriver sin baeredygtighedsprofil for at tiltraekke investorer. Det er et reelt problem i branchen, og som investor boer du vaere kritisk. Her er tegn paa greenwashing:</p>
-        <ul>
-          <li><strong>Vage formuleringer:</strong> "Vi tager hensyn til baeredygtighed" uden konkrete kriterier eller maalebare maal.</li>
-          <li><strong>Ingen eksklusionsliste:</strong> Fonden kalder sig baeredygtig, men har ingen specifikke kriterier for, hvad der ekskluderes.</li>
-          <li><strong>Kontroversielle beholdninger:</strong> Tjek fondens stoerste beholdninger – indeholder den virksomheder som store olieselskaber eller vaabenprodcenter?</li>
-          <li><strong>Manglende SFDR-klassificering:</strong> Hvis fonden ikke er klassificeret som Article 8 eller 9, er ESG-kravene sandsynligvis minimale.</li>
-          <li><strong>Hoej AOP uden mervaerdi:</strong> Fonden tager hoejere omkostninger for en "baeredygtig" profil, men portefoeljens sammensaetning ligner en standard fond.</li>
-        </ul>
-
-        <h2>Article 8 vs. Article 9-fonde (EU SFDR)</h2>
-        <p>EU's Sustainable Finance Disclosure Regulation (SFDR) klassificerer fonde i tre kategorier, der goer det lettere for investorer at skelne mellem baeredygtighedsniveauer:</p>
-
-        <div class="result-table-wrap">
-          <table class="result-table">
-            <thead>
-              <tr>
-                <th>Klassificering</th>
-                <th>Navn</th>
-                <th>Krav</th>
-                <th>Typisk tilgang</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Article 6</td>
-                <td>Ikke-baeredygtig</td>
-                <td>Ingen specifikke ESG-krav</td>
-                <td>Standard indeksfond uden ESG-fokus</td>
-              </tr>
-              <tr>
-                <td>Article 8 (lysgroen)</td>
-                <td>Fremmer baeredygtighed</td>
-                <td>Fremmer miljoemaessige/sociale egenskaber</td>
-                <td>ESG-screening, best-in-class, negativ screening</td>
-              </tr>
-              <tr>
-                <td>Article 9 (moerkegroen)</td>
-                <td>Baeredygtigt maal</td>
-                <td>Har baeredygtig investering som primaert maal</td>
-                <td>Impact investing, groenne temaer</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p>For de fleste investorer er Article 8-fonde et godt kompromis mellem baeredygtighed og bred diversificering. Article 9-fonde er mere niche og kan vaere relevante, hvis du oensker maksimal baeredygtighedseksponering.</p>
-
-        <h2>Baeredygtige fonde og ETF'er i Danmark</h2>
-        <p>Som dansk investor har du adgang til et bredt udvalg af baeredygtige fonde via de fleste <a href="../investeringsplatforme/index.html">investeringsplatforme</a>:</p>
-        <ul>
-          <li><strong>ESG-screenede indeksfonde:</strong> Brede globale fonde med ESG-screening, f.eks. baseret paa MSCI World ESG Leaders eller SRI-indeks. Typisk AOP paa 0,15-0,30 %.</li>
-          <li><strong>Danske baeredygtige investeringsforeninger:</strong> Flere danske investeringsforeninger tilbyder baeredygtige varianter af deres populaere fonde med aktieindkomstbeskatning.</li>
-          <li><strong>Tematiske ETF'er:</strong> Fonde fokuseret paa ren energi, elbiler, vandteknologi eller cirkulaer oekonomi. Typisk hoejere AOP (0,30-0,65 %) og hoejere volatilitet.</li>
-          <li><strong>Groenne obligationsfonde:</strong> Obligationsfonde der investerer i "green bonds" – obligationer udstedt specifikt til finansiering af miljoe- og klimaprojekter.</li>
-        </ul>
-        <p>Mange af disse fonde er tilgaengelige paa <a href="../aktiesparekonto/index.html">aktiesparekontoen</a> og via <a href="../maanedsopsparing/index.html">maanedsopsparinger</a>, hvilket goer det let at investere baeredygtigt loebende.</p>
-
-        <h2>Danske baeredygtige virksomheder</h2>
-        <p>Danmark er hjemland for flere globalt ledende baeredygtige virksomheder:</p>
-        <ul>
-          <li><strong>Vestas:</strong> Verdens stoerste producent af vindmoeller. En kernevirksomhed i den groenne omstilling med global tilstedevaerelse.</li>
-          <li><strong>Oersted:</strong> Verdens stoerste udvikler af havvind. Transformerede sig fra et olie/gas-selskab (DONG Energy) til en ren energivirksomhed.</li>
-          <li><strong>Novozymes/Novonesis:</strong> Verdensledende inden for biologiske loesninger, der erstatter kemiske processer i industrien.</li>
-          <li><strong>Rockwool:</strong> Producent af isoleringsmateriale der bidrager til energieffektivisering af bygninger.</li>
-          <li><strong>DSV:</strong> Global transportvirksomhed med fokus paa reduktion af CO2-udledning i logistik.</li>
-        </ul>
-        <p>Husk dog, at investering i enkeltaktier mangler <a href="../diversificering/index.html">diversificering</a>. Selv de bedste virksomheder kan have kursfald. Overvej i stedet brede <a href="../bedste-indeksfonde/index.html">indeksfonde</a> med ESG-profil, der inkluderer disse virksomheder som en del af en diversificeret portefoelje.</p>
-
-        <h2>Hvor stor en del af portefoeljer boer vaere baeredygtig?</h2>
-        <p>Det afhaenger helt af dine vaerdier og praeferencer. Der er flere tilgange:</p>
-        <ul>
-          <li><strong>100 % baeredygtig:</strong> Erstat alle dine standard indeksfonde med ESG-varianter. Forskellen i AOP er lille (0,05-0,15 % ekstra), og diversificeringen er fortsat god med brede ESG-indeksfonde.</li>
-          <li><strong>Kerneportefoelje + tematisk satellit:</strong> Hold 80-90 % i brede ESG-indeksfonde og alloker 10-20 % til specifikke groenne temaer som ren energi. Det giver baade bred base og ekstra baeredygtighedseksponering.</li>
-          <li><strong>Gradvis overgang:</strong> Start med at skifte dine eksisterende fonde til ESG-varianter, naar du alligevel rebalancerer eller tilfojer nye investeringer. Saelg ikke noodvendigvis eksisterende fonde, da det kan udloese <a href="../beskatning-aktier/index.html">skat</a>.</li>
-        </ul>
-
-        <h2>Kritik af ESG-investering</h2>
-        <p>ESG-investering er ikke uden kritik, og det er vigtigt at vaere bevidst om begraensningerne:</p>
-        <ul>
-          <li><strong>Inkonsistente ratings:</strong> ESG-ratingbureauer bruger forskellige metoder, og den samme virksomhed kan faa vidt forskellige scorer. Det underminerer trovaerdigheden.</li>
-          <li><strong>Begreanset reel effekt:</strong> At koebe aktier i en ESG-fond paa det sekundaere marked giver ikke direkte penge til baeredygtige virksomheder. Den reelle pavirkning er omdiskuteret.</li>
-          <li><strong>Hoejere omkostninger:</strong> ESG-fonde har typisk lidt hoejere AOP end standard indeksfonde, og forskellen kan vaere svaer at retfaerdiggoere, hvis ESG-screeningen er minimal.</li>
-          <li><strong>Greenwashing-risiko:</strong> Mange fonde kalder sig baeredygtige uden at leve op til forventningerne, saerligt i Article 8-kategorien.</li>
-          <li><strong>Diversificeringstab:</strong> Strenge ESG-kriterier kan reducere antallet af virksomheder i portefoeljer og dermed diversificeringen.</li>
-        </ul>
-        <p>Trods kritikken er ESG en trend, der kun vokser, og EU-regulering (SFDR) forbedrer loebbende gennemsigtigheden. For de fleste investorer er en bred ESG-indeksfond et godt kompromis mellem baeredygtighed og finansielt afkast.</p>
-
+        <p>Denne artikel er under udarbejdelse. Kom snart tilbage for det fulde indhold.</p>
         <div class="cta-box">
-          <p>Uanset om du investerer baeredygtigt eller traditionelt – beregn dit forventede afkast med vores gratis vaerktoj.</p>
-          <a href="../index.html" class="cta-button">Aaben investeringsberegneren</a>
+          <p>Beregn dit forventede afkast med korrekt skatteberegning</p>
+          <a href="../index.html" class="cta-button">Abn investeringsberegneren</a>
         </div>
       </div>
     </div>
 
-    <div class="guide-grid">
-      <a href="../index.html" class="guide-link">
-        <strong>Investeringsberegner</strong>
-        <span>Beregn dit forventede afkast og se effekten af renters rente over tid</span>
-      </a>
-      <a href="../bedste-indeksfonde/index.html" class="guide-link">
-        <strong>Bedste indeksfonde</strong>
-        <span>Oversigt over de bedste indeksfonde i Danmark inkl. ESG-varianter</span>
-      </a>
-      <a href="../diversificering/index.html" class="guide-link">
-        <strong>Diversificering</strong>
-        <span>Laer hvorfor og hvordan du spreder dine investeringer</span>
-      </a>
-      <a href="../investering-for-begyndere/index.html" class="guide-link">
-        <strong>Investering for begyndere</strong>
-        <span>Alt du skal vide for at komme i gang med at investere i Danmark</span>
-      </a>
-    </div>
-  </main>
+    </main>
 
-  <footer>
-    <p>investeringsberegner.dk – Gratis investeringsberegner med korrekt skatteberegning. Opdateret 2026.</p>
-    <p class="disclaimer">Indholdet paa denne side er udelukkende til informationsformaal og udgoer ikke finansiel raadgivning. Soeg altid professionel raadgivning tilpasset din personlige situation, inden du traeffer investeringsbeslutninger. Vi paatager os intet ansvar for tab som foelge af beslutninger truffet paa baggrund af indholdet.</p>
-  </footer>
+    <footer>
+      <p>investeringsberegner.dk – Gratis investeringsberegner med korrekt skatteberegning. Opdateret 2026.</p>
+      <p class="disclaimer">Indholdet paa denne side er udelukkende til informationsformaal og udgoer ikke finansiel raadgivning. Soeg altid professionel raadgivning tilpasset din personlige situation, inden du traeffer investeringsbeslutninger. Vi paatager os intet ansvar for tab som foelge af beslutninger truffet paa baggrund af indholdet.</p>
+    </footer>
 
+  </div>
+
+  <!-- Theme toggle -->
   <script>
-    (function() {
-      var toggle = document.getElementById('theme-toggle');
-      toggle.addEventListener('click', function() {
-        var current = document.documentElement.getAttribute('data-theme');
-        var next = current === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
-      });
-    })();
+    document.getElementById('theme-toggle').addEventListener('click', function() {
+      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
   </script>
+
 </body>
 </html>

@@ -84,215 +84,67 @@
   </script>
 
   <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Prevent theme flash -->
   <script>
     (function() {
-      var t = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', t);
+      var t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
     })();
   </script>
 </head>
 <body>
-  <header>
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="../index.html">Investeringsberegner</a> <span aria-hidden="true">/</span> Alternative investeringer
-    </nav>
-    <h1>Alternative investeringer</h1>
-    <p class="subtitle">Udforsk investeringsmuligheder ud over aktier og obligationer</p>
-    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Skift tema">
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-    </button>
-  </header>
 
-  <main>
+  <div class="container">
+
+    <header class="site-header">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Investeringsberegner</a> <span aria-hidden="true">/</span> Alternative investeringer
+      </nav>
+      <h1>Alternative investeringer</h1>
+      <p class="subtitle">Ud over aktier og obligationer (2026)</p>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Skift tema">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </header>
+
+    <main>
+
     <div class="card">
       <div class="article-section">
-        <h2>Hvad er alternative investeringer?</h2>
-        <p>Alternative investeringer omfatter alle aktivklasser, der falder uden for de traditionelle kategorier – aktier og obligationer. Det kan vaere alt fra ejendomme og raavarer til kunst, vin, private virksomheder og vedvarende energiprojekter. For mange investorer repraesenterer alternativer en mulighed for at <a href="../diversificering/index.html">diversificere</a> deres portefoelje med aktiver, der ikke noedvendigvis foelger aktiemarkedets op- og nedture.</p>
-        <p>Interessen for alternative investeringer er vokset markant de seneste aar, drevet af lave renter, nye digitale platforme der goer adgangen nemmere, og et oenske om at sprede risikoen ud over flere aktivklasser. Men det er vigtigt at forstaa, at alternative investeringer ogsaa medforer unikke risici – isaer lavere likviditet, hoejere kompleksitet og ofte hoejere omkostninger.</p>
-
-        <h2>Typer af alternative investeringer</h2>
-
-        <h3>Ejendomme</h3>
-        <p><a href="../afkast-ejendom/index.html">Ejendomsinvestering</a> er den mest udbredte form for alternativ investering i Danmark. Du kan investere direkte ved at koebe udlejningsejendomme, eller indirekte via ejendomsfonde og REITs (Real Estate Investment Trusts). Fordelen er stabile lejeindtaegter og vaerdisstigning over tid. Ulempen er hoeje indgangsbeloeb ved direkte ejerskab og illikviditet.</p>
-
-        <h3>Raavarer og guld</h3>
-        <p><a href="../guld-investering/index.html">Guld</a> har i aartusinder vaeret betragtet som en "sikker havn" under oekonomisk usikkerhed. Du kan investere i guld gennem fysisk guld, ETF'er eller guld-futures. Andre raavarer som soelv, olie og landbrugsprodukter kan ogsaa indgaa i en portefoelje, typisk via specialiserede fonde. Raavarer har historisk haft lav korrelation med aktier, hvilket goer dem nyttige til diversificering.</p>
-
-        <h3>Private equity</h3>
-        <p>Private equity (PE) indebaerer investering i virksomheder, der ikke er boersnoterede. PE-fonde koeber typisk virksomheder, forbedrer dem operationelt og saelger dem igen med fortjeneste efter 5-10 aar. Afkastet kan vaere hoejt, men minimumsbeloebene er typisk flere millioner kroner, og pengene er laast i mange aar. Nogle danske platforme og fonde giver dog adgang med lavere beloeb.</p>
-
-        <h3>Venturekapital og startups</h3>
-        <p>Investering i startups er en hoejrisikostrategi med potentielt meget hoejt afkast. Du investerer i unge virksomheder i en tidlig fase og haaber paa, at en eller flere bliver en stor succes. I Danmark kan du investere i startups via platforme som DanBAN (Danish Business Angels Network) eller crowdfunding-sider. Risikoen er dog enorm – de fleste startups fejler, og du boer kun investere beloeb, du kan taale at miste.</p>
-
-        <h3>Crowdlending</h3>
-        <p>Crowdlending giver dig mulighed for at udlaane penge direkte til virksomheder eller privatpersoner via online-platforme og modtage rente til gengaeld. Danske og nordiske platforme inkluderer Lendino, Flex Funding og Kameo. Afkastet ligger typisk paa 5-12 % aarligt, men risikoen for tab ved misligholdelse er reel. Spred altid dine laan over mange laantagere.</p>
-
-        <h3>Vin</h3>
-        <p>Investering i sjeldne vine – f.eks. via Rare Wine Invest – er en niche, der har tiltrukket danske investorer i de seneste aar. Fine vine fra prestigefulde vingaarde kan stige i vaerdi over tid, men markedet er illikvidt, kraever specialviden og har hoeje opbevarings- og forsikringsomkostninger. Det er mest for entusiaster med en lang tidshorisont.</p>
-
-        <h3>Kunst</h3>
-        <p>Kunst som investering er forbeholdt dem med stor kapital og kendskab til kunstmarkedet. Historiske afkast har vaeret moderate sammenlignet med aktier, og likviditeten er lav. Nye platforme tilbyder dog fraktioneret ejerskab, hvor du kan koebe andele i vaerdifulde kunstvaerker med mindre beloeb.</p>
-
-        <h3>Vedvarende energi: Vindmoeller og solceller</h3>
-        <p>Danmark er et foregangsland inden for vedvarende energi, og investering i vindmoeller og solcelleparker er blevet mere tilgaengeligt. Du kan koebe andele i vindmoellelaug (typisk lokale projekter), investere via crowdfunding-platforme eller koebe aktier i boersnoterede energiselskaber. Afkastet er typisk stabilt men moderat (4-8 % aarligt), og investeringen har en groen profil der tiltaler mange.</p>
-
-        <h2>Sammenligning af alternative investeringer</h2>
-
-        <div class="result-table-wrap">
-          <table class="result-table">
-            <thead>
-              <tr>
-                <th>Type</th>
-                <th>Min. investering</th>
-                <th>Likviditet</th>
-                <th>Typisk aarligt afkast</th>
-                <th>Risiko</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Ejendomme (direkte)</td>
-                <td>500.000+ kr</td>
-                <td>Lav</td>
-                <td>4-8 %</td>
-                <td>Moderat</td>
-              </tr>
-              <tr>
-                <td>Ejendomsfonde/REITs</td>
-                <td>1.000 kr</td>
-                <td>Hoej (boersnoteret)</td>
-                <td>5-10 %</td>
-                <td>Moderat</td>
-              </tr>
-              <tr>
-                <td>Guld (ETF)</td>
-                <td>500 kr</td>
-                <td>Hoej</td>
-                <td>2-6 %</td>
-                <td>Moderat</td>
-              </tr>
-              <tr>
-                <td>Private equity</td>
-                <td>500.000+ kr</td>
-                <td>Meget lav</td>
-                <td>10-20 %</td>
-                <td>Hoej</td>
-              </tr>
-              <tr>
-                <td>Startups / venturekapital</td>
-                <td>10.000+ kr</td>
-                <td>Meget lav</td>
-                <td>Varierer kraftigt</td>
-                <td>Meget hoej</td>
-              </tr>
-              <tr>
-                <td>Crowdlending</td>
-                <td>1.000 kr</td>
-                <td>Lav-moderat</td>
-                <td>5-12 %</td>
-                <td>Hoej</td>
-              </tr>
-              <tr>
-                <td>Vin (fine wine)</td>
-                <td>50.000+ kr</td>
-                <td>Lav</td>
-                <td>5-10 %</td>
-                <td>Moderat-hoej</td>
-              </tr>
-              <tr>
-                <td>Kunst</td>
-                <td>10.000+ kr (fraktioneret)</td>
-                <td>Meget lav</td>
-                <td>3-8 %</td>
-                <td>Hoej</td>
-              </tr>
-              <tr>
-                <td>Vindmoeller/solceller</td>
-                <td>5.000+ kr</td>
-                <td>Lav</td>
-                <td>4-8 %</td>
-                <td>Moderat</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h2>Danske platforme for alternative investeringer</h2>
-        <p>I Danmark er der flere platforme, der giver adgang til alternative investeringer:</p>
-        <ul>
-          <li><strong>Lendino:</strong> Dansk crowdlending-platform til virksomhedslaan</li>
-          <li><strong>Kameo:</strong> Nordisk platform for ejendomslaan og virksomhedslaan</li>
-          <li><strong>Flex Funding:</strong> Dansk crowdlending med fokus paa SMV'er</li>
-          <li><strong>Fundbricks:</strong> Ejendomscrowdfunding med mulighed for at investere i konkrete projekter</li>
-          <li><strong>Rare Wine Invest:</strong> Platform for investering i fine vine</li>
-          <li><strong>DanBAN:</strong> Netvaerk for business angels og startup-investering</li>
-        </ul>
-        <p>Vaer opmaerksom paa, at mange af disse platforme ikke er reguleret paa samme maade som banker og fondsmaeglere. Undersoeg altid platformens regulering, track record og risici grundigt foer du investerer.</p>
-
-        <h2>Fordele ved alternative investeringer</h2>
-        <ul>
-          <li><strong>Diversificering:</strong> Alternativer har ofte lav korrelation med aktie- og obligationsmarkedet, hvilket reducerer portefoeljens samlede risiko.</li>
-          <li><strong>Inflationsbeskyttelse:</strong> Visse alternativer som ejendomme og raavarer kan fungere som beskyttelse mod inflation.</li>
-          <li><strong>Potentielt hoejere afkast:</strong> Isaer private equity og venturekapital kan levere afkast over det bredere aktiemarked – men med tilsvarende hoejere risiko.</li>
-          <li><strong>Stabile indkomststroemme:</strong> Ejendomme, crowdlending og vedvarende energi kan give regelmaessige indkomster.</li>
-        </ul>
-
-        <h2>Ulemper og risici</h2>
-        <ul>
-          <li><strong>Illikviditet:</strong> De fleste alternative investeringer kan ikke saelges hurtigt. Dine penge kan vaere laast i aar.</li>
-          <li><strong>Kompleksitet:</strong> Alternativer kraever ofte specialviden for at vurdere risiko og afkastpotentiale.</li>
-          <li><strong>Hoejere omkostninger:</strong> Forvaltningsgebyrer, transaktionsomkostninger og opbevaringskostnader er typisk hoejere end for indeksfonde.</li>
-          <li><strong>Manglende gennemsigtighed:</strong> Vaerdiansaettelse kan vaere subjektiv og svarer at verificere.</li>
-          <li><strong>Reguleringsrisiko:</strong> Mindre regulering betyder mindre beskyttelse for dig som investor.</li>
-        </ul>
-
-        <h2>Anbefalet allokering</h2>
-        <p>For de fleste private investorer anbefales det at holde alternative investeringer til <strong>maksimalt 10-20 %</strong> af den samlede portefoelje. Kernen boer bestaa af bredt <a href="../diversificering/index.html">diversificerede</a> aktie- og obligationsfonde via en <a href="../aktiesparekonto/index.html">aktiesparekonto</a> og et frit depot. Alternativer boer betragtes som et supplement – ikke en erstatning.</p>
-        <p>Soerg for, at du har dine basale investeringer paa plads, foer du bevæger dig ind i alternative investeringer. Det betyder en noedopsparing, fuld udnyttelse af ASK og en <a href="../portefoeljesammensaetning/index.html">velbalanceret portefoelje</a> af traditionelle aktiver. Foerst derefter giver det mening at allokere en mindre del til alternativer, der matcher dine interesser og risikovillighed.</p>
-
+        <p>Denne artikel er under udarbejdelse. Kom snart tilbage for det fulde indhold.</p>
         <div class="cta-box">
-          <p>Vil du beregne, hvordan din samlede portefoelje – med eller uden alternativer – kan vokse over tid? Proev vores gratis beregner.</p>
-          <a href="../index.html" class="cta-button">Aabn investeringsberegneren</a>
+          <p>Beregn dit forventede afkast med korrekt skatteberegning</p>
+          <a href="../index.html" class="cta-button">Abn investeringsberegneren</a>
         </div>
       </div>
     </div>
 
-    <div class="guide-grid">
-      <a href="../afkast-ejendom/index.html" class="guide-link">
-        <strong>Afkast paa ejendom</strong>
-        <span>Guide til ejendomsinvestering og beregning af afkast</span>
-      </a>
-      <a href="../guld-investering/index.html" class="guide-link">
-        <strong>Guld investering</strong>
-        <span>Alt om guld som investering – fordele, ulemper og metoder</span>
-      </a>
-      <a href="../diversificering/index.html" class="guide-link">
-        <strong>Diversificering</strong>
-        <span>Spred din risiko over flere aktivklasser og markeder</span>
-      </a>
-      <a href="../investeringsstrategier/index.html" class="guide-link">
-        <strong>Investeringsstrategier</strong>
-        <span>Find den rette strategi for din risikoprofil og tidshorisont</span>
-      </a>
-    </div>
-  </main>
+    </main>
 
-  <footer>
-    <p>investeringsberegner.dk – Gratis investeringsberegner med korrekt skatteberegning. Opdateret 2026.</p>
-    <p class="disclaimer">Indholdet paa denne side er udelukkende til informationsformaal og udgoer ikke finansiel raadgivning. Soeg altid professionel raadgivning tilpasset din personlige situation, inden du traeffer investeringsbeslutninger. Vi paatager os intet ansvar for tab som foelge af beslutninger truffet paa baggrund af indholdet.</p>
-  </footer>
+    <footer>
+      <p>investeringsberegner.dk – Gratis investeringsberegner med korrekt skatteberegning. Opdateret 2026.</p>
+      <p class="disclaimer">Indholdet paa denne side er udelukkende til informationsformaal og udgoer ikke finansiel raadgivning. Soeg altid professionel raadgivning tilpasset din personlige situation, inden du traeffer investeringsbeslutninger. Vi paatager os intet ansvar for tab som foelge af beslutninger truffet paa baggrund af indholdet.</p>
+    </footer>
 
+  </div>
+
+  <!-- Theme toggle -->
   <script>
-    (function() {
-      var toggle = document.getElementById('theme-toggle');
-      toggle.addEventListener('click', function() {
-        var current = document.documentElement.getAttribute('data-theme');
-        var next = current === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
-      });
-    })();
+    document.getElementById('theme-toggle').addEventListener('click', function() {
+      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
   </script>
+
 </body>
 </html>

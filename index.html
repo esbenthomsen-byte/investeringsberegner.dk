@@ -754,6 +754,24 @@
 
   </div>
 
+  <!-- Theme toggle (inline – works with file:// and on server) -->
+  <script>
+    (function() {
+      var btn = document.getElementById('theme-toggle');
+      btn.addEventListener('click', function() {
+        var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('theme', 'light');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('theme', 'dark');
+        }
+      });
+      window.__themeToggleReady = true;
+    })();
+  </script>
+
   <!-- App scripts (ES modules) -->
   <script type="module" src="js/main.js"></script>
 

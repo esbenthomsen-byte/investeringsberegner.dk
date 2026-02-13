@@ -66,225 +66,67 @@
   }
   </script>
   <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Prevent theme flash -->
   <script>
     (function() {
-      var t = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', t);
+      var t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
     })();
   </script>
 </head>
 <body>
-  <header>
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="../index.html">Investeringsberegner</a> <span aria-hidden="true">/</span> Skat på ETF'er
-    </nav>
-    <h1>Skat på ETF'er</h1>
-    <p class="subtitle">Sådan beskattes ETF'er i Danmark – lager vs. realisation, aktie vs. kapital</p>
-    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Skift tema">
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-    </button>
-  </header>
 
-  <main>
+  <div class="container">
+
+    <header class="site-header">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Investeringsberegner</a> <span aria-hidden="true">/</span> Skat paa ETF
+      </nav>
+      <h1>Skat på ETF'er i Danmark</h1>
+      <p class="subtitle">Regler og beskatning (2026)</p>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Skift tema">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </header>
+
+    <main>
+
     <div class="card">
       <div class="article-section">
-        <h2>Overblik: Hvorfor er ETF-beskatning kompliceret i Danmark?</h2>
-        <p>ETF'er (Exchange-Traded Funds) er blevet enormt populære blandt danske investorer på grund af deres lave omkostninger og brede diversificering. Men beskatningen af ETF'er i Danmark er desværre langt mere kompliceret end for traditionelle danske investeringsforeninger. Det skyldes primært, at de fleste ETF'er er registreret i udlandet (typisk Irland eller Luxembourg) og derfor ikke automatisk passer ind i de danske skatteregler for investeringsforeninger.</p>
-        <p>Som dansk investor skal du navigere i et system med to forskellige skattetyper (aktieindkomst vs. kapitalindkomst) og to forskellige beskatningsprincipper (lager vs. realisation). Derudover spiller det en rolle, hvilken kontotype du investerer fra – frie midler, <a href="../aktiesparekonto/index.html">aktiesparekonto</a> eller pensionsdepot. I denne guide forklarer vi alle reglerne, så du kan træffe informerede valg.</p>
-
-        <h2>De to kategorier: Aktieindkomst vs. kapitalindkomst</h2>
-        <p>Den første og vigtigste skelnen i ETF-beskatning er, om din ETF beskattes som <strong>aktieindkomst</strong> eller <strong>kapitalindkomst</strong>. Denne klassificering har stor betydning for din skatteprocent.</p>
-
-        <h3>Aktiebaserede ETF'er – aktieindkomst</h3>
-        <p>ETF'er der primært investerer i aktier og er optaget på <strong>SKATs positivliste</strong>, beskattes som aktieindkomst. Det betyder, at gevinster beskattes med 27 % op til progressionsgrænsen (61.000 kr. i 2026 for enlige, 122.000 kr. for ægtepar) og 42 % af beløb derover. Dette er den samme beskatning som for danske aktier og <a href="../beskatning-aktier/index.html">danske investeringsforeninger</a>.</p>
-
-        <h3>Obligationsbaserede og øvrige ETF'er – kapitalindkomst</h3>
-        <p>ETF'er der investerer i obligationer, råvarer eller andre ikke-aktiebaserede aktiver – samt aktie-ETF'er der <em>ikke</em> er på positivlisten – beskattes som kapitalindkomst. Positiv kapitalindkomst beskattes typisk med ca. 37-42 % afhængigt af din kommune og øvrige indkomst. Negativ kapitalindkomst kan fradrages, men kun med en lavere skatteværdi på ca. 25-33 %.</p>
-
-        <h2>Lagerbeskatning vs. realisationsbeskatning</h2>
-        <p>Den anden vigtige dimension er beskatningsprincippet. De fleste ETF'er i Danmark er <strong>lagerbeskattet</strong>, hvilket er en væsentlig forskel fra traditionelle danske investeringsforeninger, der typisk er realisationsbeskattet.</p>
-
-        <h3>Lagerbeskatning (de fleste ETF'er)</h3>
-        <p>Ved lagerbeskatning opgøres din gevinst eller dit tab hvert år den 31. december, uanset om du har solgt dine ETF-andele. Har din ETF steget 10.000 kr. i løbet af året, skal du betale skat af de 10.000 kr. – også selvom du stadig holder dine andele. Omvendt kan du fratrække et urealiseret tab.</p>
-
-        <div class="formula-box">
-          <code>Skattepligtig gevinst = Kursværdi 31/12 − Kursværdi 1/1 (eller købskurs hvis købt i løbet af året)</code>
-        </div>
-
-        <p>Lagerbeskatning betyder, at du løbende skal have likviditet til at betale skat, selv i år hvor du ikke har solgt noget. Dette kan være en ulempe sammenlignet med realisationsbeskatning, hvor du først betaler skat ved salg.</p>
-
-        <h3>Realisationsbeskatning (sjælden for ETF'er)</h3>
-        <p>Ved realisationsbeskatning betaler du først skat, når du faktisk sælger dine andele. Du udskyder dermed skatten og kan lade hele din investering vokse skattefrit, indtil du realiserer gevinsten. Visse danske investeringsforeninger tilbyder realisationsbeskatning, men de fleste udenlandske ETF'er er lagerbeskattet i Danmark.</p>
-
-        <h2>Samlet oversigt: ETF-beskatning i Danmark</h2>
-
-        <div class="result-table-wrap">
-          <table class="result-table">
-            <thead>
-              <tr>
-                <th>ETF-type</th>
-                <th>Skattetype</th>
-                <th>Beskatningsprincip</th>
-                <th>Skattesats</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Aktie-ETF på positivlisten</td>
-                <td>Aktieindkomst</td>
-                <td>Lagerbeskatning</td>
-                <td>27 % / 42 %</td>
-              </tr>
-              <tr>
-                <td>Aktie-ETF IKKE på positivlisten</td>
-                <td>Kapitalindkomst</td>
-                <td>Lagerbeskatning</td>
-                <td>~37–42 %</td>
-              </tr>
-              <tr>
-                <td>Obligations-ETF</td>
-                <td>Kapitalindkomst</td>
-                <td>Lagerbeskatning</td>
-                <td>~37–42 %</td>
-              </tr>
-              <tr>
-                <td>Enhver ETF på aktiesparekonto</td>
-                <td>Aktiesparekontoskat</td>
-                <td>Lagerbeskatning</td>
-                <td>17 %</td>
-              </tr>
-              <tr>
-                <td>Enhver ETF i pensionsdepot</td>
-                <td>Pensionsafkastskat (PAL)</td>
-                <td>Lagerbeskatning</td>
-                <td>15,3 %</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h2>SKATs positivliste</h2>
-        <p>SKATs positivliste er en officiel liste over udenlandske investeringsselskaber (herunder ETF'er), der er godkendt til beskatning som aktieindkomst. Listen opdateres to gange om året – typisk i januar og juni – og er afgørende for, om din aktie-ETF beskattes favorabelt som aktieindkomst eller mindre favorabelt som kapitalindkomst.</p>
-        <p>Populære ETF'er på positivlisten inkluderer mange af de store globale indeksfonde fra udbydere som iShares (f.eks. iShares Core MSCI World), Vanguard (f.eks. Vanguard FTSE All-World) og Xtrackers. Det er dog vigtigt at tjekke den aktuelle liste, da den løbende ændres. Du finder positivlisten på SKATs hjemmeside under "Positivlisten for aktiebaserede investeringsselskaber".</p>
-        <p>Vær opmærksom på, at en ETF der er på positivlisten i dag, teoretisk kan blive fjernet ved næste opdatering. I praksis sker dette sjældent for de store, etablerede ETF'er, men det er en risiko at være opmærksom på, især for mere nicheprægede produkter.</p>
-
-        <h2>ETF'er på aktiesparekonto</h2>
-        <p><a href="../aktiesparekonto/index.html">Aktiesparekontoen (ASK)</a> er den absolut mest fordelagtige kontotype for ETF-investering i Danmark. Uanset om din ETF er på positivlisten eller ej, beskattes alle gevinster og udbytter kun med 17 % – en markant besparelse sammenlignet med den normale beskatning på frie midler.</p>
-        <p>Derudover forsvinder kompleksiteten med aktieindkomst vs. kapitalindkomst helt, fordi alt på ASK beskattes ens. Lagerprincippet gælder stadig, men med kun 17 % skat er byrden væsentligt lavere. Loftet for indskud på ASK er 150.000 kr. i 2026, men kontoen kan vokse ubegrænset derover gennem afkast.</p>
-
-        <h2>Akkumulerende vs. udloddende ETF'er – skattemæssig forskel</h2>
-        <p>ETF'er fås i to varianter: <strong>akkumulerende</strong> (Acc), hvor udbytter automatisk geninvesteres i fonden, og <strong>udloddende</strong> (Dist/Inc), hvor udbytter udbetales til dig.</p>
-        <p>I Danmark gør det skattemæssigt ingen forskel, om du vælger akkumulerende eller udloddende ETF'er, da begge er lagerbeskattet. Du betaler skat af den samlede værdiændring uanset hvad. Den praktiske forskel er:</p>
-        <ul>
-          <li><strong>Akkumulerende:</strong> Udbytter geninvesteres automatisk. Enklere, da du ikke selv skal geninvestere. Kan have en lille fordel ved at undgå kurtage ved geninvestering.</li>
-          <li><strong>Udloddende:</strong> Udbytter udbetales kontant. Kan være en fordel, hvis du har brug for likviditet til at betale lagerskatten uden at sælge andele.</li>
-        </ul>
-
-        <h2>Samme ETF: Aktiesparekonto vs. frie midler</h2>
-        <p>For at illustrere den skattemæssige fordel ved aktiesparekontoen, lad os sammenligne beskatningen af den samme ETF – en global aktie-ETF på positivlisten – på de to kontotyper over 10 år:</p>
-
-        <div class="result-table-wrap">
-          <table class="result-table">
-            <thead>
-              <tr>
-                <th>Parameter</th>
-                <th>Aktiesparekonto (ASK)</th>
-                <th>Frie midler</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Startinvestering</td>
-                <td>100.000 kr.</td>
-                <td>100.000 kr.</td>
-              </tr>
-              <tr>
-                <td>Årligt afkast (7 %)</td>
-                <td>7.000 kr. (år 1)</td>
-                <td>7.000 kr. (år 1)</td>
-              </tr>
-              <tr>
-                <td>Skattesats</td>
-                <td>17 %</td>
-                <td>27 % / 42 %</td>
-              </tr>
-              <tr>
-                <td>Årlig skat (år 1)</td>
-                <td>1.190 kr.</td>
-                <td>1.890 kr.</td>
-              </tr>
-              <tr>
-                <td>Effektivt afkast efter skat</td>
-                <td>~5,81 %</td>
-                <td>~4,9–5,1 %</td>
-              </tr>
-              <tr>
-                <td>Slutværdi efter 10 år</td>
-                <td>~175.700 kr.</td>
-                <td>~161.100 kr.</td>
-              </tr>
-              <tr>
-                <td>Forskel</td>
-                <td colspan="2">~14.600 kr. mere på ASK (ca. 9 % mere)</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p>Over 10 år giver aktiesparekontoen ca. 14.600 kr. mere i slutværdi på en investering på 100.000 kr. – udelukkende på grund af den lavere skattesats. Over 20-30 år bliver forskellen endnu større takket være <a href="../renters-rente/index.html">renters rente-effekten</a>.</p>
-
-        <h2>Praktisk anbefaling</h2>
-        <p>Givet kompleksiteten i ETF-beskatning på frie midler anbefaler mange eksperter følgende strategi for danske investorer:</p>
-        <ol>
-          <li><strong>Fyld din aktiesparekonto først.</strong> Invester op til loftet på 150.000 kr. i en bred aktie-ETF. Med kun 17 % skat og ingen bekymring om aktie- vs. kapitalindkomst er dette den enkleste og mest skatteeffektive løsning.</li>
-          <li><strong>Brug danske investeringsforeninger på frie midler.</strong> For investering ud over ASK-loftet kan danske investeringsforeninger (som Sparindex eller Danske Invest) være et bedre valg end ETF'er, da de kan tilbyde realisationsbeskatning som aktieindkomst – altså ingen lagerbeskatning.</li>
-          <li><strong>Overvej ETF'er på positivlisten til frie midler</strong> kun hvis du er komfortabel med lagerbeskatning og har likviditeten til at betale den årlige skat.</li>
-        </ol>
-        <p>Uanset hvad du vælger, er det vigtigste at komme i gang med at investere. Skattereglerne kan virke uoverskuelige, men lad dem ikke afholde dig fra at opbygge din formue. En god <a href="../etf-guide/index.html">ETF-strategi</a> med opmærksomhed på beskatningen kan spare dig tusindvis af kroner over din investeringshorisont.</p>
-
+        <p>Denne artikel er under udarbejdelse. Kom snart tilbage for det fulde indhold.</p>
         <div class="cta-box">
-          <p>Vil du se den præcise effekt af beskatning på dit afkast? Vores beregner tager højde for skat, så du kan sammenligne strategier direkte.</p>
-          <a href="../index.html" class="cta-button">Åbn investeringsberegneren</a>
+          <p>Beregn dit forventede afkast med korrekt skatteberegning</p>
+          <a href="../index.html" class="cta-button">Abn investeringsberegneren</a>
         </div>
       </div>
     </div>
 
-    <div class="guide-grid">
-      <a href="../index.html" class="guide-link">
-        <strong>Investeringsberegner</strong>
-        <span>Beregn dit forventede afkast med korrekt skatteberegning</span>
-      </a>
-      <a href="../etf-guide/index.html" class="guide-link">
-        <strong>ETF-guide</strong>
-        <span>Alt om ETF'er – hvad de er, og hvordan du investerer i dem</span>
-      </a>
-      <a href="../beskatning-aktier/index.html" class="guide-link">
-        <strong>Beskatning af aktier</strong>
-        <span>Komplet guide til beskatning af aktier og investeringer i Danmark</span>
-      </a>
-      <a href="../aktiesparekonto/index.html" class="guide-link">
-        <strong>Aktiesparekonto</strong>
-        <span>Udnyt den lave skattesats på 17 % med en aktiesparekonto</span>
-      </a>
-    </div>
-  </main>
+    </main>
 
-  <footer>
-    <p>investeringsberegner.dk – Gratis investeringsberegner med korrekt skatteberegning. Opdateret 2026.</p>
-    <p class="disclaimer">Indholdet på denne side er udelukkende til informationsformål og udgør ikke finansiel rådgivning. Søg altid professionel rådgivning tilpasset din personlige situation, inden du træffer investeringsbeslutninger. Vi påtager os intet ansvar for tab som følge af beslutninger truffet på baggrund af indholdet.</p>
-  </footer>
+    <footer>
+      <p>investeringsberegner.dk – Gratis investeringsberegner med korrekt skatteberegning. Opdateret 2026.</p>
+      <p class="disclaimer">Indholdet paa denne side er udelukkende til informationsformaal og udgoer ikke finansiel raadgivning. Soeg altid professionel raadgivning tilpasset din personlige situation, inden du traeffer investeringsbeslutninger. Vi paatager os intet ansvar for tab som foelge af beslutninger truffet paa baggrund af indholdet.</p>
+    </footer>
 
+  </div>
+
+  <!-- Theme toggle -->
   <script>
-    (function() {
-      var toggle = document.getElementById('theme-toggle');
-      toggle.addEventListener('click', function() {
-        var current = document.documentElement.getAttribute('data-theme');
-        var next = current === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
-      });
-    })();
+    document.getElementById('theme-toggle').addEventListener('click', function() {
+      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
   </script>
+
 </body>
 </html>

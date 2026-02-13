@@ -58,217 +58,67 @@
   }
   </script>
   <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Prevent theme flash -->
   <script>
     (function() {
-      var t = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', t);
+      var t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
     })();
   </script>
 </head>
 <body>
-  <header>
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="../index.html">Investeringsberegner</a> <span aria-hidden="true">/</span> Diversificering
-    </nav>
-    <h1>Diversificering</h1>
-    <p class="subtitle">Lær hvorfor og hvordan du spreder dine investeringer for at reducere risiko</p>
-    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Skift tema">
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-    </button>
-  </header>
 
-  <main>
+  <div class="container">
+
+    <header class="site-header">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Investeringsberegner</a> <span aria-hidden="true">/</span> Diversificering
+      </nav>
+      <h1>Diversificering</h1>
+      <p class="subtitle">Spred din risiko og beskyt din portefølje (2026)</p>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Skift tema">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </header>
+
+    <main>
+
     <div class="card">
       <div class="article-section">
-        <h2>Hvad er diversificering?</h2>
-        <p>Diversificering er en af de mest fundamentale principper inden for investering. Det handler ganske enkelt om at sprede dine penge over flere forskellige investeringer, så du ikke risikerer at tabe det hele, hvis en enkelt investering går galt. Det kendte udtryk "Don't put all your eggs in one basket" – læg ikke alle dine æg i én kurv – beskriver kernen i diversificering perfekt.</p>
-        <p>Forestil dig, at du investerer hele din opsparing i én enkelt aktie. Hvis virksomheden klarer sig godt, kan du opnå et fantastisk afkast. Men hvis virksomheden går konkurs, mister du alt. Ved i stedet at sprede dine penge over mange aktier, obligationer og eventuelt andre aktivtyper, reducerer du risikoen markant. Når én investering falder i værdi, vil andre typisk klare sig bedre, hvilket udjævner dit samlede afkast.</p>
-        <p>Diversificering eliminerer ikke al risiko – du er stadig eksponeret mod generelle markedsrisici som recessioner og finanskriser – men den fjerner den <strong>specifikke risiko</strong> knyttet til enkelte virksomheder eller sektorer. Og det er en af de få "gratis frokoster" i investeringsverdenen: du kan reducere risiko uden nødvendigvis at ofre forventet afkast.</p>
-
-        <h2>Typer diversificering</h2>
-        <p>Effektiv diversificering handler om mere end bare at købe mange forskellige aktier. Der er flere dimensioner, du bør overveje, når du sammensætter din <a href="../portefoeljesammensaetning/index.html">portefølje</a>:</p>
-
-        <h3>Aktivklassediversificering</h3>
-        <p>Den vigtigste form for diversificering er at sprede dine investeringer over forskellige aktivklasser: aktier, obligationer, kontanter og eventuelt alternativer som ejendomme eller råvarer. Hver aktivklasse reagerer forskelligt på økonomiske forhold. Når aktier falder under en recession, stiger obligationer typisk i værdi, hvilket stabiliserer din portefølje.</p>
-
-        <h3>Geografisk diversificering</h3>
-        <p>Ved at investere globalt frem for kun i danske aktier spreder du risikoen over forskellige landes økonomier, valutaer og politiske systemer. Det danske aktiemarked udgør kun ca. 0,5 % af det globale marked, så en ren dansk portefølje er i sig selv en koncentreret position. En global indeksfond giver dig eksponering mod virksomheder i USA, Europa, Japan, emerging markets og mange andre regioner.</p>
-
-        <h3>Sektordiversificering</h3>
-        <p>Forskellige brancher påvirkes forskelligt af økonomiske cyklusser. Teknologiaktier kan boome under vækstperioder, mens sundhedssektoren og dagligvarer ofte er mere stabile under nedgange. Ved at sprede dine investeringer over mange sektorer undgår du at være alt for afhængig af én enkelt branches succes.</p>
-
-        <h3>Tidsdiversificering</h3>
-        <p>Ved at investere løbende over tid – f.eks. et fast beløb hver måned – reducerer du risikoen for at investere hele din opsparing på et ugunstigt tidspunkt. Denne strategi kaldes "dollar-cost averaging" og sikrer, at du køber flere andele, når kurserne er lave, og færre, når de er høje.</p>
-
-        <h2>Effekten af diversificering</h2>
-        <p>For at illustrere den konkrete effekt af diversificering, lad os se på hvordan risikoen (målt som standardafvigelse) reduceres i takt med at antallet af aktier stiger. Disse tal er baseret på historiske data og illustrerer princippet:</p>
-
-        <div class="result-table-wrap">
-          <table class="result-table">
-            <thead>
-              <tr>
-                <th>Antal aktier</th>
-                <th>Årlig risiko (standardafvigelse)</th>
-                <th>Risikoreduktion vs. 1 aktie</th>
-                <th>Kommentar</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>~50 %</td>
-                <td>0 %</td>
-                <td>Koncentreret – fuld selskabsspecifik risiko</td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>~33 %</td>
-                <td>34 %</td>
-                <td>Stor forbedring, stadig høj risiko</td>
-              </tr>
-              <tr>
-                <td>10</td>
-                <td>~25 %</td>
-                <td>50 %</td>
-                <td>Halveret risiko sammenlignet med 1 aktie</td>
-              </tr>
-              <tr>
-                <td>30</td>
-                <td>~20 %</td>
-                <td>60 %</td>
-                <td>Meste selskabsspecifikke risiko fjernet</td>
-              </tr>
-              <tr>
-                <td>500+</td>
-                <td>~17 %</td>
-                <td>66 %</td>
-                <td>Kun markedsrisiko tilbage (indeksfond)</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p>Som du kan se, sker den største risikoreduktion med de første 10-30 aktier. Herefter flader effekten ud, og du nærmer dig den generelle markedsrisiko, som ikke kan diversificeres væk. Dette er en vigtig indsigt for enhver <a href="../investering-for-begyndere/index.html">begynderinvestor</a>.</p>
-
-        <h2>Korrelation forklaret</h2>
-        <p>Nøglen til effektiv diversificering er <strong>korrelation</strong> – eller rettere mangel på samme. Korrelation måler, i hvor høj grad to investeringer bevæger sig i samme retning. En korrelation på +1 betyder, at de altid bevæger sig ens, mens -1 betyder, at de altid bevæger sig modsat.</p>
-        <p>Når du kombinerer aktiver med lav eller negativ korrelation, reducerer du porteføljens samlede risiko. Et klassisk eksempel er kombinationen af aktier og obligationer. Under en aktienedgang søger investorer typisk sikkerhed i obligationer, hvilket presser obligationskurser op. Derved kompenserer obligationsgevinsten for dele af aktietabet.</p>
-
-        <div class="formula-box">
-          <code>Porteføljerisiko = √(w₁²σ₁² + w₂²σ₂² + 2·w₁·w₂·σ₁·σ₂·ρ₁₂)</code>
-        </div>
-
-        <p>I formlen ovenfor er <em>w</em> vægten af hvert aktiv, <em>σ</em> er risikoen (standardafvigelsen), og <em>ρ</em> er korrelationen mellem de to aktiver. Jo lavere korrelation (ρ), jo lavere samlet porteføljerisiko – selv om de individuelle aktiver har høj risiko.</p>
-
-        <h2>Overdiversificering – er det muligt?</h2>
-        <p>Ja, overdiversificering er et reelt fænomen, selvom det oftere er et problem for aktive investorer end for passive. Det opstår typisk, når en investor køber så mange enkeltstående aktier eller fonde, at porteføljen reelt ligner et indeks – men med langt højere omkostninger og kompleksitet.</p>
-        <p>Tegn på overdiversificering inkluderer:</p>
-        <ul>
-          <li>Du ejer flere fonde, der investerer i de samme aktier (overlap)</li>
-          <li>Din portefølje har over 50 enkeltaktier, og du ikke kan følge med i dem alle</li>
-          <li>De samlede omkostninger er høje på grund af mange små positioner</li>
-          <li>Dit afkast ligner markedsgennemsnittet, men dine omkostninger er væsentligt højere</li>
-        </ul>
-        <p>Forskning viser, at efter ca. 30 aktier fordelt over forskellige sektorer, opnår du det meste af diversificeringsgevinsten. Yderligere aktier reducerer kun risikoen marginalt. Men heldigvis løser indeksfonde dette problem elegant.</p>
-
-        <h2>Praktisk diversificering med indeksfonde</h2>
-        <p>For de fleste danske investorer er den enkleste og mest effektive vej til diversificering at investere i brede <a href="../etf-guide/index.html">indeksfonde eller ETF'er</a>. En enkelt global indeksfond som en MSCI World ETF giver dig øjeblikkelig eksponering mod over 1.500 virksomheder i 23 udviklede lande på tværs af alle sektorer.</p>
-        <p>Fordelen ved denne tilgang er massiv: du opnår bedre diversificering end selv den mest disciplinerede aktievælger kan opnå med enkeltstående aktier, og det til en brøkdel af omkostningerne. En typisk global indeksfond har en årlig omkostningsprocent (ÅOP) på blot 0,10-0,20 %.</p>
-        <p>For endnu bredere diversificering kan du supplere med en emerging markets-fond og en obligationsfond. Med blot 2-3 fonde kan du opbygge en portefølje, der dækker hele den globale økonomi – en <a href="../sikker-investering/index.html">solid og sikker tilgang</a> til investering.</p>
-
-        <h2>Eksempel på en diversificeret portefølje</h2>
-        <p>Her er et eksempel på, hvordan en veldiversificeret portefølje kan se ud for en dansk investor med moderat risikoprofil:</p>
-
-        <div class="result-table-wrap">
-          <table class="result-table">
-            <thead>
-              <tr>
-                <th>Aktivklasse</th>
-                <th>Vægt</th>
-                <th>Eksempel</th>
-                <th>Geografi</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Globale aktier (udviklede markeder)</td>
-                <td>50 %</td>
-                <td>MSCI World ETF</td>
-                <td>USA, Europa, Japan m.fl.</td>
-              </tr>
-              <tr>
-                <td>Emerging markets aktier</td>
-                <td>10 %</td>
-                <td>MSCI EM ETF</td>
-                <td>Kina, Indien, Brasilien m.fl.</td>
-              </tr>
-              <tr>
-                <td>Danske obligationer</td>
-                <td>25 %</td>
-                <td>Dansk obligationsfond</td>
-                <td>Danmark</td>
-              </tr>
-              <tr>
-                <td>Globale obligationer</td>
-                <td>10 %</td>
-                <td>Global obligations-ETF</td>
-                <td>Globalt</td>
-              </tr>
-              <tr>
-                <td>Kontanter / pengemarked</td>
-                <td>5 %</td>
-                <td>Højrentekonto</td>
-                <td>Danmark</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p>Denne portefølje giver eksponering mod tusindvis af aktier og obligationer over hele verden, fordelt over alle sektorer og med en blanding af aktiver der historisk har haft lav korrelation. Det er en robust base, der kan tilpasses din personlige risikoprofil ved at justere fordelingen mellem aktier og obligationer.</p>
-
+        <p>Denne artikel er under udarbejdelse. Kom snart tilbage for det fulde indhold.</p>
         <div class="cta-box">
-          <p>Vil du se, hvordan en diversificeret portefølje kan vokse over tid? Prøv vores beregner og eksperimenter med forskellige afkastscenarier.</p>
-          <a href="../index.html" class="cta-button">Åbn investeringsberegneren</a>
+          <p>Beregn dit forventede afkast med korrekt skatteberegning</p>
+          <a href="../index.html" class="cta-button">Abn investeringsberegneren</a>
         </div>
       </div>
     </div>
 
-    <div class="guide-grid">
-      <a href="../index.html" class="guide-link">
-        <strong>Investeringsberegner</strong>
-        <span>Beregn dit forventede afkast og se effekten af renters rente over tid</span>
-      </a>
-      <a href="../investering-for-begyndere/index.html" class="guide-link">
-        <strong>Investering for begyndere</strong>
-        <span>Alt du skal vide for at komme i gang med at investere i Danmark</span>
-      </a>
-      <a href="../sikker-investering/index.html" class="guide-link">
-        <strong>Sikker investering</strong>
-        <span>Guide til lavrisiko-investeringer og kapitalbevarelse</span>
-      </a>
-      <a href="../bedste-aktier/index.html" class="guide-link">
-        <strong>Bedste aktier</strong>
-        <span>Udforsk strategier til at vælge de rette aktier til din portefølje</span>
-      </a>
-    </div>
-  </main>
+    </main>
 
-  <footer>
-    <p>investeringsberegner.dk – Gratis investeringsberegner med korrekt skatteberegning. Opdateret 2026.</p>
-    <p class="disclaimer">Indholdet på denne side er udelukkende til informationsformål og udgør ikke finansiel rådgivning. Søg altid professionel rådgivning tilpasset din personlige situation, inden du træffer investeringsbeslutninger. Vi påtager os intet ansvar for tab som følge af beslutninger truffet på baggrund af indholdet.</p>
-  </footer>
+    <footer>
+      <p>investeringsberegner.dk – Gratis investeringsberegner med korrekt skatteberegning. Opdateret 2026.</p>
+      <p class="disclaimer">Indholdet paa denne side er udelukkende til informationsformaal og udgoer ikke finansiel raadgivning. Soeg altid professionel raadgivning tilpasset din personlige situation, inden du traeffer investeringsbeslutninger. Vi paatager os intet ansvar for tab som foelge af beslutninger truffet paa baggrund af indholdet.</p>
+    </footer>
 
+  </div>
+
+  <!-- Theme toggle -->
   <script>
-    (function() {
-      var toggle = document.getElementById('theme-toggle');
-      toggle.addEventListener('click', function() {
-        var current = document.documentElement.getAttribute('data-theme');
-        var next = current === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
-      });
-    })();
+    document.getElementById('theme-toggle').addEventListener('click', function() {
+      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
   </script>
+
 </body>
 </html>

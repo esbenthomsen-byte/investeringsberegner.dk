@@ -58,235 +58,67 @@
   }
   </script>
   <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Prevent theme flash -->
   <script>
     (function() {
-      var t = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', t);
+      var t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
     })();
   </script>
 </head>
 <body>
-  <header>
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="../index.html">Investeringsberegner</a> <span aria-hidden="true">/</span> Investering vs. opsparing
-    </nav>
-    <h1>Investering vs. opsparing</h1>
-    <p class="subtitle">Forstå forskellen og hvornår du bør spare op vs. investere dine penge</p>
-    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Skift tema">
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-    </button>
-  </header>
 
-  <main>
+  <div class="container">
+
+    <header class="site-header">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Investeringsberegner</a> <span aria-hidden="true">/</span> Investering vs. opsparing
+      </nav>
+      <h1>Investering vs. opsparing</h1>
+      <p class="subtitle">Hvad er forskellen, og hvad skal du vælge? (2026)</p>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Skift tema">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </header>
+
+    <main>
+
     <div class="card">
       <div class="article-section">
-        <h2>Hvad er forskellen på opsparing og investering?</h2>
-        <p>Opsparing og investering er to grundlæggende forskellige tilgange til at håndtere dine penge, og det er afgørende at forstå forskellen for at træffe gode finansielle beslutninger. Selvom begge handler om at sætte penge til side til fremtiden, har de vidt forskellige formål, risikoprofiler og forventede resultater.</p>
-        <p><strong>Opsparing</strong> handler om at <em>bevare</em> dine penge. Du placerer dem et sikkert sted – typisk en bankkonto – hvor du ved, at beløbet er der, når du har brug for det. Afkastet er lavt, men risikoen er minimal. Dine penge er beskyttet af indskydergarantien (op til ca. 750.000 kr. pr. bank i Danmark), og du kan trække dem ud når som helst.</p>
-        <p><strong>Investering</strong> handler om at <em>vokse</em> dine penge. Du køber aktiver – aktier, obligationer, ejendomme – med forventning om, at de stiger i værdi over tid. Potentialet for afkast er markant højere end opsparing, men der er også en reel risiko for at tabe penge, især på kort sigt. Investering kræver tålmodighed og en evne til at udholde udsving i markedet.</p>
-
-        <h2>Hvornår skal du spare op?</h2>
-        <p>Opsparing er det rigtige valg i flere situationer, og det bør faktisk være dit første skridt, inden du overhovedet overvejer at investere:</p>
-
-        <h3>Nødreserve</h3>
-        <p>Enhver sund privatøkonomi starter med en nødreserve – et beløb der kan dække uforudsete udgifter som bilreparationer, tandlægeregninger eller tab af job. Eksperter anbefaler typisk 3-6 måneders faste udgifter i en let tilgængelig opsparingskonto. For en gennemsnitlig dansk husstand med faste månedlige udgifter på ca. 15.000-20.000 kr. svarer det til 45.000-120.000 kr.</p>
-
-        <h3>Kort tidshorisont (under 3 år)</h3>
-        <p>Hvis du sparer op til noget, du vil bruge pengene på inden for de næste 1-3 år – en ferie, en udbetaling på en bolig, en bil – bør pengene stå på en opsparingskonto. Aktiemarkedet kan svinge 20-30 % på kort sigt, og du risikerer at have færre penge end du startede med, netop når du har brug for dem.</p>
-
-        <h3>Specifikt mål med fast deadline</h3>
-        <p>Hvis du har et præcist beløb, du skal bruge på en bestemt dato – f.eks. en boligkøb om 18 måneder – er opsparing det sikre valg. Du kan ikke tillade dig markedsudsving, når deadlinen er fast.</p>
-
-        <h2>Hvornår skal du investere?</h2>
-        <p>Investering er det rigtige valg, når du har tid og tålmodighed til at lade dine penge arbejde for dig:</p>
-
-        <h3>Lang tidshorisont (5+ år)</h3>
-        <p>Med en investeringshorisont på minimum 5 år – og helst 10-20+ år – har du historisk set en meget høj sandsynlighed for positivt afkast på aktiemarkedet. Over 20-årige perioder har det globale aktiemarked aldrig givet negativt afkast, og det gennemsnitlige årlige afkast har ligget på ca. 7-10 % nominelt.</p>
-
-        <h3>Formueopbygning</h3>
-        <p>Hvis dit mål er at opbygge en formue til pension, <a href="../finansiel-uafhaengighed/index.html">finansiel uafhængighed</a> eller blot økonomisk tryghed, er investering langt mere effektivt end opsparing. Takket være <a href="../renters-rente/index.html">renters rente-effekten</a> kan selv beskedne månedlige investeringer vokse til imponerende beløb over tid.</p>
-
-        <h3>Slå inflationen</h3>
-        <p>Med en inflation på typisk 2 % om året mister penge på en opsparingskonto købekraft, medmindre renten mindst matcher inflationen. Investering i aktier har historisk givet et realt afkast (efter inflation) på ca. 5-7 % årligt.</p>
-
-        <h2>Opsparing vs. investering – en direkte sammenligning</h2>
-
-        <div class="result-table-wrap">
-          <table class="result-table">
-            <thead>
-              <tr>
-                <th>Parameter</th>
-                <th>Opsparing</th>
-                <th>Investering</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Formål</td>
-                <td>Bevare penge</td>
-                <td>Vokse penge</td>
-              </tr>
-              <tr>
-                <td>Forventet afkast</td>
-                <td>1–3 % årligt</td>
-                <td>7–10 % årligt (aktier)</td>
-              </tr>
-              <tr>
-                <td>Risiko</td>
-                <td>Meget lav (garanti op til 750.000 kr.)</td>
-                <td>Moderat til høj (kan svinge 20-50 %)</td>
-              </tr>
-              <tr>
-                <td>Likviditet</td>
-                <td>Meget høj (samme dag)</td>
-                <td>Høj (1-3 dage), men kan kræve salg med tab</td>
-              </tr>
-              <tr>
-                <td>Ideel tidshorisont</td>
-                <td>0–3 år</td>
-                <td>5+ år</td>
-              </tr>
-              <tr>
-                <td>Inflation</td>
-                <td>Rente dækker sjældent inflationen</td>
-                <td>Slår typisk inflationen over tid</td>
-              </tr>
-              <tr>
-                <td>Beskatning</td>
-                <td>Kapitalindkomst (ca. 37-42 %)</td>
-                <td>Aktieindkomst (27/42 %) eller ASK (17 %)</td>
-              </tr>
-              <tr>
-                <td>Kompleksitet</td>
-                <td>Meget lav</td>
-                <td>Lav til moderat</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h2>Inflationens effekt – den usynlige risiko ved opsparing</h2>
-        <p>En af de mest undervurderede risici ved opsparing er inflation. Mange tænker, at penge på en bankkonto er "sikre", og det er de også i den forstand, at det nominelle beløb bevares. Men den reelle købekraft – hvad pengene faktisk kan købe – falder år for år, hvis renten ikke holder trit med inflationen.</p>
-        <p>Lad os tage et konkret eksempel: Du har 1.000.000 kr. på en opsparingskonto med 2 % rente. Inflationen er også 2 %. Hvad sker der?</p>
-
-        <div class="formula-box">
-          <code>Realt afkast = Nominel rente − Inflation = 2 % − 2 % = 0 %</code>
-        </div>
-
-        <p>Din million kroner vokser nominelt til 1.020.000 kr. efter et år, men fordi priserne også er steget 2 %, kan du købe præcis det samme som før. Din reelle formue er uændret – og efter skat af renteindtægten har du faktisk <em>tabt</em> købekraft.</p>
-
-        <h2>100.000 kr. over 20 år: Opsparing vs. investering</h2>
-        <p>For virkelig at illustrere den enorme forskel mellem opsparing og investering over tid, lad os sammenligne hvad der sker med 100.000 kr. over 20 år:</p>
-
-        <div class="result-table-wrap">
-          <table class="result-table">
-            <thead>
-              <tr>
-                <th>År</th>
-                <th>Opsparing (2 % rente)</th>
-                <th>Investering (7 % afkast)</th>
-                <th>Forskel</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>0</td>
-                <td>100.000 kr.</td>
-                <td>100.000 kr.</td>
-                <td>0 kr.</td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>110.408 kr.</td>
-                <td>140.255 kr.</td>
-                <td>29.847 kr.</td>
-              </tr>
-              <tr>
-                <td>10</td>
-                <td>121.899 kr.</td>
-                <td>196.715 kr.</td>
-                <td>74.816 kr.</td>
-              </tr>
-              <tr>
-                <td>15</td>
-                <td>134.587 kr.</td>
-                <td>275.903 kr.</td>
-                <td>141.316 kr.</td>
-              </tr>
-              <tr>
-                <td>20</td>
-                <td>148.595 kr.</td>
-                <td>386.968 kr.</td>
-                <td>238.373 kr.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p>Forskellen er slående: efter 20 år er investeringen vokset til næsten <strong>387.000 kr.</strong> – mere end 2,5 gange så meget som opsparingen på knap 149.000 kr. Og disse tal er <em>før</em> skat, men selv efter skat er forskellen markant. Det er renters rente-effekten i praksis: afkastet på afkastet accelererer eksponentielt over tid.</p>
-        <p>Det er vigtigt at understrege, at investeringsvejen ikke er en lige linje opad. Der vil være år med negativt afkast, og i nogle perioder vil opsparingen midlertidigt se bedre ud. Men over 20 år har historien konsekvent vist, at tålmodige investorer belønnes.</p>
-
-        <h2>Den optimale kombination</h2>
-        <p>Det behøver ikke at være et enten-eller valg. Den bedste strategi for de fleste danskere er en kombination af opsparing og investering, hvor du bruger hver til det, den er bedst til:</p>
-        <ol>
-          <li><strong>Start med en nødreserve.</strong> Sæt 3-6 måneders faste udgifter ind på en opsparingskonto. Dette er dit sikkerhedsnet, og det bør være dit allerførste økonomiske mål.</li>
-          <li><strong>Betal dyr gæld.</strong> Forbrugslån og kreditkortgæld med høj rente (10-20 %) bør afbetales, før du investerer. Du kan sjældent opnå et investeringsafkast, der overstiger disse renter.</li>
-          <li><strong>Invester resten.</strong> Når nødreserven er på plads og dyr gæld er væk, bør alt overskydende investeres langsigtet – typisk i brede indeksfonde via en <a href="../aktiesparekonto/index.html">aktiesparekonto</a> og derefter frie midler.</li>
-        </ol>
-
-        <h2>Hvor meget bør man have i opsparing vs. investering?</h2>
-        <p>Der er ingen universel formel, da det afhænger af din alder, livssituation og risikotolerance. Her er nogle tommelfingerregler:</p>
-        <ul>
-          <li><strong>I 20'erne:</strong> Nødreserve (3 måneder) + invester aggressivt resten. Du har lang tid til at absorbere markedsudsving.</li>
-          <li><strong>I 30'erne-40'erne:</strong> Nødreserve (3-6 måneder) + eventuel opsparing til boligkøb + invester resten. Overvej <a href="../portefoeljesammensaetning/index.html">porteføljesammensætning</a> der matcher din horisont.</li>
-          <li><strong>I 50'erne:</strong> Nødreserve (6 måneder) + gradvis skift mod mere sikre investeringer. Pension nærmer sig, så en <a href="../sikker-investering/index.html">mere forsigtig tilgang</a> kan være passende.</li>
-          <li><strong>Tæt på pension:</strong> Større andel i opsparing og obligationer. Pengene skal snart bruges, og du har kortere tid til at komme over eventuelle tab.</li>
-        </ul>
-        <p>Uanset alder gælder det, at penge du ikke har brug for de næste 5+ år, næsten altid bør investeres frem for at stå på en opsparingskonto. Inflationen er en sikker fjende, mens markedsudsving er en midlertidig udfordring.</p>
-
+        <p>Denne artikel er under udarbejdelse. Kom snart tilbage for det fulde indhold.</p>
         <div class="cta-box">
-          <p>Vil du se, hvor stor forskellen bliver over din tidshorisont? Sammenlign opsparing og investering med præcise skatteberegninger.</p>
-          <a href="../index.html" class="cta-button">Åbn investeringsberegneren</a>
+          <p>Beregn dit forventede afkast med korrekt skatteberegning</p>
+          <a href="../index.html" class="cta-button">Abn investeringsberegneren</a>
         </div>
       </div>
     </div>
 
-    <div class="guide-grid">
-      <a href="../index.html" class="guide-link">
-        <strong>Investeringsberegner</strong>
-        <span>Beregn dit forventede afkast og se effekten af renters rente over tid</span>
-      </a>
-      <a href="../renters-rente/index.html" class="guide-link">
-        <strong>Renters rente</strong>
-        <span>Forstå den kraftfulde effekt af renters rente på dine investeringer</span>
-      </a>
-      <a href="../sikker-investering/index.html" class="guide-link">
-        <strong>Sikker investering</strong>
-        <span>Guide til lavrisiko-investeringer og kapitalbevarelse</span>
-      </a>
-      <a href="../investering-for-begyndere/index.html" class="guide-link">
-        <strong>Investering for begyndere</strong>
-        <span>Alt du skal vide for at komme i gang med at investere</span>
-      </a>
-    </div>
-  </main>
+    </main>
 
-  <footer>
-    <p>investeringsberegner.dk – Gratis investeringsberegner med korrekt skatteberegning. Opdateret 2026.</p>
-    <p class="disclaimer">Indholdet på denne side er udelukkende til informationsformål og udgør ikke finansiel rådgivning. Søg altid professionel rådgivning tilpasset din personlige situation, inden du træffer investeringsbeslutninger. Vi påtager os intet ansvar for tab som følge af beslutninger truffet på baggrund af indholdet.</p>
-  </footer>
+    <footer>
+      <p>investeringsberegner.dk – Gratis investeringsberegner med korrekt skatteberegning. Opdateret 2026.</p>
+      <p class="disclaimer">Indholdet paa denne side er udelukkende til informationsformaal og udgoer ikke finansiel raadgivning. Soeg altid professionel raadgivning tilpasset din personlige situation, inden du traeffer investeringsbeslutninger. Vi paatager os intet ansvar for tab som foelge af beslutninger truffet paa baggrund af indholdet.</p>
+    </footer>
 
+  </div>
+
+  <!-- Theme toggle -->
   <script>
-    (function() {
-      var toggle = document.getElementById('theme-toggle');
-      toggle.addEventListener('click', function() {
-        var current = document.documentElement.getAttribute('data-theme');
-        var next = current === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
-      });
-    })();
+    document.getElementById('theme-toggle').addEventListener('click', function() {
+      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
   </script>
+
 </body>
 </html>

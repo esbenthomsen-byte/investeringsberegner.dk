@@ -333,14 +333,22 @@ function setupSharing() {
 // ============================================================
 function setupThemeToggle() {
   const btn = document.getElementById('theme-toggle');
-  btn.addEventListener('click', () => {
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    const next = isDark ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
-    // Re-render chart so colours update
-    recalculate();
-  });
+  if (window.__themeToggleReady) {
+    // Inline script already handles theme switching; just re-render chart on click
+    btn.addEventListener('click', () => recalculate());
+  } else {
+    btn.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
+      recalculate();
+    });
+  }
 }
 
 // ============================================================

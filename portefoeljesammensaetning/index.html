@@ -58,253 +58,67 @@
   }
   </script>
   <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Prevent theme flash -->
   <script>
     (function() {
-      var t = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', t);
+      var t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
     })();
   </script>
 </head>
 <body>
-  <header>
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="../index.html">Investeringsberegner</a> <span aria-hidden="true">/</span> Porteføljesammensætning
-    </nav>
-    <h1>Porteføljesammensætning</h1>
-    <p class="subtitle">Lær at sammensætte en investeringsportefølje der passer til din risikoprofil</p>
-    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Skift tema">
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-    </button>
-  </header>
 
-  <main>
+  <div class="container">
+
+    <header class="site-header">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Investeringsberegner</a> <span aria-hidden="true">/</span> Portefoeljesammensaetning
+      </nav>
+      <h1>Porteføljesammensætning</h1>
+      <p class="subtitle">Byg den optimale investeringsportefølje (2026)</p>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Skift tema">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </header>
+
+    <main>
+
     <div class="card">
       <div class="article-section">
-        <h2>Hvad er porteføljesammensætning?</h2>
-        <p>Porteføljesammensætning – også kaldet aktivallokering eller asset allocation – er processen med at fordele dine investeringer over forskellige aktivklasser for at opnå den bedste balance mellem afkast og risiko. Det er den vigtigste beslutning du træffer som investor, og forskning viser konsekvent, at aktivallokering er ansvarlig for over 90 % af variationen i en porteføljes afkast over tid.</p>
-        <p>I praksis handler det om at beslutte, hvor stor en del af dine penge der skal placeres i aktier, obligationer, kontanter og eventuelt alternative investeringer. Denne fordeling bør afspejle din personlige situation: din tidshorisont, din evne til at tåle tab, og dine økonomiske mål. En ung investor der sparer op til pension om 30 år har en helt anden optimal portefølje end en pensionist der lever af sine investeringer.</p>
-        <p>God porteføljesammensætning handler ikke om at jage det højeste afkast, men om at opnå det højeste afkast <em>du kan holde fast i</em> – også når markederne falder. En alt for aggressiv portefølje kan friste dig til at sælge i panik under et krak, og det er den dyreste fejl en investor kan begå.</p>
-
-        <h2>De vigtigste aktivklasser</h2>
-        <p>En veldiversificeret portefølje bygges med en kombination af forskellige aktivklasser. Her er de mest relevante for danske investorer:</p>
-
-        <h3>Aktier</h3>
-        <p>Aktier repræsenterer ejerskab i virksomheder og er historisk den aktivklasse med det højeste langsigtede afkast – ca. 7-10 % nominelt pr. år over lange perioder. Til gengæld er aktier også den mest volatile aktivklasse, med årlige udsving på 15-25 % og enkeltår med fald på 30-50 %. Aktier bør udgøre kernen i enhver langsigtet investeringsportefølje og kan tilgås nemt via brede <a href="../etf-guide/index.html">indeksfonde og ETF'er</a>.</p>
-
-        <h3>Obligationer</h3>
-        <p>Obligationer er lån til stater eller virksomheder, der betaler en fast rente og returnerer hovedstolen ved udløb. De giver typisk lavere afkast end aktier (2-4 % årligt), men med markant lavere risiko. Obligationer fungerer som en stabilisator i porteføljen, da de ofte stiger i værdi, når aktier falder. For danske investorer er danske stats- og realkreditobligationer populære valg.</p>
-
-        <h3>Kontanter og pengemarked</h3>
-        <p>Kontanter på en <a href="../investering-vs-opsparing/index.html">opsparingskonto</a> eller i pengemarkedsfonde giver den laveste risiko og det laveste afkast (1-3 %). Kontanter bør primært bruges som nødreserve og til kortsigtet likviditetsbehov. En for stor andel i kontanter over lang tid medfører tab af købekraft på grund af inflation.</p>
-
-        <h3>Alternativer</h3>
-        <p>Alternative investeringer inkluderer ejendomme (direkte eller via REITs), råvarer, guld og kryptovaluta. Disse kan tilføre <a href="../diversificering/index.html">diversificering</a>, da de ofte har lav korrelation med aktier og obligationer. For de fleste private investorer er alternativer dog unødvendige, og en simpel portefølje af aktier og obligationer dækker det meste af behovet.</p>
-
-        <h2>Risikoprofiler og aktivallokering</h2>
-        <p>Din risikoprofil bestemmer, hvordan du bør fordele dine investeringer. Her er fire typiske risikoprofiler med tilhørende aktivallokeringer:</p>
-
-        <div class="result-table-wrap">
-          <table class="result-table">
-            <thead>
-              <tr>
-                <th>Risikoprofil</th>
-                <th>Aktier</th>
-                <th>Obligationer</th>
-                <th>Kontanter</th>
-                <th>Forventet afkast</th>
-                <th>Typisk max drawdown</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Konservativ</td>
-                <td>20 %</td>
-                <td>70 %</td>
-                <td>10 %</td>
-                <td>3–5 %</td>
-                <td>-10 %</td>
-              </tr>
-              <tr>
-                <td>Balanceret</td>
-                <td>50 %</td>
-                <td>40 %</td>
-                <td>10 %</td>
-                <td>5–7 %</td>
-                <td>-20 %</td>
-              </tr>
-              <tr>
-                <td>Vækst</td>
-                <td>70 %</td>
-                <td>25 %</td>
-                <td>5 %</td>
-                <td>6–8 %</td>
-                <td>-30 %</td>
-              </tr>
-              <tr>
-                <td>Aggressiv</td>
-                <td>90 %</td>
-                <td>10 %</td>
-                <td>0 %</td>
-                <td>7–10 %</td>
-                <td>-40 %</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p>Den rigtige profil for dig afhænger af tre faktorer:</p>
-        <ul>
-          <li><strong>Tidshorisont:</strong> Jo længere du kan investere, jo mere risiko kan du tage. Med 20+ år til pension kan du tåle store udsving, da markedet historisk altid er kommet tilbage.</li>
-          <li><strong>Økonomisk situation:</strong> Stabil indkomst, lav gæld og solid nødreserve giver dig mulighed for at tage mere risiko. Usikker økonomi kræver en mere konservativ tilgang.</li>
-          <li><strong>Psykologisk risikotolerance:</strong> Kan du se din portefølje falde 30 % uden at sælge? Hvis ikke, bør du vælge en mere konservativ allokering, også selvom din tidshorisont tillader mere risiko.</li>
-        </ul>
-
-        <h2>Alder og risiko – "100 minus din alder"-reglen</h2>
-        <p>En af de mest kendte tommelfingerregler for aktivallokering er at have "100 minus din alder" i aktier. En 30-årig ville dermed have 70 % i aktier og 30 % i obligationer, mens en 60-årig ville have 40/60.</p>
-
-        <div class="formula-box">
-          <code>Aktieandel = 100 − din alder (eller 110/120 − din alder for mere aggressiv tilgang)</code>
-        </div>
-
-        <p>Denne regel er et nyttigt udgangspunkt, men den har begrænsninger:</p>
-        <ul>
-          <li><strong>Folk lever længere:</strong> Med forventet levetid langt over 80 år for nutidens unge, har mange eksperter opdateret reglen til "110 minus din alder" eller endda "120 minus din alder" for at sikre, at porteføljen ikke bliver for konservativ for tidligt.</li>
-          <li><strong>Den ignorerer individuelle forhold:</strong> En 50-årig med stor formue og sikker pension kan tillade sig en mere aggressiv portefølje end en 30-årig med usikker indkomst og stor gæld.</li>
-          <li><strong>Obligationsrenter varierer:</strong> I perioder med meget lave renter (som vi så i 2010'erne) kan obligationer give næsten nul reel rente, hvilket gør en høj obligationsandel mindre attraktiv.</li>
-        </ul>
-        <p>Brug reglen som et startpunkt, og tilpas derefter baseret på din personlige situation og komfortniveau.</p>
-
-        <h2>Rebalancering: Hvornår og hvordan</h2>
-        <p>Over tid vil markedsbevægelser ændre din porteføljes sammensætning. Hvis aktier stiger 20 % og obligationer er uændrede, vil din aktieandel vokse og din portefølje bliver mere risikabel end planlagt. Rebalancering er processen med at bringe porteføljen tilbage til din målallokering.</p>
-
-        <h3>Hvor ofte bør du rebalancere?</h3>
-        <p>Der er to hovedtilgange:</p>
-        <ul>
-          <li><strong>Tidsbaseret:</strong> Rebalanc&eacute;r 1-2 gange om året, f.eks. i januar eller hvert halvår. Simpelt og disciplineret.</li>
-          <li><strong>Tærskelbaseret:</strong> Rebalanc&eacute;r, når en aktivklasse afviger mere end 5 procentpoint fra din målallokering. Mere præcist, men kræver løbende overvågning.</li>
-        </ul>
-        <p>For de fleste investorer er en årlig rebalancering tilstrækkelig. Mere hyppig rebalancering øger transaktionsomkostninger og kan udløse skat, uden at forbedre afkastet nævneværdigt.</p>
-
-        <h3>Sådan rebalancerer du i praksis</h3>
-        <p>Den mest skatteeffektive metode er at rebalancere med nye indskud. I stedet for at sælge aktiver der er steget (og betale skat af gevinsten), investerer du dine nye månedlige indskud i de aktivklasser, der er undervægtede. Over tid bringer dette porteføljen tilbage mod målallokeringen uden at udløse skat.</p>
-
-        <h2>Eksempelporteføljer for danske investorer</h2>
-        <p>Her er tre konkrete porteføljeer sammensat med fonde og ETF'er der er tilgængelige for danske investorer. Disse er eksempler – ikke personlige anbefalinger:</p>
-
-        <div class="result-table-wrap">
-          <table class="result-table">
-            <thead>
-              <tr>
-                <th>Fond/ETF</th>
-                <th>Portefølje 1: Forsigtig</th>
-                <th>Portefølje 2: Balanceret</th>
-                <th>Portefølje 3: Vækst</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Global aktie-ETF (MSCI World)</td>
-                <td>15 %</td>
-                <td>40 %</td>
-                <td>65 %</td>
-              </tr>
-              <tr>
-                <td>Emerging Markets aktie-ETF</td>
-                <td>5 %</td>
-                <td>10 %</td>
-                <td>15 %</td>
-              </tr>
-              <tr>
-                <td>Dansk obligationsfond (kort løbetid)</td>
-                <td>40 %</td>
-                <td>20 %</td>
-                <td>10 %</td>
-              </tr>
-              <tr>
-                <td>Global obligations-ETF</td>
-                <td>25 %</td>
-                <td>15 %</td>
-                <td>5 %</td>
-              </tr>
-              <tr>
-                <td>Dansk small-cap fond</td>
-                <td>0 %</td>
-                <td>5 %</td>
-                <td>5 %</td>
-              </tr>
-              <tr>
-                <td>Kontanter / pengemarked</td>
-                <td>15 %</td>
-                <td>10 %</td>
-                <td>0 %</td>
-              </tr>
-              <tr>
-                <td><strong>Samlet aktieandel</strong></td>
-                <td><strong>20 %</strong></td>
-                <td><strong>55 %</strong></td>
-                <td><strong>85 %</strong></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p><strong>Portefølje 1 (Forsigtig)</strong> er velegnet til investorer med kort tidshorisont (5-10 år) eller lav risikotolerance. Den giver stabil indkomst fra obligationer med begrænset eksponering mod aktiemarkedet.</p>
-        <p><strong>Portefølje 2 (Balanceret)</strong> passer til de fleste investorer med medium tidshorisont (10-20 år). Den balancerer vækstpotentiale med stabilitet og kan forvente et afkast på ca. 5-7 % årligt over lange perioder.</p>
-        <p><strong>Portefølje 3 (Vækst)</strong> er designet til unge investorer med lang tidshorisont (20+ år) og høj risikotolerance. Den maksimerer det langsigtede afkastpotentiale, men vil opleve betydelige udsving undervejs. Denne portefølje er ideel til <a href="../passiv-indkomst/index.html">langsigtet formueopbygning</a>.</p>
-
-        <h2>Skatteoptimering af porteføljen</h2>
-        <p>Hvor du placerer dine investeringer – hvilken kontotype – kan have næsten lige så stor betydning som hvad du investerer i. Her er den optimale prioriteringsrækkefølge for danske investorer:</p>
-        <ol>
-          <li><strong><a href="../aktiesparekonto/index.html">Aktiesparekonto (ASK)</a> – fyld først.</strong> Med kun 17 % skat er ASK den mest skatteeffektive konto for aktier og ETF'er. Placer dine aktie-ETF'er her først (op til indskudsloftet på 150.000 kr. i 2026).</li>
-          <li><strong>Arbejdsgiverpension – udnyt matchet.</strong> Hvis din arbejdsgiver matcher dine pensionsbidrag (f.eks. betaler 2:1), er det den højeste "risikofrie" rente du kan få. Sørg for at bidrage nok til at få fuld matching.</li>
-          <li><strong>Frie midler – resten.</strong> For investeringer ud over ASK-loftet, brug frie midler. Overvej <a href="../skat-paa-etf/index.html">skatteoptimerede</a> valg som danske investeringsforeninger med realisationsbeskatning for at undgå lagerbeskatning.</li>
-          <li><strong>Ratepension / aldersopsparing.</strong> Yderligere skatteoptimering via pensionsordninger kan give mening afhængigt af din indkomst og marginalskat.</li>
-        </ol>
-        <p>Ved at placere de mest skattetunge investeringer (som aktier med højt afkast) på de mest skattefordelagtige konti, maksimerer du dit efter-skat-afkast over tid. En <a href="../beskatning-aktier/index.html">grundig forståelse af skattereglerne</a> er en af de bedste investeringer du kan gøre i dig selv som investor.</p>
-
+        <p>Denne artikel er under udarbejdelse. Kom snart tilbage for det fulde indhold.</p>
         <div class="cta-box">
-          <p>Klar til at beregne, hvad din portefølje kan vokse til? Indtast dine tal og se resultatet med korrekt skatteberegning.</p>
-          <a href="../index.html" class="cta-button">Åbn investeringsberegneren</a>
+          <p>Beregn dit forventede afkast med korrekt skatteberegning</p>
+          <a href="../index.html" class="cta-button">Abn investeringsberegneren</a>
         </div>
       </div>
     </div>
 
-    <div class="guide-grid">
-      <a href="../index.html" class="guide-link">
-        <strong>Investeringsberegner</strong>
-        <span>Beregn dit forventede afkast med korrekt skatteberegning</span>
-      </a>
-      <a href="../diversificering/index.html" class="guide-link">
-        <strong>Diversificering</strong>
-        <span>Spred din risiko og beskyt din portefølje mod tab</span>
-      </a>
-      <a href="../etf-guide/index.html" class="guide-link">
-        <strong>ETF-guide</strong>
-        <span>Alt om ETF'er – hvad de er, og hvordan du investerer i dem</span>
-      </a>
-      <a href="../sikker-investering/index.html" class="guide-link">
-        <strong>Sikker investering</strong>
-        <span>Guide til lavrisiko-investeringer og kapitalbevarelse</span>
-      </a>
-    </div>
-  </main>
+    </main>
 
-  <footer>
-    <p>investeringsberegner.dk – Gratis investeringsberegner med korrekt skatteberegning. Opdateret 2026.</p>
-    <p class="disclaimer">Indholdet på denne side er udelukkende til informationsformål og udgør ikke finansiel rådgivning. Søg altid professionel rådgivning tilpasset din personlige situation, inden du træffer investeringsbeslutninger. Vi påtager os intet ansvar for tab som følge af beslutninger truffet på baggrund af indholdet.</p>
-  </footer>
+    <footer>
+      <p>investeringsberegner.dk – Gratis investeringsberegner med korrekt skatteberegning. Opdateret 2026.</p>
+      <p class="disclaimer">Indholdet paa denne side er udelukkende til informationsformaal og udgoer ikke finansiel raadgivning. Soeg altid professionel raadgivning tilpasset din personlige situation, inden du traeffer investeringsbeslutninger. Vi paatager os intet ansvar for tab som foelge af beslutninger truffet paa baggrund af indholdet.</p>
+    </footer>
 
+  </div>
+
+  <!-- Theme toggle -->
   <script>
-    (function() {
-      var toggle = document.getElementById('theme-toggle');
-      toggle.addEventListener('click', function() {
-        var current = document.documentElement.getAttribute('data-theme');
-        var next = current === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
-      });
-    })();
+    document.getElementById('theme-toggle').addEventListener('click', function() {
+      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
   </script>
+
 </body>
 </html>

@@ -92,223 +92,67 @@
   </script>
 
   <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Prevent theme flash -->
   <script>
     (function() {
-      var t = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', t);
+      var t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
     })();
   </script>
 </head>
 <body>
-  <header>
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="../index.html">Investeringsberegner</a> <span aria-hidden="true">/</span> Investeringsstrategier
-    </nav>
-    <h1>Investeringsstrategier</h1>
-    <p class="subtitle">Find den strategi der passer til din risikoprofil, tidshorisont og maal</p>
-    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Skift tema">
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-    </button>
-  </header>
 
-  <main>
+  <div class="container">
+
+    <header class="site-header">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Investeringsberegner</a> <span aria-hidden="true">/</span> Investeringsstrategier
+      </nav>
+      <h1>Investeringsstrategier</h1>
+      <p class="subtitle">Find den rette strategi for dig (2026)</p>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Skift tema">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </header>
+
+    <main>
+
     <div class="card">
       <div class="article-section">
-        <h2>Overblik over investeringsstrategier</h2>
-        <p>En investeringsstrategi er din plan for, hvordan du vaelger og forvalter dine investeringer over tid. Den rigtige strategi afhaenger af din tidshorisont, risikotolerance, viden og personlige oekonomiske maal. Der findes ikke en universelt "bedste" strategi, men der er strategier der er mere velegnede til forskellige investortyper.</p>
-        <p>I denne guide gennemgaar vi de mest udbredte investeringsstrategier – fra enkel passiv investering til mere avancerede tilgange som value investing og momentum. Uanset om du er <a href="../investering-for-begyndere/index.html">nybegynder</a> eller erfaren investor, kan du bruge denne oversigt til at finde den tilgang, der passer dig bedst.</p>
-
-        <h2>Passiv vs. aktiv investering</h2>
-        <p>Det mest fundamentale valg enhver investor staar over for er, om man vil investere passivt eller aktivt. Her er de vigtigste forskelle:</p>
-
-        <div class="result-table-wrap">
-          <table class="result-table">
-            <thead>
-              <tr>
-                <th>Parameter</th>
-                <th>Passiv investering</th>
-                <th>Aktiv investering</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Maal</td>
-                <td>Foelge markedsafkastet</td>
-                <td>Slaa markedet</td>
-              </tr>
-              <tr>
-                <td>Omkostninger (AOP)</td>
-                <td>0,07-0,20 %</td>
-                <td>0,50-2,00 %</td>
-              </tr>
-              <tr>
-                <td>Tidsforbrug</td>
-                <td>Minimalt (automatiseret)</td>
-                <td>Hoejt (research og analyse)</td>
-              </tr>
-              <tr>
-                <td>Historisk succes</td>
-                <td>Slaar 80-90 % af aktive fonde over 15 aar</td>
-                <td>10-20 % slaar indeks over 15 aar</td>
-              </tr>
-              <tr>
-                <td>Viden kraevet</td>
-                <td>Grundlaeggende</td>
-                <td>Omfattende</td>
-              </tr>
-              <tr>
-                <td>Eksempel</td>
-                <td>MSCI World indeksfond</td>
-                <td>Haandplukkede enkeltstaaende aktier</td>
-              </tr>
-              <tr>
-                <td>Bedst egnet til</td>
-                <td>De fleste investorer</td>
-                <td>Erfarne med tid og interesse</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p>Forskning viser konsekvent, at passiv investering i <a href="../indeksfonde-vs-aktive-fonde/index.html">indeksfonde</a> giver bedre resultater end de fleste aktive forvaltere over tid. Det skyldes primaert de lavere omkostninger og det faktum, at markedet er svaert at slaa systematisk. For langt de fleste investorer er passiv investering det mest fornuftige udgangspunkt.</p>
-
-        <h2>Buy and hold</h2>
-        <p>Buy and hold er en af de aeldste og mest afproevede investeringsstrategier. Princippet er simpelt: koeb kvalitetsinvesteringer og hold dem i lang tid – typisk aartier – uanset kortsigtede udsving i markedet. Strategien udnytter <a href="../renters-rente/index.html">renters rente-effekten</a> og reducerer handelsomkostninger og skat til et minimum.</p>
-        <p>Historisk set har globale aktiemarkeder leveret et gennemsnitligt aarligt afkast paa ca. 7-10 % foer inflation. Ved at forblive investeret og modstaa fristelsen til at handle paa kortsigtede bevaegelser faar du gavn af denne langsigtede vaekst. De fleste fejl i investering skyldes netop overhandling og forsog paa at "time" markedet.</p>
-
-        <h2>Value investing</h2>
-        <p>Value investing er en strategi populariseret af Benjamin Graham og mest kendt gennem Warren Buffetts succes. Grundideen er at finde aktier, der handles til en lavere pris end deres indre vaerdi – altsaa "undervurderede" aktier. Investoren koeber disse aktier med en "sikkerhedsmargin" og venter paa, at markedet indser den sande vaerdi.</p>
-        <p>Typiske kendetegn ved value-aktier er lav pris i forhold til indtjening (P/E), lav pris i forhold til bogfoert vaerdi (P/B) og hoej udbytteprocent. Value investing kraever grundig analyse af regnskaber og taalmodighed, da det kan tage aar, foer markedet korrigerer en undervurdering.</p>
-
-        <div class="formula-box">
-          <code>Sikkerhedsmargin = (Indre vaerdi - Markedspris) / Indre vaerdi</code>
-        </div>
-
-        <p>Ulempen ved value investing er, at det kraever betydelig tid og ekspertise, og at "billige" aktier ikke altid er gode investeringer – nogle er billige med god grund (saakaldte "value traps").</p>
-
-        <h2>Growth investing (vaekstinvestering)</h2>
-        <p>Vaekstinvestering er paa mange maader det modsatte af value investing. Her fokuserer investoren paa virksomheder med hoej omsaetningsvaekst og indtjeningspotentiale – ogsaa selv om aktien allerede handles til en hoej pris. Tanken er, at virksomhedens hurtige vaekst retfaerdiggoer den hoeje vaerdiansaettelse.</p>
-        <p>Teknologisektoren har vaeret domineret af vaekstaktier, og mange af de stoerste afkast i de seneste aartier er kommet fra vaekstselskaber. Risikoen er dog ogsaa hoejere: hvis vaeksten skuffer, kan aktiekursen falde dramatisk. Under stigende renter har vaekstaktier historisk klaret sig daarligere end value-aktier.</p>
-
-        <h2>Udbytteinvestering</h2>
-        <p>Udbytteinvestering fokuserer paa aktier, der udbetaler regelmaessigt udbytte til aktionaererne. Strategien er saerligt populaer blandt investorer, der oensker <a href="../passiv-indkomst/index.html">passiv indkomst</a> eller er taettere paa pension. Udbytteaktier er typisk modne, stabile virksomheder med forudsigelig indtjening.</p>
-        <p>En vigtig metrisk er udbytteprocenten, men pas paa ikke udelukkende at jagte hoejt udbytte – et ubaeredygtigt hoejt udbytte kan vaere tegn paa problemer. Se ogsaa paa udbyttevaeksten over tid og selskabets evne til at fastholde udbetalingen.</p>
-
-        <h2>Momentum investing</h2>
-        <p>Momentumstrategien bygger paa observationen, at aktier der har klaret sig godt i den seneste periode, har tendens til at fortsaette med at klare sig godt – og omvendt. Investoren koeber aktier med positiv kursudvikling og saelger (eller undgaar) aktier med negativ kursudvikling.</p>
-        <p>Momentum er veldokumenteret i akademisk forskning og kan levere merafkast, men strategien kraever regelmaessig rebalancering, har hoejere handelsomkostninger og kan vaere saarbar over for pludselige markedsvendinger. Det er typisk en strategi for mere avancerede investorer.</p>
-
-        <h2>Dollar-cost averaging (DCA)</h2>
-        <p><a href="../dollar-cost-averaging/index.html">Dollar-cost averaging</a> er en investeringstilgang, hvor du investerer et fast beloeb med faste intervaller – f.eks. 2.000 kr om maaneden via en <a href="../maanedsopsparing/index.html">maanedsopsparing</a>. Strategien sikrer, at du koeber flere andele naar kurserne er lave og faerre naar kurserne er hoeje, hvilket giver en gennemsnitlig koebspris over tid.</p>
-        <p>DCA er saerligt vaerdifuld for investorer, der:</p>
-        <ul>
-          <li>Vil undgaa risikoen ved at investere et stort beloeb paa det forkerte tidspunkt</li>
-          <li>Foretraekker en automatiseret, disciplineret tilgang</li>
-          <li>Investerer fra deres maanedlige loen og ikke har et stort engangsbeloeb</li>
-        </ul>
-
-        <h2>Core-satellite-strategien</h2>
-        <p>Core-satellite er en hybrid tilgang, der kombinerer passiv og aktiv investering. Kernen (70-90 %) bestaaar af brede, billige indeksfonde, mens en mindre "satellit"-del (10-30 %) bruges til aktive strategier som <a href="../bedste-aktier/index.html">enkeltstaaende aktier</a>, tematiske investeringer eller alternative aktiver.</p>
-        <p>Fordelen er, at du faar markedsafkastet som base og samtidig har mulighed for at tilfoeje merafkast med den aktive del – uden at risikere hele portefoeljen. Denne tilgang er populaer blandt mange erfarne investorer og kan tilpasses din personlige risikoprofil.</p>
-
-        <h2>Vaelg strategi ud fra din profil</h2>
-        <p>Den bedste strategi afhaenger af tre hovedfaktorer: din tidshorisont, din risikotolerance og din viden/interesse. Her er en vejledende oversigt:</p>
-
-        <div class="result-table-wrap">
-          <table class="result-table">
-            <thead>
-              <tr>
-                <th>Investortype</th>
-                <th>Tidshorisont</th>
-                <th>Anbefalet strategi</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Nybegynder, lav risiko</td>
-                <td>5-10 aar</td>
-                <td>Passiv indeksinvestering + DCA</td>
-              </tr>
-              <tr>
-                <td>Nybegynder, hoej risiko</td>
-                <td>10+ aar</td>
-                <td>Passiv indeks med hoejere aktieandel</td>
-              </tr>
-              <tr>
-                <td>Erfaren, moderat risiko</td>
-                <td>10+ aar</td>
-                <td>Core-satellite (indeks + value/vaekst)</td>
-              </tr>
-              <tr>
-                <td>Erfaren, hoej risiko</td>
-                <td>10+ aar</td>
-                <td>Value/vaekst + momentum + satellitter</td>
-              </tr>
-              <tr>
-                <td>Taet paa pension</td>
-                <td>0-5 aar</td>
-                <td>Udbytteinvestering + obligationer</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h2>Almindelige fejl ved investeringsstrategier</h2>
-        <p>Uanset hvilken strategi du vaelger, er der typiske fejl, du boer undgaa:</p>
-        <ul>
-          <li><strong>Skifte strategi for ofte:</strong> Den stoerste fjende er at hoppe mellem strategier baseret paa kortsigtede resultater. Giv din strategi tid til at virke.</li>
-          <li><strong>Ignorere omkostninger:</strong> Hoeje <a href="../hvad-er-aop/index.html">omkostninger (AOP)</a> udhuler dit afkast over tid. Selv 1 % ekstra i aarlige omkostninger kan koste hundredtusinder over et investeringsliv.</li>
-          <li><strong>Overestimere egen evne:</strong> De fleste professionelle formaar ikke at slaa markedet – og private investorer klarer sig typisk endnu daarligere.</li>
-          <li><strong>Forsoemme diversificering:</strong> Uanset strategi boer du <a href="../diversificering/index.html">diversificere</a> bredt for at reducere risikoen.</li>
-          <li><strong>Lade folelser styre:</strong> Frygt og graadiged er de stoerste fjender. En klar, foruddefineret strategi hjaelper dig med at holde kursen under markedsturbulens.</li>
-        </ul>
-
-        <h2>Kombination af strategier</h2>
-        <p>De fleste succesfulde investorer bruger elementer fra flere strategier. En typisk tilgang for en dansk investor kunne vaere: passiv indeksinvestering som kerne via en <a href="../maanedsopsparing/index.html">maanedsopsparing</a>, suppleret med dollar-cost averaging for disciplineret investering og eventuelt en mindre allokering til udbytte- eller vaekstaktier som satellit. Det vigtigste er at have en klar plan, holde omkostningerne lave og forblive disciplineret over tid.</p>
-
+        <p>Denne artikel er under udarbejdelse. Kom snart tilbage for det fulde indhold.</p>
         <div class="cta-box">
-          <p>Vil du se, hvordan din valgte strategi kan vokse over tid? Beregn dit forventede afkast med renters rente-effekten.</p>
-          <a href="../index.html" class="cta-button">Aabn investeringsberegneren</a>
+          <p>Beregn dit forventede afkast med korrekt skatteberegning</p>
+          <a href="../index.html" class="cta-button">Abn investeringsberegneren</a>
         </div>
       </div>
     </div>
 
-    <div class="guide-grid">
-      <a href="../dollar-cost-averaging/index.html" class="guide-link">
-        <strong>Dollar-cost averaging</strong>
-        <span>Laer hvordan regelmaessig investering reducerer risiko over tid</span>
-      </a>
-      <a href="../indeksfonde-vs-aktive-fonde/index.html" class="guide-link">
-        <strong>Indeksfonde vs. aktive fonde</strong>
-        <span>Sammenlign passiv og aktiv investering med konkrete tal</span>
-      </a>
-      <a href="../bedste-aktier/index.html" class="guide-link">
-        <strong>Bedste aktier</strong>
-        <span>Strategier til at vaelge de rette aktier til din portefoelje</span>
-      </a>
-      <a href="../portefoeljesammensaetning/index.html" class="guide-link">
-        <strong>Portefoeljesammensetning</strong>
-        <span>Byg den optimale portefoelje baseret paa din risikoprofil</span>
-      </a>
-    </div>
-  </main>
+    </main>
 
-  <footer>
-    <p>investeringsberegner.dk – Gratis investeringsberegner med korrekt skatteberegning. Opdateret 2026.</p>
-    <p class="disclaimer">Indholdet paa denne side er udelukkende til informationsformaal og udgoer ikke finansiel raadgivning. Soeg altid professionel raadgivning tilpasset din personlige situation, inden du traeffer investeringsbeslutninger. Vi paatager os intet ansvar for tab som foelge af beslutninger truffet paa baggrund af indholdet.</p>
-  </footer>
+    <footer>
+      <p>investeringsberegner.dk – Gratis investeringsberegner med korrekt skatteberegning. Opdateret 2026.</p>
+      <p class="disclaimer">Indholdet paa denne side er udelukkende til informationsformaal og udgoer ikke finansiel raadgivning. Soeg altid professionel raadgivning tilpasset din personlige situation, inden du traeffer investeringsbeslutninger. Vi paatager os intet ansvar for tab som foelge af beslutninger truffet paa baggrund af indholdet.</p>
+    </footer>
 
+  </div>
+
+  <!-- Theme toggle -->
   <script>
-    (function() {
-      var toggle = document.getElementById('theme-toggle');
-      toggle.addEventListener('click', function() {
-        var current = document.documentElement.getAttribute('data-theme');
-        var next = current === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
-      });
-    })();
+    document.getElementById('theme-toggle').addEventListener('click', function() {
+      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
   </script>
+
 </body>
 </html>

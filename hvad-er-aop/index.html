@@ -61,13 +61,16 @@
   <script>
     (function() {
       var t = localStorage.getItem('theme');
-      if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
     })();
   </script>
 </head>
 <body>
+  <div class="container">
 
-  <header>
+    <header class="site-header">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="../index.html">Investeringsberegner</a> <span aria-hidden="true">/</span> Hvad er ÅOP?
     </nav>
@@ -198,6 +201,9 @@
       </div>
     </div>
 
+    <div class="card">
+      <div class="article-section">
+        <h2>Relaterede guides</h2>
     <div class="guide-grid">
       <a href="../index.html" class="guide-link">
         <strong>Investeringsberegner</strong>
@@ -222,6 +228,8 @@
     <p>investeringsberegner.dk – Gratis investeringsberegner med korrekt skatteberegning. Opdateret 2026.</p>
     <p class="disclaimer">Indholdet på denne side er udelukkende til informationsformål og udgør ikke finansiel rådgivning. Søg altid professionel rådgivning tilpasset din personlige situation, inden du træffer investeringsbeslutninger. Vi påtager os intet ansvar for tab som følge af beslutninger truffet på baggrund af indholdet.</p>
   </footer>
+
+  </div>
 
   <script>
     document.getElementById('theme-toggle').addEventListener('click', function() {

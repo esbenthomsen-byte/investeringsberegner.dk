@@ -83,225 +83,67 @@
   }
   </script>
   <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Prevent theme flash -->
   <script>
     (function() {
-      var t = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', t);
+      var t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
     })();
   </script>
 </head>
 <body>
-  <header>
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="../index.html">Investeringsberegner</a> <span aria-hidden="true">/</span> Investeringsplatforme
-    </nav>
-    <h1>Bedste investeringsplatform i Danmark</h1>
-    <p class="subtitle">Sammenlign platforme og find den bedste loesning til dine investeringer i 2026</p>
-    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Skift tema">
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-    </button>
-  </header>
 
-  <main>
+  <div class="container">
+
+    <header class="site-header">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Investeringsberegner</a> <span aria-hidden="true">/</span> Investeringsplatforme
+      </nav>
+      <h1>Bedste investeringsplatform</h1>
+      <p class="subtitle">Sammenlign platforme i Danmark (2026)</p>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Skift tema">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </header>
+
+    <main>
+
     <div class="card">
       <div class="article-section">
-        <h2>Hvad er en investeringsplatform?</h2>
-        <p>En investeringsplatform er en digital tjeneste, der giver dig mulighed for at koebe og saelge vaerdipapirer som aktier, ETF'er, obligationer og investeringsforeninger. I Danmark har du adgang til en raekke forskellige platforme – fra traditionelle bankloesninger til specialiserede online brokere og automatiserede robo-advisors.</p>
-        <p>Valget af platform er en af de vigtigste beslutninger du traeffer som investor, fordi det pavirker dine omkostninger, dit produktudbud og din daglige oplevelse. En platform med hoeje omkostninger kan over tid koste dig hundredtusindvis af kroner i tabt <a href="../renters-rente/index.html">renters rente</a>-effekt. Derfor er det afgoorende at sammenligne og vaelge rigtigt fra starten.</p>
-
-        <h2>Typer af investeringsplatforme</h2>
-
-        <h3>Online brokere</h3>
-        <p>Online brokere er specialiserede platforme designet primaert til investering. De tilbyder typisk lavere kurtage, stoerre produktudbud og mere avancerede vaerktoejer end traditionelle bankloesninger. De fleste online brokere i Danmark tilbyder baade aktiesparekonto, frie midler og pensionskonti.</p>
-
-        <h3>Bankplatforme</h3>
-        <p>De fleste danske banker tilbyder investeringsloesninger integreret i deres netbank. Fordelen er bekvemmelighed – alt er samlet eet sted. Ulempen er typisk hoejere kurtage, begraenset produktudbud og faerre avancerede funktioner. Bankplatforme kan vaere fine til <a href="../investering-for-begyndere/index.html">begyndere</a>, der vaerdsaetter enkelhed.</p>
-
-        <h3>Robo-advisors</h3>
-        <p>Robo-advisors er automatiserede investeringsloesninger, der sammensaetter og rebalancerer din portefoelje for dig baseret paa din risikoprofil. Du besvarer typisk et spoergeskema, og platformen kloerer resten. Det er den nemmeste maade at investere paa, men du betaler et aarligt forvaltningsgebyr oven i fondenes omkostninger.</p>
-
-        <h2>Vigtige kriterier ved valg af platform</h2>
-        <p>Naar du sammenligner investeringsplatforme, boer du fokusere paa foelgende kriterier:</p>
-
-        <div class="result-table-wrap">
-          <table class="result-table">
-            <thead>
-              <tr>
-                <th>Kriterie</th>
-                <th>Hvad du skal kigge efter</th>
-                <th>Hvorfor det er vigtigt</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Kurtage (danske aktier)</td>
-                <td>0-100 kr. pr. handel</td>
-                <td>Pavirker direkte dit afkast ved hver handel</td>
-              </tr>
-              <tr>
-                <td>Kurtage (udenlandske aktier)</td>
-                <td>Varierer kraftigt – tjek specifikt</td>
-                <td>Relevant hvis du handler ETF'er paa udenlandske boerser</td>
-              </tr>
-              <tr>
-                <td>Minimumsindbetaling</td>
-                <td>0-10.000 kr.</td>
-                <td>Vigtigt for begyndere med smaa beloeb</td>
-              </tr>
-              <tr>
-                <td>Aktiesparekonto (ASK)</td>
-                <td>Tilgaengelighed og ETF-udvalg</td>
-                <td>17 % skat vs. op til 42 % – enorm forskel</td>
-              </tr>
-              <tr>
-                <td>Maanedsopsparing</td>
-                <td>Antal fonde, minimumsbeloeb, kurtage</td>
-                <td>Nemt og billigt at investere loebende</td>
-              </tr>
-              <tr>
-                <td>Antal ETF'er/fonde</td>
-                <td>Hundrede til tusindvis</td>
-                <td>Stoerre udvalg = bedre muligheder for diversificering</td>
-              </tr>
-              <tr>
-                <td>Valutaveksling</td>
-                <td>Spread og gebyr paa valutaveksling</td>
-                <td>Skjult omkostning ved udenlandske investeringer</td>
-              </tr>
-              <tr>
-                <td>Brugeroplevelse</td>
-                <td>App, hjemmeside, overblik</td>
-                <td>God oplevelse goer det lettere at holde fast i strategien</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h2>Sammenligning af platformtyper</h2>
-        <p>Nedenfor er en generel sammenligning af de tre platformtyper baseret paa typiske karakteristika. Specifikke platforme kan afvige, saa tjek altid de aktuelle vilkaar:</p>
-
-        <div class="result-table-wrap">
-          <table class="result-table">
-            <thead>
-              <tr>
-                <th>Egenskab</th>
-                <th>Online broker</th>
-                <th>Bankplatform</th>
-                <th>Robo-advisor</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Kurtage danske aktier</td>
-                <td>Lav (fra 0 kr.)</td>
-                <td>Mellem-hoej (29-100 kr.)</td>
-                <td>Inkluderet i gebyr</td>
-              </tr>
-              <tr>
-                <td>Maanedsopsparing</td>
-                <td>Ja – bredt udvalg</td>
-                <td>Begraenset udvalg</td>
-                <td>Automatisk</td>
-              </tr>
-              <tr>
-                <td>ASK tilgaengelig</td>
-                <td>Ja</td>
-                <td>Ofte ja</td>
-                <td>Varierer</td>
-              </tr>
-              <tr>
-                <td>Antal ETF'er</td>
-                <td>Hundrede+</td>
-                <td>Begraenset</td>
-                <td>Faste portefoeljer</td>
-              </tr>
-              <tr>
-                <td>Aarligt gebyr</td>
-                <td>Typisk 0 kr.</td>
-                <td>0-500 kr. depotgebyr</td>
-                <td>0,3-1,0 % af formue</td>
-              </tr>
-              <tr>
-                <td>Egnet til</td>
-                <td>Aktive og passive investorer</td>
-                <td>Begyndere der vil have alt eet sted</td>
-                <td>Dem der vil vaere helt hands-off</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h2>ASK vs. normalt depot</h2>
-        <p>En <a href="../aktiesparekonto/index.html">aktiesparekonto (ASK)</a> beskattes med kun 17 % efter lagerprincippet, mens et normalt frit depot beskattes som aktieindkomst med 27 % op til 61.000 kr. og 42 % derover (2026-satser). Det goer ASK til det foerste sted, du boer investere – men loftet paa 174.200 kr. begraenser hvor meget du kan have der.</p>
-        <p>Efter du har fyldt din ASK op, boer du overveje <a href="../aldersopsparing/index.html">aldersopsparing</a> og derefter investering via frie midler. Forstaa forskellen mellem <a href="../aktieindkomst-vs-kapitalindkomst/index.html">aktieindkomst og kapitalindkomst</a> for at optimere din <a href="../beskatning-aktier/index.html">skattemessige situation</a>.</p>
-
-        <h2>Sikkerhed og regulering i Danmark</h2>
-        <p>Alle investeringsplatforme, der opererer i Danmark, skal vaere godkendt af eller registreret hos Finanstilsynet. Det giver dig som investor en raekke beskyttelser:</p>
-        <ul>
-          <li><strong>Garantifonden for Indskydere og Investorer:</strong> Daekker op til 20.000 euro pr. investor, hvis platformen gaar konkurs</li>
-          <li><strong>Adskillelse af midler:</strong> Dine vaerdipapirer opbevares adskilt fra platformens egne midler</li>
-          <li><strong>MiFID II-regulering:</strong> Krav om gennemsigtighed i omkostninger og egnethedstest</li>
-          <li><strong>Investorbeskyttelse:</strong> Krav om tydelig information om risici og omkostninger</li>
-        </ul>
-        <p>Tjek altid at din valgte platform er reguleret af Finanstilsynet eller en tilsvarende europaeisk tilsynsmyndighed. Du kan soege i Finanstilsynets register paa deres hjemmeside.</p>
-
-        <h2>Skjulte omkostninger du skal vaere opmaerksom paa</h2>
-        <p>Mange investorer fokuserer kun paa kurtage, men der er flere skjulte omkostninger, der kan aede dit afkast:</p>
-        <ul>
-          <li><strong>Valutavekslingsgebyr:</strong> Naar du koeber udenlandske ETF'er, betaler du for at veksle DKK til EUR eller USD. Spreaden kan vaere 0,15-1,5 % afhaengig af platform.</li>
-          <li><strong>Inaktivitetsgebyr:</strong> Nogle platforme opkraever gebyr, hvis du ikke handler i en periode.</li>
-          <li><strong>Depotgebyr:</strong> Et aarligt gebyr for at have et depot – mere almindeligt hos banker.</li>
-          <li><strong>Overfoerselsgebyr:</strong> Gebyr for at flytte dine vaerdipapirer til en anden platform.</li>
-          <li><strong>Fondenes AOP:</strong> <a href="../hvad-er-aop/index.html">De underliggende fondes omkostninger</a> kommer oven i platformens egne gebyrer.</li>
-        </ul>
-
-        <h2>Tip til at skifte platform</h2>
-        <p>Hvis du er utilfreds med din nuvaerende platform, kan du skifte. De fleste platforme tilbyder at overfoere dine vaerdipapirer direkte, saa du ikke behoever at saelge og genkoebe (hvilket ville udloese skat). Vaer dog opmaerksom paa, at overfoerslen typisk tager 1-3 uger, og at der kan vaere gebyrer forbundet med det.</p>
-        <p>Foer du skifter, boer du lave en samlet beregning af, hvad du sparer paa den nye platform vs. omkostningerne ved at skifte. For smaa portefoeljer under 50.000 kr. kan det nogle gange bedre betale sig at starte forfra paa den nye platform og lade den gamle staa.</p>
-
+        <p>Denne artikel er under udarbejdelse. Kom snart tilbage for det fulde indhold.</p>
         <div class="cta-box">
-          <p>Vil du se, hvor stor forskel omkostninger goer paa dit langsigtede afkast? Proev vores beregner og sammenlign scenarier.</p>
-          <a href="../index.html" class="cta-button">Aaben investeringsberegneren</a>
+          <p>Beregn dit forventede afkast med korrekt skatteberegning</p>
+          <a href="../index.html" class="cta-button">Abn investeringsberegneren</a>
         </div>
       </div>
     </div>
 
-    <div class="guide-grid">
-      <a href="../index.html" class="guide-link">
-        <strong>Investeringsberegner</strong>
-        <span>Beregn dit forventede afkast og se effekten af renters rente over tid</span>
-      </a>
-      <a href="../aktiesparekonto/index.html" class="guide-link">
-        <strong>Aktiesparekonto</strong>
-        <span>Alt om ASK: regler, loft, beskatning og fordele i 2026</span>
-      </a>
-      <a href="../hvad-er-aop/index.html" class="guide-link">
-        <strong>Hvad er AOP?</strong>
-        <span>Forstaa de aarlige omkostninger i procent og deres effekt paa dit afkast</span>
-      </a>
-      <a href="../aktier-for-begyndere/index.html" class="guide-link">
-        <strong>Aktier for begyndere</strong>
-        <span>Laer hvad aktier er, og hvordan du koeber dine foerste aktier</span>
-      </a>
-    </div>
-  </main>
+    </main>
 
-  <footer>
-    <p>investeringsberegner.dk – Gratis investeringsberegner med korrekt skatteberegning. Opdateret 2026.</p>
-    <p class="disclaimer">Indholdet paa denne side er udelukkende til informationsformaal og udgoer ikke finansiel raadgivning. Soeg altid professionel raadgivning tilpasset din personlige situation, inden du traeffer investeringsbeslutninger. Vi paatager os intet ansvar for tab som foelge af beslutninger truffet paa baggrund af indholdet.</p>
-  </footer>
+    <footer>
+      <p>investeringsberegner.dk – Gratis investeringsberegner med korrekt skatteberegning. Opdateret 2026.</p>
+      <p class="disclaimer">Indholdet paa denne side er udelukkende til informationsformaal og udgoer ikke finansiel raadgivning. Soeg altid professionel raadgivning tilpasset din personlige situation, inden du traeffer investeringsbeslutninger. Vi paatager os intet ansvar for tab som foelge af beslutninger truffet paa baggrund af indholdet.</p>
+    </footer>
 
+  </div>
+
+  <!-- Theme toggle -->
   <script>
-    (function() {
-      var toggle = document.getElementById('theme-toggle');
-      toggle.addEventListener('click', function() {
-        var current = document.documentElement.getAttribute('data-theme');
-        var next = current === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
-      });
-    })();
+    document.getElementById('theme-toggle').addEventListener('click', function() {
+      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
   </script>
+
 </body>
 </html>
