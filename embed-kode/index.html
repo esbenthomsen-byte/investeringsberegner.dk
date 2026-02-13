@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Embed investeringsberegner – Gratis widget til din blog eller hjemmeside</title>
+  <meta name="description" content="Indlejr en gratis investeringsberegner-widget på din blog eller hjemmeside. Kopiér embed-koden og giv dine læsere et interaktivt beregnerværktøj.">
+  <meta name="keywords" content="investeringsberegner widget, embed beregner, investeringsberegner til blog, afkastberegner widget, gratis beregner widget">
+  <link rel="canonical" href="https://investeringsberegner.dk/embed-kode/">
+  <meta property="article:published_time" content="2026-02-13T00:00:00+01:00">
+  <meta property="article:modified_time" content="2026-02-13T00:00:00+01:00">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://investeringsberegner.dk/embed-kode/">
+  <meta property="og:title" content="Embed investeringsberegner – Gratis widget til din blog">
+  <meta property="og:description" content="Indlejr en gratis investeringsberegner-widget på din blog eller hjemmeside. Kopiér embed-koden og giv dine læsere et interaktivt beregnerværktøj.">
+  <meta property="og:image" content="https://investeringsberegner.dk/favicon.png">
+  <meta property="og:locale" content="da_DK">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Embed investeringsberegner – Gratis widget">
+  <meta name="twitter:description" content="Indlejr en gratis investeringsberegner på din blog. Kopiér koden og giv dine læsere et interaktivt værktøj.">
+  <meta name="twitter:image" content="https://investeringsberegner.dk/favicon.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../favicon.png">
+
+  <!-- Schema.org: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Forside",
+        "item": "https://investeringsberegner.dk/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Embed-kode",
+        "item": "https://investeringsberegner.dk/embed-kode/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Prevent theme flash -->
+  <script>
+    (function() {
+      var t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+
+  <style>
+    .embed-code-wrap {
+      position: relative;
+      margin: 16px 0;
+    }
+
+    .embed-code-wrap pre {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      overflow-x: auto;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text-primary);
+      font-family: 'SF Mono', 'Menlo', 'Consolas', 'Monaco', monospace;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    .embed-code-wrap .copy-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: var(--accent);
+      color: var(--text-on-accent);
+      border: none;
+      border-radius: 6px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .embed-code-wrap .copy-btn:hover {
+      background: var(--accent-hover);
+    }
+
+    .embed-code-wrap .copy-btn:active {
+      transform: scale(0.96);
+    }
+
+    .embed-code-wrap .copy-btn.copied {
+      background: var(--success);
+    }
+
+    .preview-frame {
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin: 20px 0;
+      background: var(--bg-secondary);
+    }
+
+    .preview-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-tertiary);
+      padding: 10px 16px 6px;
+      font-weight: 600;
+    }
+
+    .preview-frame iframe {
+      width: 100%;
+      height: 520px;
+      border: none;
+      display: block;
+    }
+
+    .size-options {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 12px 0 16px;
+    }
+
+    .size-options button {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-strong);
+      border-radius: 6px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 500;
+      font-family: inherit;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .size-options button:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .size-options button.active {
+      background: var(--accent-light);
+      border-color: var(--accent);
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .feature-item {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+    }
+
+    .feature-item strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 3px;
+    }
+
+    .feature-item span {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <header class="site-header">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Investeringsberegner</a> <span aria-hidden="true">/</span> Embed-kode
+      </nav>
+      <h1>Embed investeringsberegner</h1>
+      <p class="subtitle">Gratis widget til din blog, hjemmeside eller nyhedsbrev</p>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Skift tema">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </header>
+
+    <main>
+
+    <!-- ==================== Intro ==================== -->
+    <div class="card">
+      <div class="article-section">
+        <p>
+          Giv dine læsere et <strong>interaktivt investeringsværktøj</strong> direkte på din side. Vores widget er gratis at bruge, kræver ingen API-nøgle og fungerer automatisk i både lyst og mørkt tema.
+        </p>
+        <p>
+          Widgetten lader brugeren indtaste startbeløb, månedligt indskud, investeringsperiode og forventet afkast – og viser slutværdi, samlet indskud og samlet afkast med det samme.
+        </p>
+
+        <div class="feature-grid">
+          <div class="feature-item">
+            <strong>Gratis</strong>
+            <span>Ingen betaling, ingen API-nøgle, ingen registrering.</span>
+          </div>
+          <div class="feature-item">
+            <strong>Responsiv</strong>
+            <span>Tilpasser sig alle bredder fra 300 til 600+ px.</span>
+          </div>
+          <div class="feature-item">
+            <strong>Lys/mørk</strong>
+            <span>Respekterer automatisk brugerens farveskema.</span>
+          </div>
+          <div class="feature-item">
+            <strong>Letvægt</strong>
+            <span>Ingen eksterne scripts eller stylesheets. Hurtig indlæsning.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== Embed-kode ==================== -->
+    <div class="card">
+      <div class="article-section">
+        <h2>Kopiér embed-koden</h2>
+        <p>
+          Indsæt følgende HTML-kode der, hvor du vil have beregneren vist. Du kan tilpasse <code>width</code> og <code>height</code> efter behov.
+        </p>
+
+        <div class="embed-code-wrap">
+          <pre id="embed-code">&lt;iframe
+  src="https://investeringsberegner.dk/embed.html"
+  width="100%"
+  height="520"
+  style="border: none; border-radius: 12px; max-width: 560px;"
+  title="Investeringsberegner"
+  loading="lazy"&gt;
+&lt;/iframe&gt;</pre>
+          <button type="button" class="copy-btn" id="btn-copy-embed">Kopiér</button>
+        </div>
+
+        <h3>Tilpas bredde</h3>
+        <p>Vælg en forudindstillet bredde eller angiv din egen i koden:</p>
+        <div class="size-options" id="size-options">
+          <button type="button" data-width="320" data-height="530">320 px (smal)</button>
+          <button type="button" data-width="400" data-height="520">400 px</button>
+          <button type="button" data-width="100%" data-height="520" class="active">Fuld bredde</button>
+          <button type="button" data-width="560" data-height="520">560 px (max)</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== Preview ==================== -->
+    <div class="card">
+      <div class="article-section">
+        <h2>Forhåndsvisning</h2>
+        <p>Sådan ser widgetten ud indlejret på en side:</p>
+        <div class="preview-frame">
+          <div class="preview-label">Forhåndsvisning</div>
+          <iframe
+            id="preview-iframe"
+            src="../embed.html"
+            width="100%"
+            height="520"
+            style="border: none;"
+            title="Investeringsberegner widget forhåndsvisning"
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== Til bloggere ==================== -->
+    <div class="card">
+      <div class="article-section">
+        <h2>Hvorfor indlejre beregneren?</h2>
+        <p>
+          Interaktivt indhold holder dine læsere længere på siden og giver dem reel værdi. En investeringsberegner er relevant for alle, der skriver om:
+        </p>
+        <ul>
+          <li><strong>Privatøkonomi og opsparing</strong> – Vis læserne konkret, hvad deres penge kan vokse til.</li>
+          <li><strong>Investering og aktier</strong> – Underbyg dine artikler med et beregnerværktøj.</li>
+          <li><strong>FIRE og finansiel frihed</strong> – Lad læserne beregne vejen til deres mål.</li>
+          <li><strong>Bank- og fondsanmeldelser</strong> – Giv et praktisk værktøj ved siden af dine anbefalinger.</li>
+        </ul>
+        <p>
+          Widgetten er <strong>helt gratis</strong> at bruge. Du behøver ikke spørge om lov – bare kopiér koden og indsæt den. Vi sætter pris på, at linket til investeringsberegner.dk beholdes i bunden af widgetten.
+        </p>
+      </div>
+    </div>
+
+    <!-- ==================== Teknisk info ==================== -->
+    <div class="card">
+      <div class="article-section">
+        <h2>Teknisk information</h2>
+        <h3>WordPress</h3>
+        <p>
+          I WordPress kan du indsætte embed-koden i en <strong>Custom HTML</strong>-blok (Gutenberg) eller i tekst-editoren (klassisk editor). Koden virker direkte uden plugins.
+        </p>
+        <h3>Squarespace, Wix og andre</h3>
+        <p>
+          De fleste website-buildere understøtter "Embed" eller "Custom Code"-blokke. Indsæt iframe-koden i en sådan blok.
+        </p>
+        <h3>Nyhedsbreve</h3>
+        <p>
+          De fleste email-klienter understøtter ikke iframes. Overvej i stedet at linke til beregneren med teksten: <em>"Beregn dit investeringsafkast med vores gratis beregner"</em> og linke til <a href="https://investeringsberegner.dk/">investeringsberegner.dk</a>.
+        </p>
+        <h3>Tilpasning</h3>
+        <p>
+          Du kan tilpasse størrelsen via <code>width</code> og <code>height</code> attributterne i iframe-koden. Beregneren tilpasser sig automatisk den tilgængelige plads. Anbefalet minimumhøjde er 500 px.
+        </p>
+      </div>
+    </div>
+
+    <!-- ==================== CTA ==================== -->
+    <div class="card">
+      <div class="article-section">
+        <h2>Brug den fulde beregner</h2>
+        <p>
+          Widgetten er en forenklet version. Den fulde beregner på investeringsberegner.dk inkluderer desuden korrekt skatteberegning for frie midler, aktiesparekonto og pension, samt graf, inflationsjustering og detaljeret år-for-år tabel.
+        </p>
+        <div class="cta-box">
+          <p>Prøv den fulde investeringsberegner med skatteberegning</p>
+          <a href="/" class="cta-button">Åbn investeringsberegneren</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== Related Pages ==================== -->
+    <div class="card">
+      <div class="article-section">
+        <h2>Relaterede guides</h2>
+        <div class="guide-grid">
+          <a href="/" class="guide-link">
+            <strong>Investeringsberegner</strong>
+            <span>Beregn dit afkast med korrekt skatteberegning for frie midler, ASK og pension.</span>
+          </a>
+          <a href="/renters-rente/" class="guide-link">
+            <strong>Renters rente beregner</strong>
+            <span>Forstå renters rente-effekten og beregn din vækst over tid.</span>
+          </a>
+          <a href="/investering-for-begyndere/" class="guide-link">
+            <strong>Investering for begyndere</strong>
+            <span>Kom i gang med aktier: trin-for-trin guide til din første investering.</span>
+          </a>
+          <a href="/afkast-aktier/" class="guide-link">
+            <strong>Afkast på aktier</strong>
+            <span>Historisk afkast og realistiske forventninger til dine investeringer.</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    </main>
+
+    <footer>
+      <p>investeringsberegner.dk – Gratis investeringsberegner med korrekt skatteberegning. Opdateret 2026.</p>
+      <p>Beregneren er kun vejledende og erstatter ikke professionel rådgivning.</p>
+      <p class="disclaimer">Indholdet på denne side er udelukkende til informationsformål og udgør ikke finansiel rådgivning. Søg altid professionel rådgivning tilpasset din personlige situation, inden du træffer investeringsbeslutninger. Vi påtager os intet ansvar for tab som følge af beslutninger truffet på baggrund af indholdet.</p>
+    </footer>
+
+  </div>
+
+  <!-- Theme toggle + Copy embed code -->
+  <script>
+    // Theme toggle
+    document.getElementById('theme-toggle').addEventListener('click', function() {
+      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+
+    // Copy embed code
+    document.getElementById('btn-copy-embed').addEventListener('click', function() {
+      var btn = this;
+      var code = document.getElementById('embed-code').textContent;
+      navigator.clipboard.writeText(code).then(function() {
+        btn.textContent = 'Kopieret!';
+        btn.classList.add('copied');
+        setTimeout(function() {
+          btn.textContent = 'Kopiér';
+          btn.classList.remove('copied');
+        }, 2000);
+      }).catch(function() {
+        // Fallback
+        var ta = document.createElement('textarea');
+        ta.value = code;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        btn.textContent = 'Kopieret!';
+        setTimeout(function() { btn.textContent = 'Kopiér'; }, 2000);
+      });
+    });
+
+    // Size option buttons – update embed code and preview
+    var sizeButtons = document.querySelectorAll('#size-options button');
+    for (var i = 0; i < sizeButtons.length; i++) {
+      (function(btn) {
+        btn.addEventListener('click', function() {
+          // Toggle active class
+          for (var j = 0; j < sizeButtons.length; j++) {
+            sizeButtons[j].classList.remove('active');
+          }
+          btn.classList.add('active');
+
+          var w = btn.dataset.width;
+          var h = btn.dataset.height;
+
+          // Update embed code
+          var widthAttr = w.indexOf('%') > -1 ? w : w;
+          var code = '<iframe\n' +
+            '  src="https://investeringsberegner.dk/embed.html"\n' +
+            '  width="' + widthAttr + '"\n' +
+            '  height="' + h + '"\n' +
+            '  style="border: none; border-radius: 12px; max-width: 560px;"\n' +
+            '  title="Investeringsberegner"\n' +
+            '  loading="lazy">\n' +
+            '</iframe>';
+
+          document.getElementById('embed-code').textContent = code;
+
+          // Update preview iframe
+          var iframe = document.getElementById('preview-iframe');
+          if (w.indexOf('%') > -1) {
+            iframe.style.width = w;
+            iframe.removeAttribute('width');
+          } else {
+            iframe.style.width = w + 'px';
+          }
+          iframe.style.height = h + 'px';
+        });
+      })(sizeButtons[i]);
+    }
+  </script>
+
+</body>
+</html>

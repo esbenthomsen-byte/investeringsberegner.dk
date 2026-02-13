@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investeringsberegner – Widget</title>
+  <meta name="robots" content="noindex">
+  <style>
+    /* ---------- Reset & base ---------- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f5f5f7;
+      --bg-card: #ffffff;
+      --bg-input: #ffffff;
+      --bg-stepper: #f5f5f7;
+      --bg-stepper-hover: #e8e8ed;
+      --text: #1d1d1f;
+      --text-sec: #6e6e73;
+      --text-muted: #86868b;
+      --accent: #0071e3;
+      --accent-hover: #0077ED;
+      --success: #34c759;
+      --border: rgba(0, 0, 0, 0.08);
+      --border-strong: rgba(0, 0, 0, 0.12);
+      --shadow: 0 2px 8px rgba(0,0,0,.06), 0 0 1px rgba(0,0,0,.08);
+      --radius: 12px;
+      --radius-sm: 8px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #000000;
+        --bg-card: #1c1c1e;
+        --bg-input: #1c1c1e;
+        --bg-stepper: #2c2c2e;
+        --bg-stepper-hover: #3a3a3c;
+        --text: #f5f5f7;
+        --text-sec: #a1a1a6;
+        --text-muted: #86868b;
+        --accent: #0a84ff;
+        --accent-hover: #409cff;
+        --success: #30d158;
+        --border: rgba(255, 255, 255, 0.08);
+        --border-strong: rgba(255, 255, 255, 0.14);
+        --shadow: 0 2px 8px rgba(0,0,0,.3), 0 0 1px rgba(0,0,0,.4);
+      }
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      padding: 12px;
+      min-height: 100vh;
+    }
+
+    /* ---------- Card ---------- */
+    .card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 20px;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .card-title {
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      letter-spacing: -0.2px;
+    }
+
+    /* ---------- Form ---------- */
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-sec);
+      margin-bottom: 5px;
+    }
+
+    .input-row {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: var(--bg-input);
+      transition: border-color 0.2s;
+    }
+
+    .input-row:focus-within {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.15);
+    }
+
+    .input-row input[type="text"] {
+      flex: 1;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-size: 15px;
+      font-family: inherit;
+      color: var(--text);
+      padding: 9px 12px;
+      min-width: 0;
+      text-align: right;
+    }
+
+    .input-row .suffix {
+      font-size: 13px;
+      color: var(--text-muted);
+      padding-right: 10px;
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .input-row button {
+      background: var(--bg-stepper);
+      border: none;
+      color: var(--accent);
+      font-size: 18px;
+      font-weight: 500;
+      width: 36px;
+      min-width: 36px;
+      height: 40px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+      user-select: none;
+    }
+
+    .input-row button:hover {
+      background: var(--bg-stepper-hover);
+    }
+
+    /* Range slider */
+    .range-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .range-row input[type="range"] {
+      flex: 1;
+      -webkit-appearance: none;
+      appearance: none;
+      height: 4px;
+      border-radius: 2px;
+      background: var(--border-strong);
+      outline: none;
+    }
+
+    .range-row input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+      border: 2px solid var(--bg-card);
+      box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    }
+
+    .range-row input[type="range"]::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+      border: 2px solid var(--bg-card);
+      box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    }
+
+    .range-val {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent);
+      min-width: 44px;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    /* ---------- Results ---------- */
+    .results {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .result-main {
+      text-align: center;
+      margin-bottom: 14px;
+    }
+
+    .result-main .label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    .result-main .value {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--text);
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .result-box {
+      background: var(--bg);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+    }
+
+    .result-box .label {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    .result-box .value {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .result-box .value.positive {
+      color: var(--success);
+    }
+
+    /* ---------- Footer ---------- */
+    .widget-footer {
+      text-align: center;
+      margin-top: 14px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+    }
+
+    .widget-footer a {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .widget-footer a:hover {
+      color: var(--accent);
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 380px) {
+      .card { padding: 14px; }
+      .result-main .value { font-size: 24px; }
+      .result-grid { gap: 8px; }
+      .result-box { padding: 8px 10px; }
+      .result-box .value { font-size: 13px; }
+      .input-row button { width: 32px; min-width: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1 class="card-title">Investeringsberegner</h1>
+
+    <!-- Startbelob -->
+    <div class="form-group">
+      <label for="w-start">Startbeløb</label>
+      <div class="input-row">
+        <button type="button" data-target="w-start" data-step="-5000" aria-label="Reducer">−</button>
+        <input type="text" id="w-start" inputmode="numeric" value="25.000" data-raw="25000" data-step="5000" data-min="0">
+        <span class="suffix">kr</span>
+        <button type="button" data-target="w-start" data-step="5000" aria-label="Forøg">+</button>
+      </div>
+    </div>
+
+    <!-- Monthly -->
+    <div class="form-group">
+      <label for="w-monthly">Månedligt indskud</label>
+      <div class="input-row">
+        <button type="button" data-target="w-monthly" data-step="-500" aria-label="Reducer">−</button>
+        <input type="text" id="w-monthly" inputmode="numeric" value="2.500" data-raw="2500" data-step="500" data-min="0">
+        <span class="suffix">kr/md</span>
+        <button type="button" data-target="w-monthly" data-step="500" aria-label="Forøg">+</button>
+      </div>
+    </div>
+
+    <!-- Period -->
+    <div class="form-group">
+      <label for="w-period">Investeringsperiode</label>
+      <div class="input-row">
+        <button type="button" data-target="w-period" data-step="-1" aria-label="Reducer">−</button>
+        <input type="text" id="w-period" inputmode="numeric" value="15" data-raw="15" data-step="1" data-min="1" data-max="60">
+        <span class="suffix">år</span>
+        <button type="button" data-target="w-period" data-step="1" aria-label="Forøg">+</button>
+      </div>
+    </div>
+
+    <!-- Return slider -->
+    <div class="form-group">
+      <label for="w-return">Forventet årligt afkast</label>
+      <div class="range-row">
+        <input type="range" id="w-return" min="0" max="20" step="0.5" value="7">
+        <span class="range-val" id="w-return-display">7,0 %</span>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div class="results" id="w-results">
+      <div class="result-main">
+        <div class="label">Slutværdi</div>
+        <div class="value" id="w-res-total">0 kr</div>
+      </div>
+      <div class="result-grid">
+        <div class="result-box">
+          <div class="label">Samlet indskud</div>
+          <div class="value" id="w-res-deposits">0 kr</div>
+        </div>
+        <div class="result-box">
+          <div class="label">Samlet afkast</div>
+          <div class="value positive" id="w-res-gain">0 kr</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="widget-footer">
+      <a href="https://investeringsberegner.dk/" target="_blank" rel="noopener">Beregnet af investeringsberegner.dk</a>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      // ---- Formatting helpers ----
+      function formatDKK(v) {
+        return Math.round(v).toLocaleString('da-DK');
+      }
+
+      function parseDanish(str) {
+        if (!str) return 0;
+        var cleaned = str.replace(/\./g, '').replace(/,/g, '.').replace(/[^\d.\-]/g, '');
+        var n = parseFloat(cleaned);
+        return isNaN(n) ? 0 : n;
+      }
+
+      function setInput(el, val) {
+        el.dataset.raw = String(val);
+        if (document.activeElement !== el) {
+          el.value = formatDKK(val);
+        }
+      }
+
+      // ---- Calculation (simplified, no tax) ----
+      function calculate() {
+        var start = parseFloat(document.getElementById('w-start').dataset.raw) || 0;
+        var monthly = parseFloat(document.getElementById('w-monthly').dataset.raw) || 0;
+        var years = parseFloat(document.getElementById('w-period').dataset.raw) || 1;
+        var annualReturn = parseFloat(document.getElementById('w-return').value) / 100;
+
+        var monthlyRate = annualReturn / 12;
+        var balance = start;
+        for (var y = 0; y < years; y++) {
+          for (var m = 0; m < 12; m++) {
+            balance = (balance + monthly) * (1 + monthlyRate);
+          }
+        }
+
+        var totalDeposits = start + monthly * 12 * years;
+        var gain = balance - totalDeposits;
+
+        document.getElementById('w-res-total').textContent = formatDKK(balance) + ' kr';
+        document.getElementById('w-res-deposits').textContent = formatDKK(totalDeposits) + ' kr';
+
+        var gainEl = document.getElementById('w-res-gain');
+        gainEl.textContent = formatDKK(gain) + ' kr';
+        gainEl.className = 'value ' + (gain >= 0 ? 'positive' : '');
+
+        // Update slider display
+        var val = parseFloat(document.getElementById('w-return').value);
+        document.getElementById('w-return-display').textContent =
+          val.toLocaleString('da-DK', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' %';
+      }
+
+      // ---- Number input setup ----
+      var numberInputs = document.querySelectorAll('.input-row input[type="text"]');
+      for (var i = 0; i < numberInputs.length; i++) {
+        (function(input) {
+          input.addEventListener('focus', function() {
+            var raw = parseFloat(input.dataset.raw) || 0;
+            input.value = raw === 0 ? '' : String(raw);
+            input.select();
+          });
+
+          input.addEventListener('blur', function() {
+            var raw = parseDanish(input.value);
+            var min = input.dataset.min !== undefined ? parseFloat(input.dataset.min) : 0;
+            var max = input.dataset.max ? parseFloat(input.dataset.max) : Infinity;
+            var clamped = Math.max(min, Math.min(max, raw));
+            setInput(input, clamped);
+            calculate();
+          });
+
+          input.addEventListener('input', function() {
+            var raw = parseDanish(input.value);
+            input.dataset.raw = String(raw);
+            calculate();
+          });
+
+          input.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+              e.preventDefault();
+              input.blur();
+            }
+          });
+        })(numberInputs[i]);
+      }
+
+      // ---- Stepper buttons ----
+      var buttons = document.querySelectorAll('.input-row button[data-target]');
+      for (var i = 0; i < buttons.length; i++) {
+        (function(btn) {
+          btn.addEventListener('click', function() {
+            var target = document.getElementById(btn.dataset.target);
+            if (!target) return;
+            var step = parseFloat(btn.dataset.step) || 0;
+            var raw = parseFloat(target.dataset.raw) || 0;
+            var min = target.dataset.min !== undefined ? parseFloat(target.dataset.min) : 0;
+            var max = target.dataset.max ? parseFloat(target.dataset.max) : Infinity;
+            var newVal = Math.max(min, Math.min(max, raw + step));
+            setInput(target, newVal);
+            calculate();
+          });
+        })(buttons[i]);
+      }
+
+      // ---- Slider ----
+      document.getElementById('w-return').addEventListener('input', calculate);
+
+      // ---- Initial calculation ----
+      calculate();
+    })();
+  </script>
+
+</body>
+</html>
