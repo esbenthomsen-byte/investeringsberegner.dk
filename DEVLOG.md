@@ -5,6 +5,37 @@
 
 ---
 
+## Session 7 — 2026-02-13
+
+### Kontekst
+- SEO URL-optimering: omdøbning af 11 artikelmapper med flere keywords i URL'erne
+
+### Implementeret
+
+- **11 artikelmapper omdøbt** til mere SEO-venlige URL'er
+  - `obligationer` → `investering-i-obligationer`
+  - `etf-guide` → `etf-investering-guide-danmark`
+  - `maanedsopsparing` → `maanedsopsparing-nordnet-saxo`
+  - `aldersopsparing` → `aldersopsparing-regler-2026`
+  - `renters-rente` → `renters-rente-beregner`
+  - `diversificering` → `diversificering-investering`
+  - `investeringsplatforme` → `investeringsplatforme-danmark`
+  - `investeringsraadgiver` → `investeringsraadgiver-danmark`
+  - `investeringsstrategier` → `investeringsstrategier-guide`
+  - `portefoeljesammensaetning` → `portefoeljesammensaetning-guide`
+  - `investeringsforeninger` → `investeringsforeninger-danmark`
+
+- **38 filer opdateret** med nye URL'er
+  - Alle interne links (relativ sti)
+  - Canonical URL'er og OG/Twitter meta tags
+  - BreadcrumbList schema
+  - Sitemap.xml
+
+### Git
+- `01cb70f` — Rename 11 article directories for SEO-friendly URLs
+
+---
+
 ## Session 6 — 2026-02-13
 
 ### Kontekst
