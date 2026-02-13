@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Investeringsberegner – Beregn dit afkast med korrekt skat (2026)</title>
-  <meta name="description" content="Gratis investeringsberegner med korrekt skatteberegning for frie midler, aktiesparekonto (ASK) og pension (PAL). Opdateret med 2026-skattesatser.">
-  <meta name="keywords" content="investeringsberegner, aktieskat, aktiesparekonto, ASK, PAL, renters rente, investering, afkast, skat, 2026">
+  <title>Investeringsberegner – Afkast beregner med korrekt skat (2026)</title>
+  <meta name="description" content="Gratis afkast beregner og aktie beregner med korrekt skatteberegning for frie midler, aktiesparekonto (ASK) og pension (PAL). Beregn renters rente med 2026-skattesatser.">
+  <meta name="keywords" content="investeringsberegner, afkast beregner, aktie beregner, aktieskat, aktiesparekonto, ASK, PAL, renters rente, investering, afkast, skat, 2026">
   <link rel="canonical" href="https://investeringsberegner.dk/">
   <meta property="article:published_time" content="2026-01-01T00:00:00+01:00">
   <meta property="article:modified_time" content="2026-02-13T00:00:00+01:00">
@@ -13,15 +13,15 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://investeringsberegner.dk/">
-  <meta property="og:title" content="Investeringsberegner – Beregn dit afkast med korrekt skat">
-  <meta property="og:description" content="Beregn dit investeringsafkast med korrekt skatteberegning for frie midler, aktiesparekonto og pension. Gratis og opdateret med 2026-satser.">
+  <meta property="og:title" content="Investeringsberegner – Afkast beregner med korrekt skat">
+  <meta property="og:description" content="Gratis afkast beregner og aktie beregner med korrekt skatteberegning for frie midler, aktiesparekonto og pension. Opdateret med 2026-satser.">
   <meta property="og:image" content="https://investeringsberegner.dk/favicon.png">
   <meta property="og:locale" content="da_DK">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Investeringsberegner – Beregn dit afkast med korrekt skat">
-  <meta name="twitter:description" content="Gratis investeringsberegner med korrekt skatteberegning for alle kontotyper. 2026-satser.">
+  <meta name="twitter:title" content="Investeringsberegner – Afkast beregner med korrekt skat">
+  <meta name="twitter:description" content="Gratis afkast beregner og aktie beregner med korrekt skatteberegning for alle kontotyper. 2026-satser.">
   <meta name="twitter:image" content="https://investeringsberegner.dk/favicon.png">
 
   <!-- Favicon -->
@@ -93,6 +93,46 @@
           "@type": "Answer",
           "text": "Renters rente betyder, at dit afkast selv genererer afkast, så din formue vokser eksponentielt over tid. Kontotypen påvirker effekten: med frie midler arbejder hele beløbet skattefrit i hele perioden, mens ASK og pension reducerer din base hvert år med skatten."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Hvad er afkast?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Afkast er den gevinst du opnår på din investering – typisk målt i procent pr. år. Afkast kan komme fra kursstigninger og udbytter. Globale aktieindeks har historisk givet ca. 7-10 % i årligt afkast før inflation og skat."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hvordan beregner man renters rente med løbende indbetalinger?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Med løbende indbetalinger bruges formlen: Slutværdi = Startbeløb × (1 + r)^n + Månedlig × ((1 + r/12)^(12×n) - 1) / (r/12), hvor r er den årlige rente og n er antal år. Brug vores renters rente beregner for at beregne det automatisk."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hvad er forskellen på aktieindkomst og kapitalindkomst?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Aktieindkomst beskattes med 27 % op til progressionsgrænsen (79.400 kr i 2026) og 42 % derover. Kapitalindkomst beskattes som personlig indkomst med op til ca. 42 % marginalskat. Gevinst på aktier og aktiefonde er typisk aktieindkomst, mens renteindtægter er kapitalindkomst."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Schema.org: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Forside",
+        "item": "https://investeringsberegner.dk/"
       }
     ]
   }
@@ -120,8 +160,8 @@
 
     <!-- ==================== Header ==================== -->
     <header class="site-header">
-      <h1>Investeringsberegner</h1>
-      <p class="subtitle">Beregn dit afkast med korrekt skat for frie midler, ASK og pension</p>
+      <h1>Investeringsberegner – Afkast beregner</h1>
+      <p class="subtitle">Beregn dit aktieafkast med korrekt skat for frie midler, aktiesparekonto og pension</p>
       <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Skift tema">
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -527,6 +567,32 @@
         </p>
       </div>
 
+    </div>
+
+    <!-- ==================== Related Pages ==================== -->
+    <div class="card">
+      <div class="article-section">
+        <h2>Guides og værktøjer</h2>
+        <p>Udforsk vores dybdegående guides om investering, skat og opsparing i Danmark:</p>
+        <div class="guide-grid">
+          <a href="/renters-rente/" class="guide-link">
+            <strong>Renters rente beregner</strong>
+            <span>Forstå renters rente-effekten og beregn din vækst over tid med formler og eksempler.</span>
+          </a>
+          <a href="/aktiesparekonto/" class="guide-link">
+            <strong>Aktiesparekonto (ASK) guide</strong>
+            <span>Alt om ASK: beløbsgrænse, beskatning, regler og fordele i 2026.</span>
+          </a>
+          <a href="/beskatning-aktier/" class="guide-link">
+            <strong>Beskatning af aktier</strong>
+            <span>Komplet guide til aktiebeskatning: satser, fradrag, tab og eksempler.</span>
+          </a>
+          <a href="/investering-for-begyndere/" class="guide-link">
+            <strong>Investering for begyndere</strong>
+            <span>Kom i gang med aktier: trin-for-trin guide til din første investering.</span>
+          </a>
+        </div>
+      </div>
     </div>
 
     </main>

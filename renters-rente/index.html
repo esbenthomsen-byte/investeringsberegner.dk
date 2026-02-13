@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Renters rente beregner – Beregn din vækst over tid (2026)</title>
+  <meta name="description" content="Gratis renters rente beregner med løbende indbetalinger. Se formlen for renters rente, beregn din opsparing og forstå eksponentiel vækst over tid.">
+  <meta name="keywords" content="renters rente beregner, renters rente, formel for renters rente, rente formel, renters rente med løbende indbetalinger, renteberegning opsparing">
+  <link rel="canonical" href="https://investeringsberegner.dk/renters-rente/">
+  <meta property="article:published_time" content="2026-02-13T00:00:00+01:00">
+  <meta property="article:modified_time" content="2026-02-13T00:00:00+01:00">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://investeringsberegner.dk/renters-rente/">
+  <meta property="og:title" content="Renters rente beregner – Beregn din vækst over tid">
+  <meta property="og:description" content="Forstå renters rente-effekten og beregn din opsparing med løbende indbetalinger. Gratis beregner med formler og eksempler.">
+  <meta property="og:image" content="https://investeringsberegner.dk/favicon.png">
+  <meta property="og:locale" content="da_DK">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Renters rente beregner – Beregn din vækst over tid">
+  <meta name="twitter:description" content="Gratis renters rente beregner med løbende indbetalinger. Formler, eksempler og beregning.">
+  <meta name="twitter:image" content="https://investeringsberegner.dk/favicon.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../favicon.png">
+
+  <!-- Schema.org: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Renters rente beregner",
+    "url": "https://investeringsberegner.dk/renters-rente/",
+    "description": "Beregn renters rente med løbende indbetalinger. Se hvordan din opsparing vokser eksponentielt over tid.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "datePublished": "2026-02-13",
+    "dateModified": "2026-02-13",
+    "inLanguage": "da",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "DKK"
+    }
+  }
+  </script>
+
+  <!-- Schema.org: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Forside",
+        "item": "https://investeringsberegner.dk/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Renters rente beregner",
+        "item": "https://investeringsberegner.dk/renters-rente/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Schema.org: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Hvad er renters rente?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Renters rente er det princip, at dit afkast selv genererer afkast. Når du tjener rente på både din oprindelige investering og på tidligere optjent rente, vokser din formue eksponentielt over tid. Albert Einstein kaldte det angiveligt 'verdens ottende vidunder'."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hvad er formlen for renters rente?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Grundformlen er: Slutværdi = Startkapital × (1 + rente)^antal_år. Med løbende månedlige indbetalinger udvides formlen til: Slutværdi = Startkapital × (1 + r)^n + Månedlig × ((1 + r/12)^(12×n) - 1) / (r/12), hvor r er den årlige rente som decimaltal og n er antal år."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hvordan beregner man renters rente med løbende indbetalinger?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Med løbende indbetalinger beregner du to dele separat: 1) startkapitalens vækst med renters rente, og 2) de månedlige indbetalingers akkumulerede værdi med renters rente. Summen af de to giver slutværdien. Brug vores renters rente beregner ovenfor til at se resultatet med dine egne tal."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hvordan bruger man renters rente i Excel?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "I Excel kan du bruge FV-funktionen (Future Value): =FV(rente/12; antal_måneder; -månedlig_indbetaling; -startkapital). Eksempel: =FV(0,07/12; 20*12; -2500; -25000) giver slutværdien af 25.000 kr startkapital med 2.500 kr/md i 20 år ved 7% rente."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hvad er forskellen på simpel rente og renters rente?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ved simpel rente beregnes renten kun af den oprindelige kapital – du tjener det samme beløb hvert år. Ved renters rente beregnes renten af den voksende sum (kapital + tidligere rente), så dit afkast accelererer over tid. Over 20+ år kan forskellen være enorm."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Chart.js -->
+  <script async src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Prevent theme flash -->
+  <script>
+    (function() {
+      var t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- ==================== Header ==================== -->
+    <header class="site-header">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Investeringsberegner</a> <span aria-hidden="true">/</span> Renters rente
+      </nav>
+      <h1>Renters rente beregner</h1>
+      <p class="subtitle">Beregn hvordan din opsparing vokser med renters rente over tid</p>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Skift tema">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </header>
+
+    <main>
+
+    <!-- ==================== Calculator Card ==================== -->
+    <div class="card" id="rr-calc-card">
+      <h2 class="card-title">Beregn renters rente</h2>
+
+      <!-- Start amount -->
+      <div class="form-group">
+        <label for="rr-start">Startbeløb</label>
+        <div class="number-input-wrap">
+          <button type="button" data-step="-5000" data-target="rr-start" aria-label="Reducer">−</button>
+          <input type="text" id="rr-start" inputmode="numeric" value="25.000" data-raw="25000" data-step="5000" data-min="0">
+          <span class="suffix">kr</span>
+          <button type="button" data-step="5000" data-target="rr-start" aria-label="Forøg">+</button>
+        </div>
+      </div>
+
+      <!-- Monthly deposit -->
+      <div class="form-group">
+        <label for="rr-monthly">Månedlig indbetaling</label>
+        <div class="number-input-wrap">
+          <button type="button" data-step="-500" data-target="rr-monthly" aria-label="Reducer">−</button>
+          <input type="text" id="rr-monthly" inputmode="numeric" value="2.500" data-raw="2500" data-step="500" data-min="0">
+          <span class="suffix">kr</span>
+          <button type="button" data-step="500" data-target="rr-monthly" aria-label="Forøg">+</button>
+        </div>
+      </div>
+
+      <!-- Period -->
+      <div class="form-group">
+        <label for="rr-period">Periode</label>
+        <div class="number-input-wrap">
+          <button type="button" data-step="-1" data-target="rr-period" aria-label="Reducer">−</button>
+          <input type="text" id="rr-period" inputmode="numeric" value="20" data-raw="20" data-step="1" data-min="1" data-max="60">
+          <span class="suffix">år</span>
+          <button type="button" data-step="1" data-target="rr-period" aria-label="Forøg">+</button>
+        </div>
+      </div>
+
+      <!-- Annual return (slider) -->
+      <div class="form-group">
+        <label for="rr-rate">Årlig rente / forventet afkast</label>
+        <div class="range-group">
+          <input type="range" id="rr-rate" min="0" max="20" step="0.5" value="7">
+          <span class="range-value" id="rr-rate-display">7,0 %</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== Results Card ==================== -->
+    <div class="card" id="rr-results-card">
+      <h2 class="card-title">Resultat</h2>
+
+      <div class="result-grid" id="rr-result-grid">
+        <div class="result-box">
+          <div class="label">Slutværdi med renters rente</div>
+          <div class="value" id="rr-res-total">0 kr</div>
+        </div>
+        <div class="result-box">
+          <div class="label">Samlet indskud</div>
+          <div class="value" id="rr-res-deposits">0 kr</div>
+        </div>
+        <div class="result-box">
+          <div class="label">Optjent rente (renters rente)</div>
+          <div class="value positive" id="rr-res-interest">0 kr</div>
+        </div>
+        <div class="result-box">
+          <div class="label">Slutværdi med simpel rente</div>
+          <div class="value" id="rr-res-simple">0 kr</div>
+          <div class="sub">Uden renters rente-effekt</div>
+        </div>
+        <div class="result-box">
+          <div class="label">Renters rente-gevinst</div>
+          <div class="value positive" id="rr-res-bonus">0 kr</div>
+          <div class="sub">Ekstra afkast fra renters rente</div>
+        </div>
+        <div class="result-box">
+          <div class="label">Effektiv fordobling</div>
+          <div class="value" id="rr-res-double">– år</div>
+          <div class="sub">72-reglen: 72 ÷ rente</div>
+        </div>
+      </div>
+
+      <!-- Chart -->
+      <div class="chart-container">
+        <canvas id="rr-chart-canvas"></canvas>
+      </div>
+
+      <!-- Year table -->
+      <details>
+        <summary>Vis år-for-år tabel</summary>
+        <div class="result-table-wrap">
+          <table class="result-table" id="rr-table">
+            <thead>
+              <tr>
+                <th>År</th>
+                <th>Indskud i alt</th>
+                <th>Rente i år</th>
+                <th>Saldo (renters rente)</th>
+                <th>Saldo (simpel rente)</th>
+              </tr>
+            </thead>
+            <tbody id="rr-table-body"></tbody>
+          </table>
+        </div>
+      </details>
+
+      <div class="cta-box">
+        <p>Vil du se hvordan skat påvirker dit afkast?</p>
+        <a href="/" class="cta-button">Prøv investeringsberegneren med skatteberegning</a>
+      </div>
+    </div>
+
+    <!-- ==================== Article: Hvad er renters rente ==================== -->
+    <div class="card">
+      <div class="article-section">
+        <h2>Hvad er renters rente?</h2>
+        <p>
+          Renters rente (også kaldet <strong>compound interest</strong> på engelsk) er princippet om, at dit afkast selv genererer afkast. Hvor simpel rente kun beregnes af din oprindelige investering, beregnes renters rente af den samlede sum – inklusive alle tidligere optjente renter.
+        </p>
+        <p>
+          Effekten er beskeden i de første år, men accelererer kraftigt over tid. Det er derfor, tidshorisont er den vigtigste faktor i investering. En investering på 100.000 kr med 7 % årligt afkast vokser til:
+        </p>
+        <ul>
+          <li><strong>10 år:</strong> 196.715 kr (næsten en fordobling)</li>
+          <li><strong>20 år:</strong> 386.968 kr (næsten firedobling)</li>
+          <li><strong>30 år:</strong> 761.226 kr (mere end syvdobling)</li>
+        </ul>
+        <p>
+          Bemærk at afkastet fra år 20 til 30 (374.258 kr) er næsten dobbelt så stort som de første 20 års afkast (286.968 kr). Det er renters rente i praksis.
+        </p>
+      </div>
+
+      <div class="article-section">
+        <h2>Formlen for renters rente</h2>
+        <p>
+          Grundformlen for renters rente uden løbende indbetalinger er:
+        </p>
+        <div class="formula-box">
+          <code>Slutværdi = Startkapital × (1 + r)<sup>n</sup></code>
+        </div>
+        <p>Hvor <strong>r</strong> er den årlige rente (som decimaltal, fx 0,07 for 7 %) og <strong>n</strong> er antal år.</p>
+
+        <h3>Renters rente formel med løbende indbetalinger</h3>
+        <p>
+          Når du indbetaler et fast beløb hver måned, udvides formlen. Slutværdien består af to dele:
+        </p>
+        <div class="formula-box">
+          <code>Del 1 (startkapital): K₀ × (1 + r)<sup>n</sup></code>
+          <br><br>
+          <code>Del 2 (månedlige): M × ((1 + r/12)<sup>12×n</sup> - 1) / (r/12)</code>
+          <br><br>
+          <code>Slutværdi = Del 1 + Del 2</code>
+        </div>
+        <p>Hvor <strong>M</strong> er den månedlige indbetaling, <strong>r</strong> er den årlige rente og <strong>n</strong> er antal år.</p>
+
+        <h3>Eksempel: 2.500 kr/md i 20 år ved 7 %</h3>
+        <p>
+          Med et startbeløb på 25.000 kr, månedlig indbetaling på 2.500 kr, 7 % årligt afkast og 20 års horisont:
+        </p>
+        <ul>
+          <li>Samlet indskud: 25.000 + 2.500 × 240 = <strong>625.000 kr</strong></li>
+          <li>Slutværdi med renters rente: ca. <strong>1.399.000 kr</strong></li>
+          <li>Heraf optjent rente: ca. <strong>774.000 kr</strong></li>
+        </ul>
+        <p>
+          Du har altså tjent mere i renter (774.000 kr) end du selv har indsat (625.000 kr). Det er styrken ved renters rente over lang tid.
+        </p>
+      </div>
+
+      <div class="article-section">
+        <h2>Renters rente i Excel</h2>
+        <p>
+          I Excel (eller Google Sheets) kan du beregne renters rente med <strong>FV-funktionen</strong> (Future Value):
+        </p>
+        <div class="formula-box">
+          <code>=FV(rente/12; antal_måneder; -månedlig; -startkapital)</code>
+        </div>
+        <p>Eksempel med 7 % rente, 20 år, 2.500 kr/md og 25.000 kr start:</p>
+        <div class="formula-box">
+          <code>=FV(0,07/12; 240; -2500; -25000)</code>
+        </div>
+        <p>
+          Resultatet er ca. 1.399.000 kr. De negative fortegn skyldes Excels konvention, hvor indbetalinger er negative (penge ud) og slutværdien er positiv (penge ind).
+        </p>
+      </div>
+
+      <div class="article-section">
+        <h2>72-reglen: Hvornår fordobles din investering?</h2>
+        <p>
+          En praktisk tommelfingerregel er <strong>72-reglen</strong>: divider 72 med din årlige rente for at finde antal år til fordobling.
+        </p>
+        <ul>
+          <li><strong>5 % rente:</strong> 72 ÷ 5 = ca. 14,4 år</li>
+          <li><strong>7 % rente:</strong> 72 ÷ 7 = ca. 10,3 år</li>
+          <li><strong>10 % rente:</strong> 72 ÷ 10 = ca. 7,2 år</li>
+        </ul>
+        <p>
+          Reglen er en tilnærmelse, men den er overraskende præcis og nyttig til hurtige overslag.
+        </p>
+      </div>
+
+      <div class="article-section">
+        <h2>Simpel rente vs. renters rente</h2>
+        <p>
+          Ved <strong>simpel rente</strong> tjener du det samme kronebeløb hvert år – renten beregnes kun af den oprindelige kapital. Ved <strong>renters rente</strong> vokser beløbet du tjener rente af, fordi tidligere renter lægges til kapitalen.
+        </p>
+        <div class="result-table-wrap">
+          <table class="result-table">
+            <thead>
+              <tr>
+                <th>År</th>
+                <th>Simpel rente (7 %)</th>
+                <th>Renters rente (7 %)</th>
+                <th>Forskel</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>0</td><td>100.000 kr</td><td>100.000 kr</td><td>0 kr</td></tr>
+              <tr><td>5</td><td>135.000 kr</td><td>140.255 kr</td><td>5.255 kr</td></tr>
+              <tr><td>10</td><td>170.000 kr</td><td>196.715 kr</td><td>26.715 kr</td></tr>
+              <tr><td>20</td><td>240.000 kr</td><td>386.968 kr</td><td>146.968 kr</td></tr>
+              <tr><td>30</td><td>310.000 kr</td><td>761.226 kr</td><td>451.226 kr</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Efter 30 år er forskellen over 450.000 kr – på blot 100.000 kr startkapital. Det er derfor renters rente er så vigtig for langsigtet opsparing.
+        </p>
+      </div>
+
+      <div class="article-section">
+        <h2>Renters rente og skat</h2>
+        <p>
+          I praksis påvirker skat renters rente-effekten. Kontotypen afgør hvornår skatten betales:
+        </p>
+        <ul>
+          <li><strong>Frie midler:</strong> Skat ved salg (realisationsbeskatning). Hele beløbet arbejder for dig skattefrit undervejs – fuld renters rente-effekt.</li>
+          <li><strong>Aktiesparekonto (ASK):</strong> 17 % skat hvert år af værdistigningen (lagerbeskatning). Skatten reducerer din base og dæmper renters rente.</li>
+          <li><strong>Pension (PAL):</strong> 15,3 % skat hvert år. Samme mekanik som ASK, men lavere sats.</li>
+        </ul>
+        <p>
+          Vil du se den præcise forskel? Brug vores <a href="/">investeringsberegner med skatteberegning</a> til at sammenligne de tre kontotyper med dine egne tal.
+        </p>
+      </div>
+    </div>
+
+    <!-- ==================== Related Pages ==================== -->
+    <div class="card">
+      <div class="article-section">
+        <h2>Relaterede guides</h2>
+        <div class="guide-grid">
+          <a href="/" class="guide-link">
+            <strong>Investeringsberegner</strong>
+            <span>Beregn dit afkast med korrekt skatteberegning for frie midler, ASK og pension.</span>
+          </a>
+          <a href="/aktiesparekonto/" class="guide-link">
+            <strong>Aktiesparekonto (ASK) guide</strong>
+            <span>Alt om ASK: beløbsgrænse, beskatning, regler og fordele i 2026.</span>
+          </a>
+          <a href="/beskatning-aktier/" class="guide-link">
+            <strong>Beskatning af aktier</strong>
+            <span>Komplet guide til aktiebeskatning: satser, fradrag, tab og eksempler.</span>
+          </a>
+          <a href="/investering-for-begyndere/" class="guide-link">
+            <strong>Investering for begyndere</strong>
+            <span>Kom i gang med aktier: trin-for-trin guide til din første investering.</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    </main>
+
+    <!-- ==================== Footer ==================== -->
+    <footer>
+      <p>investeringsberegner.dk – Gratis investeringsberegner med korrekt skatteberegning. Opdateret 2026.</p>
+      <p>Beregneren er kun vejledende og erstatter ikke professionel rådgivning.</p>
+    </footer>
+
+  </div>
+
+  <!-- App script -->
+  <script type="module" src="../js/renters-rente.js"></script>
+
+</body>
+</html>

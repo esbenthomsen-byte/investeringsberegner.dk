@@ -732,7 +732,7 @@ details summary:hover {
 }
 
 .article-section:last-child {
-  margin-bottom: 0;
+  margin-bottom: 4px;
 }
 
 .article-section h2 {
@@ -1046,6 +1046,134 @@ footer p {
     font-size: 1.2rem;
   }
 }
+
+/* ---------- Breadcrumb ---------- */
+.breadcrumb {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.breadcrumb a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb span {
+  margin: 0 6px;
+  color: var(--text-tertiary);
+}
+
+/* ---------- Formula box ---------- */
+.formula-box {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin: 12px 0 16px;
+  font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  overflow-x: auto;
+  color: var(--text-primary);
+}
+
+.formula-box code {
+  background: none;
+  padding: 0;
+  font-size: inherit;
+}
+
+/* ---------- CTA box ---------- */
+.cta-box {
+  margin-top: 24px;
+  padding: 24px 28px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.cta-box p {
+  margin: 0 0 16px;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+a.cta-button,
+.article-section a.cta-button {
+  display: inline-block;
+  padding: 12px 28px;
+  background: var(--accent);
+  color: #ffffff;
+  border-radius: 980px;
+  text-decoration: none;
+  border-bottom: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 1px 3px rgba(0, 113, 227, 0.3);
+}
+
+a.cta-button:hover,
+.article-section a.cta-button:hover {
+  background: var(--accent-hover);
+  color: #ffffff;
+  border-bottom: none;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 113, 227, 0.35);
+}
+
+a.cta-button:active,
+.article-section a.cta-button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 113, 227, 0.25);
+}
+
+/* ---------- Guide grid (internal links) ---------- */
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.guide-link {
+  display: block;
+  padding: 16px 20px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-strong);
+  background: var(--bg-secondary);
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.guide-link:hover {
+  border-color: var(--accent);
+  background: var(--bg-card-hover);
+  box-shadow: var(--shadow);
+}
+
+.guide-link strong {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+  color: var(--accent);
+}
+
+.guide-link span {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
 
 /* ---------- Print ---------- */
 @media print {
