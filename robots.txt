@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://investeringsberegner.dk/sitemap.xml

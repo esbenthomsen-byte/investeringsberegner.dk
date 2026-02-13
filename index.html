@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investeringsberegner – Beregn dit afkast med korrekt skat (2026)</title>
+  <meta name="description" content="Gratis investeringsberegner med korrekt skatteberegning for frie midler, aktiesparekonto (ASK) og pension (PAL). Opdateret med 2026-skattesatser.">
+  <meta name="keywords" content="investeringsberegner, aktieskat, aktiesparekonto, ASK, PAL, renters rente, investering, afkast, skat, 2026">
+  <link rel="canonical" href="https://investeringsberegner.dk/">
+  <meta property="article:published_time" content="2026-01-01T00:00:00+01:00">
+  <meta property="article:modified_time" content="2026-02-13T00:00:00+01:00">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://investeringsberegner.dk/">
+  <meta property="og:title" content="Investeringsberegner – Beregn dit afkast med korrekt skat">
+  <meta property="og:description" content="Beregn dit investeringsafkast med korrekt skatteberegning for frie midler, aktiesparekonto og pension. Gratis og opdateret med 2026-satser.">
+  <meta property="og:image" content="https://investeringsberegner.dk/favicon.png">
+  <meta property="og:locale" content="da_DK">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Investeringsberegner – Beregn dit afkast med korrekt skat">
+  <meta name="twitter:description" content="Gratis investeringsberegner med korrekt skatteberegning for alle kontotyper. 2026-satser.">
+  <meta name="twitter:image" content="https://investeringsberegner.dk/favicon.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- Schema.org: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Investeringsberegner",
+    "url": "https://investeringsberegner.dk/",
+    "description": "Beregn dit investeringsafkast med korrekt skatteberegning for frie midler, aktiesparekonto (ASK) og pension (PAL-skat).",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "datePublished": "2026-01-01",
+    "dateModified": "2026-02-13",
+    "inLanguage": "da",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "DKK"
+    }
+  }
+  </script>
+
+  <!-- Schema.org: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Hvordan beskattes frie midler (aktiedepot) i 2026?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Frie midler beskattes ved realisationsbeskatning – du betaler først skat, når du sælger. I 2026 er satsen 27 % af de første 79.400 kr i gevinst (enlig) og 42 % af gevinst derover. Er du gift, er progressionsgrænsen 158.800 kr."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hvad er skattesatsen på aktiesparekonto (ASK) i 2026?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Aktiesparekontoen beskattes med 17 % flat af årets værdistigning (lagerbeskatning). Skatten trækkes fra kontoen hvert år. Indskudsloftet er 174.200 kr i 2026. Tab kan fremføres til modregning i fremtidige år."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hvad er PAL-skat på pension i 2026?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pensionsmidler beskattes med PAL-skat på 15,3 % af årets værdistigning (lagerbeskatning). Satsen er lavere end aktiesparekontoen, men pengene er bundet til pensionsalderen."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hvilken kontotype giver det bedste afkast efter skat?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Det afhænger af din situation. ASK er oplagt for de første ca. 174.000 kr med sin lave 17 % skat. Frie midler giver fuld fleksibilitet og udskudt skat, hvilket er en fordel ved store porteføljer. Pension har den laveste skattesats (15,3 %), men pengene er bundet."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hvad er renters rente-effekten?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Renters rente betyder, at dit afkast selv genererer afkast, så din formue vokser eksponentielt over tid. Kontotypen påvirker effekten: med frie midler arbejder hele beløbet skattefrit i hele perioden, mens ASK og pension reducerer din base hvert år med skatten."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Chart.js pinned version -->
+  <script async src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Prevent theme flash: apply saved theme before first paint -->
+  <script>
+    (function() {
+      var t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- ==================== Header ==================== -->
+    <header class="site-header">
+      <h1>Investeringsberegner</h1>
+      <p class="subtitle">Beregn dit afkast med korrekt skat for frie midler, ASK og pension</p>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Skift tema">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </header>
+
+    <main>
+
+    <!-- ==================== Calculator Card ==================== -->
+    <div class="card" id="calculator-card">
+
+      <!-- Mode selector: Beregn afkast / Beregn opsparing -->
+      <div class="mode-selector" id="mode-selector">
+        <div class="mode-option">
+          <input type="radio" name="calcMode" id="mode-return" value="return" checked>
+          <label for="mode-return">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            Beregn afkast
+          </label>
+        </div>
+        <div class="mode-option">
+          <input type="radio" name="calcMode" id="mode-goal" value="goal">
+          <label for="mode-goal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            Beregn opsparing
+          </label>
+        </div>
+      </div>
+
+      <!-- Account type selector -->
+      <div class="form-group">
+        <div class="label-with-tip">
+          <label>Kontotype</label>
+          <span class="tip-trigger" tabindex="0">?<span class="tip-bubble">Vælg den kontotype du investerer på. Skatten beregnes forskelligt: frie midler beskattes ved salg, mens ASK og pension beskattes hvert år af værdistigningen.</span></span>
+        </div>
+        <div class="account-selector" id="account-selector">
+          <div class="account-option">
+            <input type="radio" name="accountType" id="type-frieMidler" value="frieMidler" checked>
+            <label for="type-frieMidler">
+              Frie midler
+              <span class="tax-badge">27/42 % ved salg</span>
+            </label>
+          </div>
+          <div class="account-option">
+            <input type="radio" name="accountType" id="type-ask" value="ask">
+            <label for="type-ask">
+              Aktiesparekonto
+              <span class="tax-badge">17 % lagerbeskattet</span>
+            </label>
+          </div>
+          <div class="account-option">
+            <input type="radio" name="accountType" id="type-pension" value="pension">
+            <label for="type-pension">
+              Pension (PAL)
+              <span class="tax-badge">15,3 % lagerbeskattet</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- ASK ceiling warning -->
+      <div class="ask-warning" id="ask-warning">
+        <strong>Bemærk:</strong> Aktiesparekontoen har et indskudsloft på 174.200 kr i 2026. Dine samlede indbetalinger overstiger dette loft.
+      </div>
+
+      <!-- Married toggle (only for frie midler) -->
+      <div class="form-group" id="married-group">
+        <div class="toggle-wrap">
+          <label class="toggle">
+            <input type="checkbox" id="input-married">
+            <span class="slider"></span>
+          </label>
+          <span class="toggle-label">Gift (dobbelt progressionsgrænse: 158.800 kr)</span>
+        </div>
+      </div>
+
+      <!-- Goal target amount (only in goal mode) -->
+      <div class="form-group" id="goal-group" style="display:none;">
+        <div class="label-with-tip">
+          <label for="input-goal">Ønsket slutbeløb (efter skat)</label>
+          <span class="tip-trigger" tabindex="0">?<span class="tip-bubble">Det beløb du gerne vil ende med efter skat. Beregneren finder den månedlige opsparing du skal bruge for at nå målet.</span></span>
+        </div>
+        <div class="number-input-wrap">
+          <button type="button" data-step="-100000" data-target="input-goal" aria-label="Reducer">−</button>
+          <input type="text" id="input-goal" inputmode="numeric" value="1.000.000" data-raw="1000000" data-step="100000" data-min="0">
+          <span class="suffix">kr</span>
+          <button type="button" data-step="100000" data-target="input-goal" aria-label="Forøg">+</button>
+        </div>
+      </div>
+
+      <!-- Start amount -->
+      <div class="form-group">
+        <div class="label-with-tip">
+          <label for="input-start">Startbeløb</label>
+          <span class="tip-trigger" tabindex="0">?<span class="tip-bubble">Det beløb du har at investere fra starten. Kan være 0 kr hvis du starter fra bunden.</span></span>
+        </div>
+        <div class="number-input-wrap">
+          <button type="button" data-step="-5000" data-target="input-start" aria-label="Reducer">−</button>
+          <input type="text" id="input-start" inputmode="numeric" value="25.000" data-raw="25000" data-step="5000" data-min="0">
+          <span class="suffix">kr</span>
+          <button type="button" data-step="5000" data-target="input-start" aria-label="Forøg">+</button>
+        </div>
+      </div>
+
+      <!-- Monthly deposit (hidden in goal mode) -->
+      <div class="form-group" id="monthly-group">
+        <div class="label-with-tip">
+          <label for="input-monthly">Månedlig indbetaling</label>
+          <span class="tip-trigger" tabindex="0">?<span class="tip-bubble">Det faste beløb du indbetaler hver måned. Selv små beløb gør en stor forskel over tid takket være renters rente.</span></span>
+        </div>
+        <div class="number-input-wrap">
+          <button type="button" data-step="-500" data-target="input-monthly" aria-label="Reducer">−</button>
+          <input type="text" id="input-monthly" inputmode="numeric" value="2.500" data-raw="2500" data-step="500" data-min="0">
+          <span class="suffix">kr</span>
+          <button type="button" data-step="500" data-target="input-monthly" aria-label="Forøg">+</button>
+        </div>
+      </div>
+
+      <!-- Period -->
+      <div class="form-group">
+        <div class="label-with-tip">
+          <label for="input-period">Investeringsperiode</label>
+          <span class="tip-trigger" tabindex="0">?<span class="tip-bubble">Antal år du planlægger at investere. Jo længere tidshorisont, desto stærkere er renters rente-effekten.</span></span>
+        </div>
+        <div class="number-input-wrap">
+          <button type="button" data-step="-1" data-target="input-period" aria-label="Reducer">−</button>
+          <input type="text" id="input-period" inputmode="numeric" value="15" data-raw="15" data-step="1" data-min="1" data-max="60">
+          <span class="suffix">år</span>
+          <button type="button" data-step="1" data-target="input-period" aria-label="Forøg">+</button>
+        </div>
+      </div>
+
+      <!-- Annual return (slider) -->
+      <div class="form-group">
+        <div class="label-with-tip">
+          <label for="input-return">Forventet årligt afkast</label>
+          <span class="tip-trigger" tabindex="0">?<span class="tip-bubble">Det gennemsnitlige afkast du forventer pr. år. Globale aktieindeks har historisk givet ca. 7-10 % p.a. før inflation.</span></span>
+        </div>
+        <div class="range-group">
+          <input type="range" id="input-return" min="0" max="20" step="0.5" value="7">
+          <span class="range-value" id="return-display">7,0 %</span>
+        </div>
+      </div>
+
+      <!-- Annual cost (slider) -->
+      <div class="form-group">
+        <div class="label-with-tip">
+          <label for="input-cost">Årlige omkostninger (ÅOP)</label>
+          <span class="tip-trigger" tabindex="0">?<span class="tip-bubble">ÅOP (Årlige Omkostninger i Procent) dækker fondens forvaltning, handel og administration. Passive indeksfonde ligger typisk på 0,1-0,5 %, mens aktive fonde kan koste 1-2 %.</span></span>
+        </div>
+        <div class="range-group">
+          <input type="range" id="input-cost" min="0" max="3" step="0.1" value="0.5">
+          <span class="range-value" id="cost-display">0,5 %</span>
+        </div>
+      </div>
+
+      <!-- Inflation (slider) -->
+      <div class="form-group">
+        <div class="label-with-tip">
+          <label for="input-inflation">Inflation</label>
+          <span class="tip-trigger" tabindex="0">?<span class="tip-bubble">Den årlige prisstigning der udhuler din købekraft. Nationalbanken sigter mod ca. 2 %. Bruges til at vise din slutværdi i dagens kroner.</span></span>
+        </div>
+        <div class="range-group">
+          <input type="range" id="input-inflation" min="0" max="10" step="0.5" value="2">
+          <span class="range-value" id="inflation-display">2,0 %</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ==================== Results Card ==================== -->
+    <div class="card" id="results-card">
+      <h2 class="card-title">Resultater</h2>
+
+      <!-- Goal mode result -->
+      <div class="goal-result" id="goal-result">
+        <div class="goal-label">Nødvendig månedlig opsparing</div>
+        <div class="goal-value" id="goal-monthly-result">0 kr</div>
+        <div class="goal-sub" id="goal-monthly-sub">for at nå dit mål efter skat</div>
+      </div>
+
+      <div class="result-grid" id="result-grid">
+        <div class="result-box">
+          <div class="label">Slutværdi (efter skat)</div>
+          <div class="value" id="res-total">0 kr</div>
+        </div>
+        <div class="result-box">
+          <div class="label">Samlet indskud</div>
+          <div class="value" id="res-deposits">0 kr</div>
+        </div>
+        <div class="result-box">
+          <div class="label">Samlet afkast (efter skat)</div>
+          <div class="value positive" id="res-gain">0 kr</div>
+        </div>
+        <div class="result-box">
+          <div class="label">Samlet skat betalt</div>
+          <div class="value" id="res-tax">0 kr</div>
+          <div class="sub" id="res-tax-sub"></div>
+        </div>
+        <div class="result-box">
+          <div class="label">Slutværdi (i dagens kroner)</div>
+          <div class="value" id="res-real">0 kr</div>
+          <div class="sub">Justeret for inflation</div>
+        </div>
+        <div class="result-box">
+          <div class="label">Tabt til omkostninger</div>
+          <div class="value negative" id="res-cost">0 kr</div>
+          <div class="sub">Sammenlignet med 0 % ÅOP</div>
+        </div>
+      </div>
+
+      <!-- Chart -->
+      <div class="chart-container">
+        <canvas id="chart-canvas"></canvas>
+      </div>
+
+      <!-- Year-by-year table -->
+      <details>
+        <summary>Vis detaljeret tabel</summary>
+        <div class="result-table-wrap">
+          <table class="result-table" id="result-table">
+            <thead>
+              <tr>
+                <th>År</th>
+                <th>Indskud i alt</th>
+                <th>Afkast i år</th>
+                <th>Skat i år</th>
+                <th>Porteføljeværdi</th>
+              </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+          </table>
+        </div>
+      </details>
+    </div>
+
+    <!-- ==================== Share & Scenarios ==================== -->
+    <div class="card">
+      <h2 class="card-title">Del eller gem</h2>
+
+      <div class="share-bar" id="share-bar">
+        <button type="button" id="btn-copy-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          Kopiér link
+        </button>
+        <button type="button" id="btn-email">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Send via e-mail
+        </button>
+      </div>
+
+      <h3 class="scenario-section-title">Gemte scenarier</h3>
+      <div class="scenario-bar" id="scenario-bar">
+        <select id="scenario-select">
+          <option value="">— Vælg scenario —</option>
+        </select>
+        <button type="button" id="btn-save-scenario">Gem</button>
+        <button type="button" id="btn-delete-scenario">Slet</button>
+      </div>
+    </div>
+
+    <!-- ==================== SEO Articles ==================== -->
+    <div class="card">
+
+      <div class="article-section">
+        <h2>Sådan bruger du investeringsberegneren</h2>
+        <p>
+          Denne beregner hjælper dig med at forstå, hvordan dine investeringer kan vokse over tid – med korrekt skatteberegning for den kontotype du vælger. Vælg mellem <strong>frie midler</strong>, <strong>aktiesparekonto (ASK)</strong> eller <strong>pension (PAL-skat)</strong>, og se hvordan skat, omkostninger og inflation påvirker dit endelige afkast.
+        </p>
+        <p>
+          Indtast dit startbeløb, månedlige indbetalinger, investeringshorisont og forventet afkast. Beregneren simulerer år-for-år og viser dig den forventede slutværdi efter skat, samt en detaljeret tabel og graf.
+        </p>
+      </div>
+
+      <div class="article-section">
+        <h2>Skat på aktier i 2026 – de tre kontotyper</h2>
+
+        <h3>Frie midler (realisationsbeskatning)</h3>
+        <p>
+          Når du investerer via et almindeligt aktiedepot (frie midler), beskattes du først ved salg. Det betyder, at din investering kan vokse skattefrit, indtil du sælger – den såkaldte <strong>realisationsbeskatning</strong>.
+        </p>
+        <p>
+          Aktieindkomst beskattes i 2026 med <strong>27 %</strong> af de første 79.400 kr i gevinst (enlig) og <strong>42 %</strong> af gevinst derover. Er du gift, er progressionsgrænsen 158.800 kr, da ægtefæller kan dele.
+        </p>
+        <ul>
+          <li>Skat betales kun ved salg (realisationsbeskatning)</li>
+          <li>27 % op til progressionsgrænsen</li>
+          <li>42 % over progressionsgrænsen</li>
+          <li>Progressionsgrænse 2026: 79.400 kr (enlig) / 158.800 kr (gift)</li>
+        </ul>
+
+        <h3>Aktiesparekonto – ASK (lagerbeskatning)</h3>
+        <p>
+          Aktiesparekontoen beskattes efter <strong>lagerprincippet</strong> med en flat sats på <strong>17 %</strong>. Det vil sige, at du betaler skat hvert år af årets værdistigning – uanset om du har solgt eller ej. Skatten trækkes fra kontoen, hvilket reducerer den kapital der forrenter sig.
+        </p>
+        <p>
+          I 2026 er indskudsloftet <strong>174.200 kr</strong>. Du kan altså maksimalt have indsat dette beløb over tid. Kontoen egner sig bedst til mindre beløb, hvor den lave skattesats opvejer ulempen ved årlig beskatning.
+        </p>
+        <ul>
+          <li>17 % flat skat af årets værdistigning (lagerbeskatning)</li>
+          <li>Tab kan fremføres til modregning i fremtidige år</li>
+          <li>Indskudsloft 2026: 174.200 kr</li>
+        </ul>
+
+        <h3>Pension – PAL-skat (lagerbeskatning)</h3>
+        <p>
+          Pensionsmidler beskattes med <strong>PAL-skat på 15,3 %</strong>, som ligeledes er lagerbeskatning. Satsen er lavere end ASK, men pengene er bundet til pensionsalderen. PAL-skatten trækkes automatisk af pensionsselskabet.
+        </p>
+        <ul>
+          <li>15,3 % flat skat af årets værdistigning (PAL-skat)</li>
+          <li>Tab kan fremføres til modregning i fremtidige år</li>
+          <li>Pengene er bundet til pensionsalderen</li>
+        </ul>
+
+        <h3>Sammenligning af de tre kontotyper (2026)</h3>
+        <div class="result-table-wrap">
+          <table class="result-table">
+            <thead>
+              <tr>
+                <th>Egenskab</th>
+                <th>Frie midler</th>
+                <th>ASK</th>
+                <th>Pension (PAL)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Skattesats</td>
+                <td>27 / 42 %</td>
+                <td>17 %</td>
+                <td>15,3 %</td>
+              </tr>
+              <tr>
+                <td>Beskatningsform</td>
+                <td>Realisation (ved salg)</td>
+                <td>Lager (hvert år)</td>
+                <td>Lager (hvert år)</td>
+              </tr>
+              <tr>
+                <td>Progressionsgrænse</td>
+                <td>79.400 / 158.800 kr</td>
+                <td>Ingen</td>
+                <td>Ingen</td>
+              </tr>
+              <tr>
+                <td>Indskudsloft</td>
+                <td>Ingen</td>
+                <td>174.200 kr</td>
+                <td>Afhænger af ordning</td>
+              </tr>
+              <tr>
+                <td>Fleksibilitet</td>
+                <td>Fuld</td>
+                <td>Fuld</td>
+                <td>Bundet til pension</td>
+              </tr>
+              <tr>
+                <td>Tab fremførsel</td>
+                <td>Modregning i gevinst</td>
+                <td>Fremføres automatisk</td>
+                <td>Fremføres automatisk</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Kilde: <a href="https://skat.dk/borger/aktier-og-vaerdipapirer" rel="noopener" target="_blank">SKAT – Aktier og værdipapirer</a>. Se også <a href="https://www.nationalbanken.dk/" rel="noopener" target="_blank">Nationalbanken</a> for aktuelle inflationsforventninger.
+        </p>
+      </div>
+
+      <div class="article-section">
+        <h2>Renters rente-effekten</h2>
+        <p>
+          Renters rente er det mest kraftfulde koncept i investering. Når dit afkast selv genererer afkast, vokser din formue eksponentielt over tid. Forskellen mellem 10 og 20 års investering er langt mere end dobbelt afkast – det er her den virkelige magi sker.
+        </p>
+        <p>
+          Kontotypen påvirker dog renters rente-effekten markant. Med <strong>frie midler</strong> arbejder hele beløbet for dig hele perioden (skatten betales først til sidst). Med <strong>ASK</strong> og <strong>pension</strong> reduceres din base hvert år med skatten, hvilket dæmper effekten – men til gengæld betaler du en lavere samlet skat ved ASK (17 %) sammenlignet med den høje marginalskat (42 %) på frie midler ved store gevinster.
+        </p>
+      </div>
+
+      <div class="article-section">
+        <h2>Omkostninger og inflation</h2>
+        <p>
+          Årlige omkostninger (ÅOP) på dine investeringer har en enorm effekt over tid. Blot 1 % ekstra i årlige omkostninger kan koste dig hundredetusinder over en 20-årig periode. Vælg lavpris-indeksfonde med ÅOP under 0,5 % for at beholde mest muligt af dit afkast.
+        </p>
+        <p>
+          Beregneren viser også din slutværdi i <strong>dagens kroner</strong>, justeret for inflation. Med 2 % årlig inflation er 1 million kr om 20 år kun ca. 672.000 kr værd i dagens købekraft. Det er vigtigt at tage højde for, når du planlægger din opsparing.
+        </p>
+      </div>
+
+      <div class="article-section">
+        <h2>Hvilken kontotype skal du vælge?</h2>
+        <p>
+          Svaret afhænger af din situation:
+        </p>
+        <ul>
+          <li><strong>ASK</strong> er oplagt for de første ca. 174.000 kr – den lave 17 % skat slår ofte progressionsskatten på frie midler, selv med lagerbeskatning.</li>
+          <li><strong>Frie midler</strong> giver fuld fleksibilitet og udskudt skat, hvilket er en fordel ved store porteføljer eller langsigtede investeringer hvor du forventer at realisere gradvist under progressionsgrænsen.</li>
+          <li><strong>Pension</strong> har den laveste skattesats (15,3 %), men pengene er bundet. Relevant primært for pensionsopsparing med fradragsberettigede indskud.</li>
+        </ul>
+        <p>
+          Brug beregneren til at sammenligne de tre kontotyper med dine egne tal – skift kontotype og se, hvordan slutværdien ændrer sig.
+        </p>
+      </div>
+
+    </div>
+
+    </main>
+
+    <!-- ==================== Footer ==================== -->
+    <footer>
+      <p>investeringsberegner.dk – Gratis investeringsberegner med korrekt skatteberegning. Opdateret 2026.</p>
+      <p>Beregneren er kun vejledende og erstatter ikke professionel rådgivning.</p>
+    </footer>
+
+  </div>
+
+  <!-- App scripts (ES modules) -->
+  <script type="module" src="js/main.js"></script>
+
+</body>
+</html>
