@@ -268,6 +268,26 @@ function setupSliders() {
 }
 
 // ============================================================
+// Range stepper buttons (+/-)
+// ============================================================
+function setupRangeButtons() {
+  document.querySelectorAll('.range-btn[data-range]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const slider = document.getElementById(btn.dataset.range);
+      if (!slider) return;
+      const step = parseFloat(slider.step) || 0.5;
+      const min = parseFloat(slider.min) || 0;
+      const max = parseFloat(slider.max) || 100;
+      const dir = parseInt(btn.dataset.dir) || 1;
+      const cur = parseFloat(slider.value) || 0;
+      const newVal = Math.round(Math.max(min, Math.min(max, cur + step * dir)) * 100) / 100;
+      slider.value = newVal;
+      slider.dispatchEvent(new Event('input'));
+    });
+  });
+}
+
+// ============================================================
 // Account type & married toggle
 // ============================================================
 function setupAccountType() {
@@ -374,6 +394,9 @@ function init() {
 
   // Setup stepper buttons
   setupStepperButtons();
+
+  // Setup range stepper buttons (+/-)
+  setupRangeButtons();
 
   // Setup sharing
   setupSharing();

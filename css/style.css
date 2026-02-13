@@ -420,6 +420,35 @@ body {
   cursor: pointer;
 }
 
+.range-btn {
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--bg-stepper);
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .15s, color .15s, border-color .15s;
+  padding: 0;
+}
+
+.range-btn:hover {
+  background: var(--bg-stepper-hover);
+  color: var(--text-primary);
+}
+
+.range-btn:active {
+  background: var(--bg-stepper-active);
+  transform: scale(0.95);
+}
+
 .range-group .range-value {
   min-width: 3.25rem;
   text-align: right;

@@ -301,7 +301,9 @@
           <span class="tip-trigger" tabindex="0">?<span class="tip-bubble">Det gennemsnitlige afkast du forventer pr. år. Globale aktieindeks har historisk givet ca. 7-10 % p.a. før inflation.</span></span>
         </div>
         <div class="range-group">
-          <input type="range" id="input-return" min="0" max="20" step="0.5" value="7">
+          <button type="button" class="range-btn" data-range="input-return" data-dir="-1" aria-label="Mindsk afkast">&minus;</button>
+          <input type="range" id="input-return" min="0" max="100" step="0.5" value="7">
+          <button type="button" class="range-btn" data-range="input-return" data-dir="1" aria-label="Øg afkast">+</button>
           <span class="range-value" id="return-display">7,0 %</span>
         </div>
       </div>
@@ -313,7 +315,9 @@
           <span class="tip-trigger" tabindex="0">?<span class="tip-bubble">ÅOP (Årlige Omkostninger i Procent) dækker fondens forvaltning, handel og administration. Passive indeksfonde ligger typisk på 0,1-0,5 %, mens aktive fonde kan koste 1-2 %.</span></span>
         </div>
         <div class="range-group">
+          <button type="button" class="range-btn" data-range="input-cost" data-dir="-1" aria-label="Mindsk omkostninger">&minus;</button>
           <input type="range" id="input-cost" min="0" max="3" step="0.1" value="0.5">
+          <button type="button" class="range-btn" data-range="input-cost" data-dir="1" aria-label="Øg omkostninger">+</button>
           <span class="range-value" id="cost-display">0,5 %</span>
         </div>
       </div>
@@ -325,7 +329,9 @@
           <span class="tip-trigger" tabindex="0">?<span class="tip-bubble">Den årlige prisstigning der udhuler din købekraft. Nationalbanken sigter mod ca. 2 %. Bruges til at vise din slutværdi i dagens kroner.</span></span>
         </div>
         <div class="range-group">
+          <button type="button" class="range-btn" data-range="input-inflation" data-dir="-1" aria-label="Mindsk inflation">&minus;</button>
           <input type="range" id="input-inflation" min="0" max="10" step="0.5" value="2">
+          <button type="button" class="range-btn" data-range="input-inflation" data-dir="1" aria-label="Øg inflation">+</button>
           <span class="range-value" id="inflation-display">2,0 %</span>
         </div>
       </div>
