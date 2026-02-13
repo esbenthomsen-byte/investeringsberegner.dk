@@ -58,7 +58,7 @@
 
 /* ---------- Dark theme ---------- */
 [data-theme="dark"] {
-  --bg-primary: #000000;
+  --bg-primary: #1a1a1d;
   --bg-card: #1c1c1e;
   --bg-card-hover: #2c2c2e;
   --bg-secondary: #2c2c2e;
@@ -120,6 +120,11 @@ body {
   line-height: 1.5;
   background: var(--bg-primary);
   transition: background .3s ease, color .3s ease;
+}
+
+[data-theme="dark"] body {
+  background: linear-gradient(168deg, #1c1c1f 0%, #18181b 40%, #1a1a1d 100%);
+  min-height: 100vh;
 }
 
 /* ---------- Layout ---------- */
