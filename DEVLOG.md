@@ -41,7 +41,7 @@
 - **Sitemap opdateret** til 40 URL'er
 
 ### Git
-- TBD
+- `de5123e` — Add 15 keyword-gap articles, update frontpage and sitemap to 40 URLs
 
 ---
 
