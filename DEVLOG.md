@@ -5,6 +5,62 @@
 
 ---
 
+## Session 6 — 2026-02-13
+
+### Kontekst
+- Kvalitetssikring: template-konsistens, dark mode, Playwright-test, favicon, stub-artikler
+
+### Implementeret
+
+- **Dark mode fix paa alle 39 artikelsider**
+  - 5 artikler brugte `classList` i stedet for `data-theme` — rettet
+  - 5 artikler manglede `prefers-color-scheme` check i flash-prevention script
+  - 1 artikel (renters-rente) manglede theme toggle JS helt
+  - 15 stub-artikler fik komplet template (header, breadcrumb, footer, theme toggle)
+
+- **Forside dark mode fix**
+  - ES modules fejler paa `file://` protocol (CORS) — tilføjet inline theme toggle script
+  - `__themeToggleReady` flag forhindrer dobbelt-toggle naar moduler loader
+
+- **Playwright-testsuite** (16/16 tests bestaaet)
+  - Beregner, chart, goal mode, kontotype-skift, sliders, gift-toggle, URL-hash, scenarier, ASK-advarsel
+
+- **Dark mode baggrund** ændret fra sort (#000) til mørk graa (#1a1a1d) med svag gradient
+
+- **favicon.png** oprettet — mørk baggrund med blaa opadgaaende graf-linje
+
+- **15 stub-artikler skrevet med fuldt indhold** (3 parallelle agenter)
+  - `/ai-investering/` — AI-aktier, tematiske ETF'er, robo-advisors
+  - `/aktiedepot-vs-aktiesparekonto/` — Sammenlign depot og ASK, beskatning
+  - `/alternative-investeringer/` — Ejendomme, guld, krypto, crowdlending, PE
+  - `/baeredygtig-investering/` — ESG, SRI, SFDR, greenwashing
+  - `/bedste-indeksfonde/` — Top fonde til ASK og frie midler med ISIN
+  - `/diversificering/` — Systematisk vs usystematisk risiko, korrelation
+  - `/investeringsplatforme/` — Nordnet, Saxo, Lunar, Nord.Investments sammenligning
+  - `/investeringsraadgiver/` — Uvildig vs bank, robo-advisors, omkostninger
+  - `/investeringsstrategier/` — Buy-and-hold, value, growth, DCA, momentum
+  - `/investering-vs-opsparing/` — Inflation, risiko vs afkast, nødopsparing
+  - `/kryptovaluta-investering/` — Bitcoin, Ethereum, beskatning, MiCA
+  - `/passiv-indkomst/` — Udbytteaktier, REITs, obligationer, P2P
+  - `/portefoeljesammensaetning/` — Asset allocation, risikoprofil, rebalancering
+  - `/skat-paa-etf/` — Lager vs realisation, positivlisten, skatteoptimering
+  - `/investeringsforeninger/` — Danske fonde, minimumsbeskatning, AOP
+
+- **CSS fix: `.guide-card` styling** tilføjet
+  - Artikelsiders "Relaterede guider" brugte `.guide-card` class der ikke fandtes i CSS
+  - `.guide-grid` layout tilpasset baade forside (div) og artikler (section med .grid wrapper)
+
+- **.gitignore** tilføjet (node_modules, package.json, package-lock.json)
+
+### Git
+- `297625c` — Fix dark mode and article templates across all pages
+- `6a54208` — Dark mode: change background from black to dark grey with subtle gradient
+- `7144b11` — Add .gitignore for node_modules and package files
+- `ff7cad3` — Add favicon and write full content for all 15 stub articles
+- `4c2cbe5` — Fix guide-card styling and guide-grid layout for article pages
+
+---
+
 ## Session 5 — 2026-02-13
 
 ### Kontekst
@@ -255,18 +311,23 @@ investeringsberegner.dk/
 | /obligationer/ | OK | 5 |
 | /feriebolig-investering/ | OK | 5 |
 | /aktier-for-begyndere/ | OK | 5 |
-| /investeringsplatforme/ | OK | 5 |
-| /investeringsraadgiver/ | OK | 5 |
-| /bedste-indeksfonde/ | OK | 5 |
-| /baeredygtig-investering/ | OK | 5 |
-| /aktiedepot-vs-aktiesparekonto/ | OK | 5 |
-| /kryptovaluta-investering/ | OK | 5 |
-| /investeringsstrategier/ | OK | 5 |
-| /alternative-investeringer/ | OK | 5 |
-| /ai-investering/ | OK | 5 |
+| /investeringsplatforme/ | OK | 5→6 |
+| /investeringsraadgiver/ | OK | 5→6 |
+| /bedste-indeksfonde/ | OK | 5→6 |
+| /baeredygtig-investering/ | OK | 5→6 |
+| /aktiedepot-vs-aktiesparekonto/ | OK | 5→6 |
+| /kryptovaluta-investering/ | OK | 5→6 |
+| /investeringsstrategier/ | OK | 5→6 |
+| /alternative-investeringer/ | OK | 5→6 |
+| /ai-investering/ | OK | 5→6 |
 | Disclaimer alle undersider | OK | 3 |
 | Forside guide-oversigt (38 links) | OK | 5 |
 | Sitemap (40 URL'er) | OK | 5 |
+| Dark mode (alle sider) | OK | 6 |
+| favicon.png | OK | 6 |
+| .guide-card CSS | OK | 6 |
+| .gitignore | OK | 6 |
+| Playwright-test (16/16) | OK | 6 |
 | Linkbuilding-plan | Klar | 4 |
 
 ### Naeste skridt
