@@ -1149,6 +1149,21 @@ a.cta-button:active,
   margin-top: 16px;
 }
 
+/* Article pages: section > h2 + .grid wrapper */
+section.guide-grid {
+  display: block;
+}
+
+section.guide-grid > h2 {
+  margin-bottom: 12px;
+}
+
+section.guide-grid > .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+
 .guide-link {
   display: block;
   padding: 16px 20px;
@@ -1179,6 +1194,43 @@ a.cta-button:active,
   line-height: 1.4;
 }
 
+
+/* ---------- Guide cards (article pages) ---------- */
+.guide-grid .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.guide-card {
+  display: block;
+  padding: 16px 20px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-strong);
+  background: var(--bg-secondary);
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.guide-card:hover {
+  border-color: var(--accent);
+  background: var(--bg-card-hover);
+  box-shadow: var(--shadow);
+}
+
+.guide-card h3 {
+  font-size: 0.95rem;
+  margin: 0 0 4px;
+  color: var(--accent);
+}
+
+.guide-card p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin: 0;
+}
 
 /* ---------- Disclaimer ---------- */
 .disclaimer {
